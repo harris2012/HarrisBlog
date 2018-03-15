@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<PostEntity xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Ename>this-is-post-0</Ename>
+  <Title>This is a test 0</Title>
+  <PublishTime>2018-03-15T10:22:12.4871441+08:00</PublishTime>
+  <Summary>This is summary 0</Summary>
+  <PostStyle>1</PostStyle>
+  <MarkdownBody># this is from 0</MarkdownBody>
+  <HtmlBody>
+    <![CDATA[<blockquote>
+  <p>不知为何22，每当自己准备要去写博客的时候，打开后台，沉默了好久又关闭了</p>
+</blockquote>
+<p>2018年的1月初，自己在找实习单位，这个期间，自己去面试了几家，同时也去了几家大厂区面试了，自己总结了下处境：<code>小公司 &lt; N &lt; 大公司</code></p>
+<hr>
+<p>2017年马上就要过去了，又要迎来新来的一年，转眼看2017，似乎没有什么让我印象很深刻的地方，总结的话也就很普通，很平常吧</p>
+<p>2018年，这一年自己将面临着毕业，面临着自己要靠自己的努力去打拼，不知道2018年如何？</p>
+<hr>
+<p>开始写博客的时候，自己很多要写的，但是每当自己写的时候，写着写着就不知道该写什么了，包括现在...不知道应该写什么了</p>
+<hr>
+<p>在感情上，自己很羡慕那些可以整天黏在一起的，很羡慕那些见了一次面又每日期待下一次见面的情侣</p>
+<p>有时候正像网上说的，有个东西叫<code>别人家</code>的，别人家的永远是自己得不到的..</p>
+<hr>
+<p>下周就准备春节了，希望自己在新的一年可以 好些 ..</p>]]></HtmlBody>
+</PostEntity>

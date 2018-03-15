@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>@ViewBag.Title - 从善如流</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="keywords" content="keywords" />
+
+    <link rel="dns-prefetch" href="https://o243f9mnq.qnssl.com/" />
+    <link rel="dns-prefetch" href="//cdn.bootcss.com" />
+    <link rel="dns-prefetch" href="//secure.gravatar.com" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+
+    <link href="@Url.Content("~/styles/harriszhang.css?v=" + DateTime.Now.ToString("yyyyMMhhHHmmss"))" rel="stylesheet" />
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    @RenderSection("styles", false)
+</head>
+
+<body class="bg-grey">
+
+    <!--[if lt IE 8]>
+        <div class="browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。</div>
+    <![endif]-->
+    <header id="header" class="header bg-white">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <img src="/images/logo.png" alt="从善如流" />
+            </a>
+            <div class="navbar-menu">
+                <a href="/Archive" class="current">归档</a>
+                <a href="/Categories">分类</a>
+                <a href="/post/this-is-a-test">文章</a>
+            </div>
+            <div class="navbar-mobile-menu" onclick="">
+                <span class="icon-menu cross"><span class="middle"></span></span>
+                <ul>
+                    <li><a class="current" href="#">YYY</a></li>
+                    <li><a href="#">YYY</a></li>
+                    <li><a href="#">YYY</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <!--<footer id="footer" class="footer bg-grey">-->
+    <footer id="footer" class="footer bg-white">
+        <div class="footer-social">
+            <div class="footer-container clearfix">
+                <div class="social-list">
+                    <a class="social weibo" target="blank" href="#">WEIBO</a>
+                    <a class="social zhihu" target="blank" href="#">ZHIHU</a>
+                    <a class="social rss" target="blank" href="#">RSS</a>
+                    <a class="social github" target="blank" href="#">GITHUB</a>
+                    <a class="social twitter" target="blank" href="#">TWITTER</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-meta">
+            <div class="footer-container">
+                <div class="meta-item meta-copyright">
+                    <div class="meta-copyright-info">
+                        <a href="#" class="info-logo">
+                            <img src="/images/logo-harriszhang.png" alt="title" />
+                        </a>
+                        <div class="info-text">
+                            <p>Theme is <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a> by <a href="https://www.linpx.com/" target="_blank">Chakhsu</a></p>
+                            <p>&copy; 2018-3-8 <a href="https://harriszhang.com">Harris Zhang</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="meta-item meta-posts">
+                    <h3 class="meta-title">RECENT POSTS</h3>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/dayFeel.html">2017 - &gt; 2018</a></div>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/BeiBeiInterview.html">贝贝网面试之旅</a></div>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/lifeRecord.html">此内容被密码保护</a></div>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/AndroidApi.html">Android Api的那些事</a></div>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/DataV.html">玩转DataV数据可视化</a></div>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/thisAge.html">这个年纪</a></div>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/yunqi.html">云栖之旅</a></div>
+                    <div class="meta-post-item"><a href="https://www.monsterlin.com/archives/git.html">Git相关代码总结</a></div>
+                </div>
+                <div class="meta-item meta-comments">
+                    <h3 class="meta-title">RECENT COMMENTS</h3>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/archives/dayFeel.html/comment-page-1#comment-420">monsterlin : 迟到的新年嗨皮，(〃'▽'〃)</a></div>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/archives/dayFeel.html/comment-page-1#comment-419">Waxxh : 新年快乐~我感觉我还是比较喜欢纸片人hhh</a></div>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/archives/BeiBeiInterview.html/comment-page-1#comment-418">devoted : 前路漫长，请细步潜行。</a></div>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/archives/BeiBeiInterview.html/comment-page-1#comment-417">Waxxh : 厉害厉害！</a></div>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/archives/BeiBeiInterview.html/comment-page-1#comment-416">danry : 猴哥，加油，撑你，等你带我一齐飞哦😊</a></div>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/links.html/comment-page-1#comment-415">monsterlin : OK，友链已添加😄，你的网站别忘了添加我的友链哈</a></div>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/links.html/comment-page-1#comment-414">Dustray : 是时候加波友链了</a></div>
+                    <div class="meta-comment-item"><a href="https://www.monsterlin.com/archives/AndroidApi.html/comment-page-1#comment-375">monsterlin : 额，目前是个学生，未来打算从事android开发</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+    <script src="https://cdn.bootcss.com/instantclick/3.0.1/instantclick.min.js"></script>
+    <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+        $(function () {
+
+            var header = new Headroom(document.getElementById("header"), {
+                tolerance: 0,
+                offset: 70,
+                classes: {
+                    initial: "animated",
+                    pinned: "slideDown",
+                    unpinned: "slideUp"
+                }
+            });
+            header.init();
+
+            InstantClick.init();
+            FastClick.attach(document.body);
+        })
+    </script>
+    @RenderSection("scripts", false);
+</body>
+</html>

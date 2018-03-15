@@ -1,0 +1,35 @@
+﻿@{
+    List<HarrisZhang.Repository.Entity.PostsEntity> entityList = ViewBag.PostsList as List<HarrisZhang.Repository.Entity.PostsEntity>;
+}
+
+@if (entityList != null)
+{
+    foreach (var item in entityList)
+    {
+        <div class="post-list-item">
+            <div class="post-list-item-container">
+
+                <div class="item-thumb bg-deepgrey">
+                    <img src="/post-images/1.jpg" />
+                </div>
+
+                <a href="~/post/@item.Ename">
+                    <div class="item-desc">
+                        <p>@item.Summary</p>
+                    </div>
+                </a>
+                <div class="item-slant reverse-slant bg-purple"></div>
+                <div class="item-slant"></div>
+                <div class="item-label">
+                    <div class="item-title"><a href="#">@item.Title</a></div>
+                    <div class="item-meta clearfix">
+
+                        <div class="item-meta-ico bg-ico bg-ico-book"></div>
+
+                        <div class="item-meta-cat"><a href="#">分类</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

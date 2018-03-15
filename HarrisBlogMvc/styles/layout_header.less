@@ -1,0 +1,36 @@
+﻿/*
+ * 头部
+*/
+.navbar-app {
+    padding: 0 16px;
+    height: @navbar-app-height;
+
+    &.header-expanded {
+        margin-left: @sidebar-applications-width-expanded;
+    }
+
+    &.header-collapsed {
+        margin-left: @sidebar-applications-width-collapsed;
+    }
+}
+
+//主标题容器
+.app-title {
+    display: inline-block;
+}
+
+.app-title-text, .app-title-text-first {
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    text-decoration: none!important;
+}
+
+.app-title-text {
+
+    &:before {
+        padding: 0 5px;
+        color: #ccc;
+        content: "/\00a0";
+    }
+}

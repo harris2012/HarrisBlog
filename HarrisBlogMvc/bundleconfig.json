@@ -1,0 +1,12 @@
+[
+  {
+    "outputFileName": "scripts/harrisblog.js",
+    "inputFiles": [
+
+      "scripts/controllers/PostsController.js",
+
+      "scripts/route.js",
+      "scripts/app.js"
+    ]
+  }
+]

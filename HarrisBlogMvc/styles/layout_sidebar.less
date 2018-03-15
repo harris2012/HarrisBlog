@@ -1,0 +1,41 @@
+﻿.sidebar-app {
+    height: 100%;
+    position: fixed;
+    top: 0;
+
+    &.sidebar-expanded {
+        width: 220px;
+    }
+
+    &.sidebar-collapsed {
+        width: 80px;
+    }
+}
+
+// #region 侧边栏处于展开状态
+.sidebar-expanded {
+    .section-icon {
+        font-size: 24px;
+        display: inline-block;
+        float: left;
+        margin-left: 15px;
+    }
+
+    .section-title {
+        display: inline-block;
+        float: left;
+        margin-left: 20px;
+        line-height: 30px;
+    }
+}
+// #endregion 侧边栏处于展开状态
+
+// #region 侧边栏处于收起状态
+.sidebar-collapsed {
+    .section-icon {
+    }
+
+    .section-title {
+    }
+}
+// #endregion 侧边栏处于收起状态

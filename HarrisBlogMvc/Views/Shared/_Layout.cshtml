@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    <link href="http://static.savory.cn/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://static.savory.cn/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="http://static.savory.cn/icheck-bootstrap/1.0.7/icheck-bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/harrisblog.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+    @RenderBody()
+    <script src="http://static.savory.cn/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://static.savory.cn/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="http://static.savory.cn/angularjs/1.6.4/angular.min.js"></script>
+    <script src="http://static.savory.cn/angularjs/1.6.4/angular-resource.min.js"></script>
+    <script src="http://static.savory.cn/angular-ui-router/1.0.5/angular-ui-router.min.js"></script>
+    <script src="http://static.savory.cn/angular-ui-bootstrap/2.5.0/js/ui-bootstrap-tpls.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

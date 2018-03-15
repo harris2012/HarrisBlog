@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<PostEntity xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Ename>this-is-post-2</Ename>
+  <Title>This is a test 2</Title>
+  <PublishTime>2018-03-15T10:22:12.4871441+08:00</PublishTime>
+  <Summary>This is summary 2</Summary>
+  <PostStyle>1</PostStyle>
+  <MarkdownBody># this is from 2</MarkdownBody>
+  <HtmlBody>&lt;p&gt;this is from 2&lt;/p&gt;</HtmlBody>
+</PostEntity>

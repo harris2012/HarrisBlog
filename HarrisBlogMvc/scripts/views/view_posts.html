@@ -1,0 +1,41 @@
+﻿<div style="padding:15px">
+
+    <ul class="post-list">
+        <li class="post-item">
+            <div class="checkbox checkbox-inline icheck-success">
+                <input type="checkbox" id="host_FAT66" ng-model="host.selected">
+                <label for="host_FAT66" class="ng-binding">&nbsp;</label>
+            </div>
+            <span class="post-title">cccccccccc</span>
+            <span class="post-publish">TIME</span>
+        </li>
+        <li class="post-item">
+            <div class="checkbox checkbox-inline icheck-success">
+                <input type="checkbox" id="host_FAT6622" ng-model="host.selected">
+                <label for="host_FAT6622" class="ng-binding">&nbsp;</label>
+            </div>
+            <span class="post-title">cccccccccc</span>
+            <span class="post-publish">TIME</span>
+        </li>
+    </ul>
+
+    <div ng-form="postForm">
+        <blockquote>
+            <input type="text" class="post_title" placeholder="文章标题" name="title" ng-model="post.title" required />
+        </blockquote>
+        <p>{{post}}</p>
+        <p ng-show="postForm.title.$dirty && postForm.title.$invalid">请输入文章标题</p>
+        <div class="post_body">
+            <div ui-codemirror ui-codemirror-opts="editorOptions" ng-model="post.body" ng-change="testChanged()"></div>
+        </div>
+    </div>
+
+    <div>
+        {{postBodyHtml}}
+    </div>
+
+    <div>
+        <button class="btn btn-success" ng-click="convert()">Convert</button>
+    </div>
+
+</div>

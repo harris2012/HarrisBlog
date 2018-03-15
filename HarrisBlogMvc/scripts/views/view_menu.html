@@ -1,0 +1,46 @@
+﻿<div class="sidebar-logo">
+    <a ui-sref="app.welcome">从善如流</a>
+</div>
+
+<ul class="sidebar-sections">
+    <li ui-sref-active="current">
+        <a href="#!/posts">
+            <div class="section-icon">
+                <i class="glyphicon glyphicon-book"></i>
+            </div>
+            <span class="section-title">文章</span>
+            <a ui-sref="app.post-list" style="display:none">文章</a>
+        </a>
+    </li>
+    <li ui-sref-active="current">
+        <a href="#!/database-list">
+            <div class="section-icon">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </div>
+            <span class="section-title">标签</span>
+            <a ui-sref="app.database" style="display:none">标签</a>
+        </a>
+    </li>
+    <li ui-sref-active="current">
+        <a href="#!/preview-code">
+            <div class="section-icon">
+                <i class="glyphicon glyphicon-console"></i>
+            </div>
+            <span class="section-title">留言</span>
+            <a ui-sref="app.previewcode" style="display:none">留言</a>
+        </a>
+    </li>
+    <li ui-sref-active="current">
+        <a href="#!/gen-list">
+            <div class="section-icon">
+                <i class="glyphicon glyphicon-tasks"></i>
+            </div>
+            <span class="section-title">友情链接</span>
+            <a ui-sref="app.gen" style="display:none">友情链接</a>
+        </a>
+    </li>
+</ul>
+
+<div class="collapse-nav">
+    <a class="toggle-nav-collapse" href="#"><i class="glyphicon glyphicon-chevron-left"></i></a>
+</div>
