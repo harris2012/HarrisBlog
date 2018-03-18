@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HarrisBlog" Class="HarrisBlogDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=BLUEWIND\BLUESERVER;Initial Catalog=HarrisBlog;Integrated Security=True" SettingsObjectName="HarrisBlog.Repository.Properties.Settings" SettingsPropertyName="HarrisBlogConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Post" Member="Post">
+    <Type Name="Post">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ename" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Summary" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CoverImgUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

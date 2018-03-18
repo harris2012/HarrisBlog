@@ -3,7 +3,10 @@
     "outputFileName": "scripts/harrisblog.js",
     "inputFiles": [
 
-      "scripts/controllers/PostsController.js",
+      "scripts/PostService.js",
+
+      "scripts/controllers/PostListController.js",
+      "scripts/controllers/PostNewController.js",
 
       "scripts/route.js",
       "scripts/app.js"

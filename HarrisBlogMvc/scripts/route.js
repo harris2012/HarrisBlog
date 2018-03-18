@@ -8,7 +8,7 @@
         views: {
             'header': { templateUrl: '/scripts/views/view_header.html' },
             'menu': { templateUrl: '/scripts/views/view_menu.html' },
-            'main-body': {template:'<div ui-view><div>'}
+            'main-body': { template: '<div ui-view><div>' }
         }
     });
 
@@ -18,10 +18,19 @@
         templateUrl: '/scripts/views/view_welcome.html'
     });
 
+    $stateProvider.state('app.post', {});
+
     //文章列表页
-    $stateProvider.state('app.posts', {
-        url: 'posts',
-        templateUrl: '/scripts/views/view_posts.html',
-        controller: PostsController
+    $stateProvider.state('app.post.post-list', {
+        url: 'post-list',
+        templateUrl: '/scripts/views/view_post_list.html',
+        controller: PostListController
     });
+
+    //新建文章页
+    $stateProvider.state('app.post.post-new', {
+        url: 'post-new',
+        templateUrl: '/scripts/views/view_post_new.html',
+        controller: PostNewController
+    })
 }
