@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HarrisBlog.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace HarrisBlog.Gen
         {
             Console.WriteLine("1. 根据markdown生成html");
             Console.WriteLine("2. 根据数据库生成站点需要的数据文件");
-            Console.WriteLine("请选择需要执行的操作");
+            Console.Write("请选择需要执行的操作：");
 
             var input = Console.ReadLine();
             switch (input)
@@ -34,7 +35,14 @@ namespace HarrisBlog.Gen
 
         static void GenMarkdown()
         {
+            HarrisBlogDataContext context = new HarrisBlogDataContext();
 
+            foreach (var item in context.Post)
+            {
+                item.HtmlBody = item.MarkdownBody;
+            }
+
+            context.SubmitChanges();
         }
 
         static void GenDataFile()
