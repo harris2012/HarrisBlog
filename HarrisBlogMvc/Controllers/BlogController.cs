@@ -30,7 +30,7 @@ namespace HarrisBlogMvc.Controllers
             Post post = new Post();
             post.Title = request.Title;
             post.Ename = request.Ename;
-            post.Body = request.Body;
+            post.MarkdownBody = request.Body;
 
             context.Post.InsertOnSubmit(post);
 

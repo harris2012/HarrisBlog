@@ -86,7 +86,11 @@ namespace HarrisBlog.Repository
 		
 		private string _Title;
 		
-		private string _Body;
+		private System.Nullable<int> _PostType;
+		
+		private string _MarkdownBody;
+		
+		private string _HtmlBody;
 		
 		private System.Nullable<System.DateTime> _CreateTime;
 		
@@ -106,8 +110,12 @@ namespace HarrisBlog.Repository
     partial void OnEnameChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
-    partial void OnBodyChanging(string value);
-    partial void OnBodyChanged();
+    partial void OnPostTypeChanging(System.Nullable<int> value);
+    partial void OnPostTypeChanged();
+    partial void OnMarkdownBodyChanging(string value);
+    partial void OnMarkdownBodyChanged();
+    partial void OnHtmlBodyChanging(string value);
+    partial void OnHtmlBodyChanged();
     partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
     partial void OnCreateTimeChanged();
     partial void OnCategoryIdChanging(System.Nullable<int> value);
@@ -183,22 +191,62 @@ namespace HarrisBlog.Repository
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Body", DbType="NVarChar(4000)")]
-		public string Body
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostType", DbType="Int")]
+		public System.Nullable<int> PostType
 		{
 			get
 			{
-				return this._Body;
+				return this._PostType;
 			}
 			set
 			{
-				if ((this._Body != value))
+				if ((this._PostType != value))
 				{
-					this.OnBodyChanging(value);
+					this.OnPostTypeChanging(value);
 					this.SendPropertyChanging();
-					this._Body = value;
-					this.SendPropertyChanged("Body");
-					this.OnBodyChanged();
+					this._PostType = value;
+					this.SendPropertyChanged("PostType");
+					this.OnPostTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkdownBody", DbType="NVarChar(4000)")]
+		public string MarkdownBody
+		{
+			get
+			{
+				return this._MarkdownBody;
+			}
+			set
+			{
+				if ((this._MarkdownBody != value))
+				{
+					this.OnMarkdownBodyChanging(value);
+					this.SendPropertyChanging();
+					this._MarkdownBody = value;
+					this.SendPropertyChanged("MarkdownBody");
+					this.OnMarkdownBodyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HtmlBody", DbType="NVarChar(4000)")]
+		public string HtmlBody
+		{
+			get
+			{
+				return this._HtmlBody;
+			}
+			set
+			{
+				if ((this._HtmlBody != value))
+				{
+					this.OnHtmlBodyChanging(value);
+					this.SendPropertyChanging();
+					this._HtmlBody = value;
+					this.SendPropertyChanged("HtmlBody");
+					this.OnHtmlBodyChanged();
 				}
 			}
 		}
