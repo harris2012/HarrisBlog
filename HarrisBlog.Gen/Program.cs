@@ -1,4 +1,5 @@
 ﻿using HarrisBlog.Repository;
+using HeyRed.MarkdownSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,11 +36,18 @@ namespace HarrisBlog.Gen
 
         static void GenMarkdown()
         {
+            Markdown mark = new Markdown();
+
             HarrisBlogDataContext context = new HarrisBlogDataContext();
 
             foreach (var item in context.Post)
             {
-                item.HtmlBody = item.MarkdownBody;
+                if (string.IsNullOrEmpty(item.MarkdownBody))
+                {
+                    continue;
+                }
+
+                item.HtmlBody = mark.Transform(item.MarkdownBody);
             }
 
             context.SubmitChanges();
