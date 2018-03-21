@@ -129,6 +129,7 @@
     <Content Include="images\bg-ico.png" />
     <Content Include="images\logo-harriszhang.png" />
     <Content Include="images\logo.png" />
+    <Content Include="jq.snow.js" />
     <Content Include="post-images\1.jpg" />
     <Content Include="styles\harriszhang.css">
       <DependentUpon>harriszhang.less</DependentUpon>
