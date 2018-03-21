@@ -16,7 +16,7 @@ namespace HarrisZhang.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.PostsList = postsRepository.GetData().Take(4).ToList();
+            ViewBag.PostsList = postsRepository.GetData().ToList();
             ViewBag.TotalCount = postsRepository.GetData().Count;
 
             return View();
