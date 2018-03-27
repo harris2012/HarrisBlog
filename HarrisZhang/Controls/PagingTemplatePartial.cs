@@ -7,10 +7,11 @@ namespace HarrisZhang.Controls
 {
     partial class PagingTemplate
     {
-        public PagingTemplate(int pageIndex, int pageCount, int pagingCount)
+        public PagingTemplate(int pageIndex, int pageCount, int pagingCount, string urlTemplate)
         {
             this.PageCount = pageCount;
             this.PageIndex = pageIndex;
+            this.UrlTemplate = urlTemplate;
             if (this.PageCount <= pagingCount)
             {
                 this.StartPage = 1;
@@ -31,8 +32,6 @@ namespace HarrisZhang.Controls
             }
         }
 
-        public string UrlTemplate { get; set; } = "https://harriszhang.com/posts/{0}";
-
         public int EndPage { get; private set; }
 
         public int PageCount { get; private set; }
@@ -40,5 +39,7 @@ namespace HarrisZhang.Controls
         public int PageIndex { get; private set; }
 
         public int StartPage { get; private set; }
+
+        public string UrlTemplate { get; private set; }
     }
 }

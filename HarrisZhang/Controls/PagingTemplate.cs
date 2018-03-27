@@ -40,7 +40,14 @@ namespace HarrisZhang.Controls
             
             #line default
             #line hidden
-            this.Write("    <a>1</a>\r\n    <span>...</span>\r\n");
+            this.Write("    <a href=\"");
+            
+            #line 13 "D:\CodingWorkspace\HarrisBlog\HarrisZhang\Controls\PagingTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(this.UrlTemplate, 1)));
+            
+            #line default
+            #line hidden
+            this.Write("\">1</a>\r\n    <span>...</span>\r\n");
             
             #line 15 "D:\CodingWorkspace\HarrisBlog\HarrisZhang\Controls\PagingTemplate.tt"
 
@@ -71,7 +78,14 @@ namespace HarrisZhang.Controls
             
             #line default
             #line hidden
-            this.Write("    <a>");
+            this.Write("    <a href=\"");
+            
+            #line 28 "D:\CodingWorkspace\HarrisBlog\HarrisZhang\Controls\PagingTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(this.UrlTemplate, i)));
+            
+            #line default
+            #line hidden
+            this.Write("\">");
             
             #line 28 "D:\CodingWorkspace\HarrisBlog\HarrisZhang\Controls\PagingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(i));

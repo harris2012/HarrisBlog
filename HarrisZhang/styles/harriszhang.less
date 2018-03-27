@@ -6,6 +6,17 @@
     color: #fff !important;
 }
 
+.post-page {
+    &.main-content {
+        margin-top: 0;
+    }
+
+    p {
+        text-indent: 2em; //首行缩进2个字符
+        margin-bottom: 15px;
+    }
+}
+
 .MathJax_Display {
     overflow-x: auto;
     overflow-y: hidden;
@@ -345,20 +356,37 @@
 .main-content {
     position: relative;
     max-width: 940px;
-    margin: 0 auto;
+    margin: 70px auto;
     -webkit-animation: fade-in .5s;
     animation: fade-in;
     animation-duration: .5s;
 }
 
 .index-page {
-    padding: 120px 20px 0;
+    padding: 50px 20px 0;
 
     .post-list-item-container {
 
         .item-label {
             padding: 10px 20px 40px;
         }
+    }
+}
+
+.talks-page {
+    padding: 50px 20px 0;
+
+    .talk-item {
+        display: flex;
+    }
+
+    .talk-time {
+        display: inline-block;
+        width: 120px;
+    }
+
+    .talk-content {
+        display: block;
     }
 }
 
@@ -969,8 +997,7 @@
 
 
 .common-page {
-    padding: 120px 20px 0;
-
+    //padding: 120px 20px 0;
     .common-title {
         font-size: 14px;
         position: relative;
@@ -1659,7 +1686,7 @@
 
 @media(max-width:880px) {
     .index-page {
-        padding: 80px 0 0;
+        //padding: 80px 0 0;
     }
 
     .archive-page {
@@ -1712,7 +1739,7 @@
     }
 
     .main-content {
-        margin: 0 auto;
+        //margin: 0 auto;
     }
 
     .footer-meta .meta-item {
@@ -1863,7 +1890,7 @@
     }
 
     .index-page {
-        padding: 70px 0 0;
+        //padding: 70px 0 0;
     }
 
     .archive-page {
@@ -1900,7 +1927,7 @@
     }
 
     .main-content {
-        margin: 0 auto;
+        //margin: 0 auto;
     }
 
     .post-onelist-item-container {

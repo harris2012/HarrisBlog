@@ -5,7 +5,9 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Ename" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Body" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PostType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MarkdownBody" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="HtmlBody" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
       <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="CategoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Summary" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />

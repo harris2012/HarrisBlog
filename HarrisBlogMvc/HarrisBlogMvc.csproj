@@ -124,8 +124,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\CreatePostRequest.cs" />
+    <Compile Include="Request\GetImageListRequest.cs" />
     <Compile Include="Request\GetPostListRequest.cs" />
     <Compile Include="Response\CreatePostResponse.cs" />
+    <Compile Include="Response\GetImageListResponse.cs" />
     <Compile Include="Response\GetPostListResponse.cs" />
     <Compile Include="Response\PostVo.cs" />
     <Compile Include="Response\ResponseBase.cs" />

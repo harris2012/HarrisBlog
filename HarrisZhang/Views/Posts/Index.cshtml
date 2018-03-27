@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!--class="oneList"-->
+<div class="main-content index-page">
+    <div class="post-lists">
+        <div class="post-lists-body">
+
+            @if (true)
+            {
+               @(Html.Partial("_PostItem"))
+            }
+            else
+            {
+               @(Html.Partial("_PostOneItem"))
+            }
+        </div>
+    </div>
+
+    @HarrisZhang.Controls.PadingControl.Paging(ViewBag.PageIndex, ViewBag.PageCount, 5, "/posts/{0}");
+</div>

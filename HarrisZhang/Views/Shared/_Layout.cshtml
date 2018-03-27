@@ -40,6 +40,7 @@
             </a>
             <div class="navbar-menu">
                 <a href="/Archive" class="current">归档</a>
+                <a href="/talks">说说</a>
                 <a href="/Categories">分类</a>
             </div>
             <div class="navbar-mobile-menu" onclick="">
@@ -58,12 +59,12 @@
     <!--<footer id="footer" class="footer bg-grey">-->
     <footer id="footer" class="footer bg-white">
         <div class="footer-social">
-            <div class="footer-container clearfix">
+            <div class="footer-container">
                 <div class="social-list">
                     <a class="social weibo" target="blank" href="#">WEIBO</a>
                     <a class="social zhihu" target="blank" href="#">ZHIHU</a>
                     <a class="social rss" target="blank" href="#">RSS</a>
-                    <a class="social github" target="blank" href="#">GITHUB</a>
+                    <a class="social github" target="blank" href="https://github.com/harris2012" rel="nofollow">GITHUB</a>
                     <a class="social twitter" target="blank" href="#">TWITTER</a>
                 </div>
             </div>
@@ -111,8 +112,15 @@
     <script src="https://cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
     <script src="https://cdn.bootcss.com/instantclick/3.0.1/instantclick.min.js"></script>
     <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+    <script src="~/jq.snow.js"></script>
     <script>
         $(function () {
+
+            snow.show({
+                minSize: 5, //雪花的最小尺寸
+                maxSize: 40, //雪花的最大尺寸
+                newOn: 200 //雪花出现的频率 这个数值越小雪花越多
+            });
 
             var header = new Headroom(document.getElementById("header"), {
                 tolerance: 0,
@@ -129,6 +137,6 @@
             FastClick.attach(document.body);
         })
     </script>
-    @RenderSection("scripts", false);
+    @RenderSection("scripts", false)
 </body>
 </html>

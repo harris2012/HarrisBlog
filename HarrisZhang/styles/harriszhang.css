@@ -54,16 +54,10 @@ body > h6:first-child {
   margin-top: 0;
   padding-top: 0;
 }
-blockquote,
-dl,
-ol,
-p,
-pre,
-table,
-ul {
-  margin: 20px 0;
-  vertical-align: baseline;
-}
+/*blockquote, dl, ol, p, pre, table, ul {
+    margin: 20px 0;
+    vertical-align: baseline;
+}*/
 h1,
 h2,
 h3,
@@ -250,17 +244,6 @@ textarea::-webkit-input-placeholder,
 textarea::-moz-placeholder {
   color: #5f5f5f;
 }
-.clearfix:after,
-.clearfix:before {
-  display: table;
-  content: '';
-}
-.clearfix:after {
-  clear: both;
-}
-.clearfix {
-  zoom: 1;
-}
 .left {
   float: left;
 }
@@ -347,6 +330,13 @@ textarea::-moz-placeholder {
 }
 .text-white {
   color: #fff !important;
+}
+.post-page.main-content {
+  margin-top: 0;
+}
+.post-page p {
+  text-indent: 2em;
+  margin-bottom: 15px;
 }
 .MathJax_Display {
   overflow-x: auto;
@@ -655,16 +645,29 @@ textarea::-moz-placeholder {
 .main-content {
   position: relative;
   max-width: 940px;
-  margin: 0 auto;
+  margin: 70px auto;
   -webkit-animation: fade-in 0.5s;
   animation: fade-in;
   animation-duration: .5s;
 }
 .index-page {
-  padding: 120px 20px 0;
+  padding: 50px 20px 0;
 }
 .index-page .post-list-item-container .item-label {
   padding: 10px 20px 40px;
+}
+.talks-page {
+  padding: 50px 20px 0;
+}
+.talks-page .talk-item {
+  display: flex;
+}
+.talks-page .talk-time {
+  display: inline-block;
+  width: 120px;
+}
+.talks-page .talk-content {
+  display: block;
 }
 .post-lists {
   position: relative;
@@ -1187,9 +1190,6 @@ textarea::-moz-placeholder {
   padding-bottom: 5px;
   padding-left: 5px;
   color: #5f5f5f;
-}
-.common-page {
-  padding: 120px 20px 0;
 }
 .common-page .common-title {
   font-size: 14px;
@@ -1749,9 +1749,6 @@ textarea::-moz-placeholder {
   }
 }
 @media (max-width: 880px) {
-  .index-page {
-    padding: 80px 0 0;
-  }
   .archive-page {
     padding: 80px 0 20px;
   }
@@ -1788,9 +1785,6 @@ textarea::-moz-placeholder {
   }
   .footer-meta .footer-container {
     padding: 0;
-  }
-  .main-content {
-    margin: 0 auto;
   }
   .footer-meta .meta-item {
     padding: 0 20px;
@@ -1901,9 +1895,6 @@ textarea::-moz-placeholder {
   .navbar-search form {
     width: 150px;
   }
-  .index-page {
-    padding: 70px 0 0;
-  }
   .archive-page {
     padding: 70px 0 20px;
   }
@@ -1928,9 +1919,6 @@ textarea::-moz-placeholder {
   }
   .related-post-lists {
     padding-top: 5px;
-  }
-  .main-content {
-    margin: 0 auto;
   }
   .post-onelist-item-container {
     padding: 20px 20px 25px;
