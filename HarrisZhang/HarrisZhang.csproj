@@ -125,6 +125,54 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PagingTemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="Data\posts.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2017-freetravel-in-tokyo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-1-4-diary.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-2-13-take-a-bath.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-2-16-ghost-tales.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-3-16-a-good-dream.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-3-16-back-to-home.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-3-16-dream-of-meet.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-3-16-wonderful.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-3-4-cut-meat.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-3-8-see-past-from-future.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\2018-3-9-some-brave.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\feedback-for-interstellar.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\one-simple-shredded-potatoes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\probability.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\posts\word-of-birds.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\bg-ico.png" />
@@ -162,10 +210,10 @@
     <Content Include="styles\_browsehappy.less" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="compilerconfig.json" />
-    <Content Include="compilerconfig.json.defaults">
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -184,9 +232,7 @@
   <ItemGroup>
     <Content Include="Views\Archive\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\posts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HarrisZhang.Repository\HarrisZhang.Repository.csproj">
       <Project>{DA23F62A-1639-4CE3-9E04-E6F48EFACF43}</Project>
@@ -198,6 +244,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Talks\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\RemotePublish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
