@@ -15,7 +15,8 @@ namespace HarrisBlog.Gen
         static void Main(string[] args)
         {
             Console.WriteLine("1. 根据markdown生成html");
-            Console.WriteLine("2. 根据数据库生成站点需要的数据文件");
+            Console.WriteLine("2. 根据数据库生成日志");
+            Console.WriteLine("3. 根据数据库生成说说");
             Console.Write("请选择需要执行的操作：");
 
             var input = Console.ReadLine();
@@ -27,6 +28,10 @@ namespace HarrisBlog.Gen
                     break;
                 case "2":
                     GenDataFile();
+
+                    break;
+                case "3":
+                    GenTalks();
 
                     break;
                 default:
@@ -97,6 +102,34 @@ namespace HarrisBlog.Gen
 
                     WriteToFile(path, postEntity);
                 }
+            }
+        }
+
+        static void GenTalks()
+        {
+            var xmlFilePath = @"D:\CodingWorkspace\HarrisBlog\HarrisZhang\Data\talks.xml";
+
+            HarrisBlogDataContext context = new HarrisBlogDataContext();
+
+            var talks = context.Talk.ToList();
+
+            {
+                List<TalksEntity> postsEntityList = new List<TalksEntity>();
+                foreach (var talk in talks)
+                {
+                    if (!"图文说说".Equals(talk.Category) && !"文字说说".Equals(talk.Category))
+                    {
+                        continue;
+                    }
+
+                    TalksEntity talksEntity = new TalksEntity();
+                    talksEntity.Content = talk.MsgContent;
+                    talksEntity.PublishTime = talk.CreateTime.Value;
+
+                    postsEntityList.Add(talksEntity);
+                }
+
+                WriteToFile(xmlFilePath, postsEntityList);
             }
         }
 

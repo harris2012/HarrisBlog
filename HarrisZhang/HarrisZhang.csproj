@@ -173,6 +173,9 @@
     <Content Include="Data\posts\word-of-birds.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\talks.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\bg-ico.png" />
@@ -186,7 +189,9 @@
     <Content Include="styles\harriszhang.min.css">
       <DependentUpon>harriszhang.css</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -197,8 +202,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
-    <Content Include="Views\Posts\_PostItem.cshtml" />
-    <Content Include="Views\Posts\_PostOneItem.cshtml" />
     <Content Include="_500.html" />
   </ItemGroup>
   <ItemGroup>

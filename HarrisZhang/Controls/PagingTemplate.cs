@@ -104,7 +104,14 @@ namespace HarrisZhang.Controls
             
             #line default
             #line hidden
-            this.Write("    <span>...</span>\r\n    <a>");
+            this.Write("    <span>...</span>\r\n    <a href=\"");
+            
+            #line 36 "D:\CodingWorkspace\HarrisBlog\HarrisZhang\Controls\PagingTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(this.UrlTemplate, this.PageCount)));
+            
+            #line default
+            #line hidden
+            this.Write("\">");
             
             #line 36 "D:\CodingWorkspace\HarrisBlog\HarrisZhang\Controls\PagingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.PageCount));

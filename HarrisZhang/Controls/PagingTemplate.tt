@@ -33,7 +33,7 @@
         {
 #>
     <span>...</span>
-    <a><#=this.PageCount#></a>
+    <a href="<#=string.Format(this.UrlTemplate, this.PageCount)#>"><#=this.PageCount#></a>
 <#
         }
     }

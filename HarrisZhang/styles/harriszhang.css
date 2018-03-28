@@ -661,23 +661,21 @@ textarea::-moz-placeholder {
 }
 .talks-page .talk-item {
   display: flex;
+  margin-bottom: 15px;
 }
-.talks-page .talk-time {
+.talks-page .talk-time p {
   display: inline-block;
   width: 120px;
 }
 .talks-page .talk-content {
   display: block;
 }
-.post-lists {
+.post-item-list {
   position: relative;
   display: block;
   overflow: hidden;
 }
-.post-lists-body {
-  display: block;
-}
-.post-list-item {
+.post-item {
   float: left;
   width: 33.3333%;
   height: auto;
@@ -813,69 +811,6 @@ textarea::-moz-placeholder {
   height: 42px;
   border: 1px solid #eaeaea;
   border-radius: 50%;
-}
-.onelist-page {
-  max-width: 100%;
-  margin: 0;
-  padding: 70px 0 0;
-}
-.post-onelist-item-container {
-  position: relative;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 70px 20px 65px;
-}
-.post-onelist-item-container .onelist-item-thumb {
-  width: 100%;
-  height: 260px;
-  border-radius: 5px;
-}
-.post-onelist-item-container .onelist-item-thumb:hover {
-  -webkit-box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
-  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
-}
-.post-onelist-item-container .item-title {
-  display: block;
-  margin: 30px 0 0;
-  text-align: center;
-}
-.post-onelist-item-container .item-title a {
-  font-size: 21px;
-  line-height: 17px;
-  color: #313131;
-}
-.post-onelist-item-container .item-content {
-  padding: 0 30px 10px;
-  text-align: center;
-  word-break: break-all;
-}
-.post-onelist-item-container .item-meta,
-.post-onelist-item-container .item-readmore {
-  font-size: 12px;
-  text-align: center;
-  color: #5f5f5f;
-}
-.post-onelist-item-container .item-meta a {
-  color: #5f5f5f;
-}
-.post-onelist-item-container .item-readmore a {
-  padding: 8px 20px;
-  color: #5f5f5f;
-  border: 1px solid #5f5f5f;
-  border-radius: 20px;
-}
-.post-onelist-item-container .item-meta-hr {
-  display: block;
-  width: 55px;
-  height: 2px;
-  margin: 20px auto 0;
-}
-.post-onelist-item {
-  display: inline-block;
-  width: 100%;
-  margin: 0;
-  background-color: #fff;
-  margin-bottom: 20px;
 }
 .post-header-thumb {
   position: relative;

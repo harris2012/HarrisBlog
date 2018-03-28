@@ -2,7 +2,7 @@
 <PostEntity xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Ename>probability</Ename>
   <Title>概率</Title>
-  <PublishTime>2018-03-25T16:00:27.697</PublishTime>
+  <PublishTime>2016-04-28T12:34:00</PublishTime>
   <Summary>我和你在在早上8:30~8:40的任意时刻都可能到站等公交车，在站上等2分钟后开走。问我和你相...</Summary>
   <PostStyle>0</PostStyle>
   <HtmlBody>&lt;p&gt;我和你在在早上8:30~8:40的任意时刻都可能到站等公交车，在站上等2分钟后开走。问我和你相遇的概率为多少？&lt;/p&gt;

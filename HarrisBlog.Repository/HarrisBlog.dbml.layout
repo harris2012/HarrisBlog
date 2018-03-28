@@ -2,10 +2,16 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HarrisBlog">
   <DataContextMoniker Name="/HarrisBlogDataContext" />
   <nestedChildShapes>
-    <classShape Id="582aa735-19d7-4a50-9fc7-48c4a2f97b72" absoluteBounds="2.625, 1.875, 2, 2.6460697428385416">
+    <classShape Id="582aa735-19d7-4a50-9fc7-48c4a2f97b72" absoluteBounds="1.25, 1.5, 2, 2.6460697428385416">
       <DataClassMoniker Name="/HarrisBlogDataContext/Post" />
       <nestedChildShapes>
-        <elementListCompartment Id="7024da38-394c-4257-85b2-8392214f3e52" absoluteBounds="2.64, 2.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7024da38-394c-4257-85b2-8392214f3e52" absoluteBounds="1.2650000000000001, 1.96, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe8bd520-534d-474c-8179-ba4cd9afd05e" absoluteBounds="4, 1.625, 2, 2.2764815266927085">
+      <DataClassMoniker Name="/HarrisBlogDataContext/Talk" />
+      <nestedChildShapes>
+        <elementListCompartment Id="abd9bf80-fa47-4547-9be0-89a1884df3bd" absoluteBounds="4.015, 2.085, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

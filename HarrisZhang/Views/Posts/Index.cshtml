@@ -1,22 +1,44 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "首页";
+    List<HarrisZhang.Repository.Entity.PostsEntity> entityList = ViewBag.PostsList as List<HarrisZhang.Repository.Entity.PostsEntity>;
 }
 
-<!--class="oneList"-->
 <div class="main-content index-page">
-    <div class="post-lists">
-        <div class="post-lists-body">
 
-            @if (true)
+    @if (entityList != null)
+    {
+        <div class="post-item-list">
+            @foreach (var item in entityList)
             {
-               @(Html.Partial("_PostItem"))
-            }
-            else
-            {
-               @(Html.Partial("_PostOneItem"))
+                <div class="post-item">
+                    <div class="post-list-item-container">
+
+                        <div class="item-thumb bg-deepgrey">
+                            <img src="/post-images/1.jpg" />
+                        </div>
+
+                        <a href="~/post/@item.Ename">
+                            <div class="item-desc">
+                                <p>@item.Summary</p>
+                            </div>
+                        </a>
+                        <div class="item-slant reverse-slant bg-purple"></div>
+                        <div class="item-slant"></div>
+                        <div class="item-label">
+                            <div class="item-title"><a href="~/post/@item.Ename">@item.Title</a></div>
+                            <div class="item-meta">
+
+                                <div class="item-meta-ico bg-ico bg-ico-book"></div>
+
+                                <div class="item-meta-cat"><a href="#">分类</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
-    </div>
+    }
 
-    @HarrisZhang.Controls.PadingControl.Paging(ViewBag.PageIndex, ViewBag.PageCount, 5, "/posts/{0}");
+    @HarrisZhang.Controls.PadingControl.Paging(ViewBag.PageIndex, ViewBag.PageCount, 5, "/posts/{0}")
 </div>
+

@@ -72,6 +72,14 @@ namespace HarrisBlog.Repository
 				return this.GetTable<Post>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Talk> Talk
+		{
+			get
+			{
+				return this.GetTable<Talk>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Post")]
@@ -348,6 +356,159 @@ namespace HarrisBlog.Repository
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Talk")]
+	public partial class Talk
+	{
+		
+		private int _Id;
+		
+		private string _Tid;
+		
+		private string _Category;
+		
+		private string _MsgContent;
+		
+		private string _PosName;
+		
+		private string _PosX;
+		
+		private string _PosY;
+		
+		private System.Nullable<System.DateTime> _CreateTime;
+		
+		public Talk()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tid", DbType="NVarChar(200)")]
+		public string Tid
+		{
+			get
+			{
+				return this._Tid;
+			}
+			set
+			{
+				if ((this._Tid != value))
+				{
+					this._Tid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(50)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this._Category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MsgContent", DbType="NVarChar(1000)")]
+		public string MsgContent
+		{
+			get
+			{
+				return this._MsgContent;
+			}
+			set
+			{
+				if ((this._MsgContent != value))
+				{
+					this._MsgContent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PosName", DbType="NVarChar(200)")]
+		public string PosName
+		{
+			get
+			{
+				return this._PosName;
+			}
+			set
+			{
+				if ((this._PosName != value))
+				{
+					this._PosName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PosX", DbType="NVarChar(20)")]
+		public string PosX
+		{
+			get
+			{
+				return this._PosX;
+			}
+			set
+			{
+				if ((this._PosX != value))
+				{
+					this._PosX = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PosY", DbType="NVarChar(20)")]
+		public string PosY
+		{
+			get
+			{
+				return this._PosY;
+			}
+			set
+			{
+				if ((this._PosY != value))
+				{
+					this._PosY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this._CreateTime = value;
+				}
 			}
 		}
 	}
