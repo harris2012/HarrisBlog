@@ -4,6 +4,7 @@
 }
 
 @section scripts{
+    <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <script>
         $(function () {
             var postSharer = new Headroom(document.getElementById("post-bottom-bar"), {
@@ -16,6 +17,8 @@
                 }
             });
             postSharer.init();
+
+            $('#qrcode').qrcode("this plugin is great");
         })
     </script>
 }
@@ -45,41 +48,14 @@
 
 </article>
 
+<div id="qrcode" style="display:none"></div>
+
 <div id="post-bottom-bar" class="post-bottom-bar">
     <div class="bottom-bar-inner">
-        <div class="bottom-bar-items social-share left">
-            <span class="bottom-bar-item">Share : </span>
-            <span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank" title="titlte" rel="nofollow">facebook</a></span>
-            <span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=permanlink&text=thistitle" target="_blank" title="thistitle" rel="nofollow">Twitter</a></span>
-            <span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=thisurl&amp;title=thistitle" target="_blank" title="thistitle" rel="nofollow">Weibo</a></span>
-            <span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=thisurl" target="_blank" rel="nofollow">QRcode</a></span>
-        </div>
-        <div class="bottom-bar-items right">
-            <span class="bottom-bar-item">theNext</span>
-            <span class="bottom-bar-item">thePre</span>
-            <span class="bottom-bar-item"><a href="#footer">↓</a></span>
-            <span class="bottom-bar-item"><a href="#">↑</a></span>
-        </div>
+        <span class="bottom-bar-item">Share To </span>
+        <a href="#" target="_blank" title="titlte" rel="nofollow" class="bottom-bar-item bottom-bar-facebook">facebook</a>
+        <a href="#" target="_blank" title="titlte" rel="nofollow" class="bottom-bar-item bottom-bar-twitter">Twitter</a>
+        <a href="#" target="_blank" title="titlte" rel="nofollow" class="bottom-bar-item bottom-bar-weibo">Weibo</a>
+        <a href="#" target="_blank" title="title" rel="nofollow" class="bottom-bar-item bottom-bar-qrcode">Wechat</a>
     </div>
 </div>
-
-@*<div class="related-post-lists">
-        <div class="post-lists">
-            <div class="post-lists-body">
-
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title"><a href="#">title</a></div>
-                            <div class="item-meta">
-
-                                <div class="item-meta-ico bg-ico-book" style="background: url('images/bg-ico.png') no-repeat; background-size: 40px auto;"></div>
-
-                                <div class="item-meta-cat">Category</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
