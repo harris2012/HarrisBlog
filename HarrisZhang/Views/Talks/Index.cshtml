@@ -5,22 +5,22 @@
 
 <div class="main-content talks-page">
 
-    <div class="talk-lists">
-        @if (entityList != null)
+    @if (entityList != null)
+    {
+        <div class="talk-item-list">
+            @foreach (var item in entityList)
             {
-                foreach (var item in entityList)
-                {
                 <div class="talk-item">
-                    <div class="talk-time">
-                        <p>@item.PublishTime.ToShortDateString()</p>
-                    </div>
                     <div class="talk-content">
                         <p>@item.Content</p>
+                        <div class="talk-time">
+                            <p>@item.PublishTime.ToShortDateString()</p>
+                        </div>
                     </div>
                 </div>
             }
-        }
-    </div>
+        </div>
+    }
 
     @HarrisZhang.Controls.PadingControl.Paging(ViewBag.PageIndex, ViewBag.PageCount, 5, "/talks/{0}")
 </div>
