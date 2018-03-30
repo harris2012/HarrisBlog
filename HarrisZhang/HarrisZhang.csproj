@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
@@ -216,6 +217,18 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="styles\_about_page.less" />
+    <Content Include="styles\_post_page.less" />
+    <Content Include="styles\_talks_page.less" />
+    <Content Include="styles\_archive_page.less" />
+    <Content Include="styles\_common_page.less" />
+    <Content Include="styles\_search_page.less" />
+    <Content Include="styles\_comment.less" />
+    <Content Include="styles\_footer.less" />
+    <Content Include="styles\_header.less" />
+    <Content Include="styles\_navbar.less" />
+    <Content Include="styles\_directory.less" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

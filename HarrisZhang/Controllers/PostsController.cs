@@ -19,11 +19,11 @@ namespace HarrisZhang.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="page">页码，从1开始</param>
+        /// <param name="param">页码，从1开始</param>
         /// <returns></returns>
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? param)
         {
-            var pageValue = page != null && page.Value > 0 ? page.Value : 1;
+            var pageValue = param != null && param.Value > 0 ? param.Value : 1;
 
             ViewBag.PostsList = postsRepository.GetData().OrderByDescending(v => v.PublishTime).Skip((pageValue - 1) * PageSize).Take(PageSize).ToList();
 

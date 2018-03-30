@@ -14,27 +14,9 @@ namespace HarrisZhang
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Post",
-                url: "post/{ename}",
-                defaults: new { controller = "Post", action = "Index", ename = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Posts",
-                url: "posts/{page}",
-                defaults: new { controller = "Posts", action = "Index", page = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Talks",
-                url: "talks/{page}",
-                defaults: new { controller = "Talks", action = "Index", page = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Posts", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{param}",
+                defaults: new { controller = "Posts", action = "Index", param = UrlParameter.Optional }
             );
         }
     }
