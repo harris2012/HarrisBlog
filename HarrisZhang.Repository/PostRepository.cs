@@ -13,7 +13,7 @@ namespace HarrisZhang.Repository
 
         public PostRepository(string postEname)
         {
-            this.FileRelativePath = $"~/Data/posts/{postEname}.xml";
+            this.FileRelativePath = $"~/App_Data/posts/{postEname}.xml";
         }
 
         protected override string FilePath

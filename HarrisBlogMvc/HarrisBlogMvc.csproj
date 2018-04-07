@@ -123,38 +123,45 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\CreatePostRequest.cs" />
-    <Compile Include="Request\GetPostListRequest.cs" />
-    <Compile Include="Response\CreatePostResponse.cs" />
-    <Compile Include="Response\GetPostListResponse.cs" />
-    <Compile Include="Response\PostVo.cs" />
+    <Compile Include="Request\CreateBlogRequest.cs" />
+    <Compile Include="Request\GetImageListRequest.cs" />
+    <Compile Include="Request\GetBlogDetailRequest.cs" />
+    <Compile Include="Request\GetBlogListRequest.cs" />
+    <Compile Include="Request\UpdateBlogRequest.cs" />
+    <Compile Include="Response\CreateBlogResponse.cs" />
+    <Compile Include="Response\GetImageListResponse.cs" />
+    <Compile Include="Response\GetBlogResponse.cs" />
+    <Compile Include="Response\GetBlogListResponse.cs" />
+    <Compile Include="Vo\BlogVo.cs" />
     <Compile Include="Response\ResponseBase.cs" />
+    <Compile Include="Response\UpdateBlogResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\controllers\PostEditController.js" />
     <Content Include="scripts\controllers\PostNewController.js" />
     <Content Include="scripts\controllers\PostListController.js" />
     <Content Include="scripts\harrisblog.js" />
     <Content Include="scripts\harrisblog.min.js">
       <DependentUpon>harrisblog.js</DependentUpon>
     </Content>
-    <Content Include="scripts\PostService.js" />
+    <Content Include="scripts\BlogService.js" />
     <Content Include="scripts\route.js" />
     <Content Include="scripts\views\view_header.html" />
     <Content Include="scripts\views\view_menu.html" />
     <Content Include="scripts\views\view_post_list.html" />
+    <Content Include="scripts\views\view_post_edit.html" />
     <Content Include="scripts\views\view_post_new.html" />
     <Content Include="scripts\views\view_welcome.html" />
-    <Content Include="scripts\views\view_welcome_title.html" />
     <Content Include="styles\harrisblog.css">
       <DependentUpon>harrisblog.less</DependentUpon>
     </Content>
     <Content Include="styles\harrisblog.min.css">
       <DependentUpon>harrisblog.css</DependentUpon>
     </Content>
-    <None Include="styles\ui_posts.less" />
+    <None Include="styles\ui_post_list.less" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -170,6 +177,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="styles\ui_post_new.less" />
+    <Content Include="styles\_bootstrap_fix.less" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -192,8 +200,6 @@
     <Content Include="styles\layout_header.less" />
     <Content Include="styles\layout_sidebar.less" />
     <Content Include="styles\layout_wrapper.less" />
-    <Content Include="styles\ui_header.less" />
-    <Content Include="styles\ui_sidebar.less" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HarrisBlog.Repository\HarrisBlog.Repository.csproj">

@@ -4,6 +4,8 @@
 .navbar-app {
     padding: 0 16px;
     height: @navbar-app-height;
+    background: #fafafa;
+    border-bottom: 1px solid #e5e5e5;
 
     &.header-expanded {
         margin-left: @sidebar-applications-width-expanded;
@@ -12,25 +14,33 @@
     &.header-collapsed {
         margin-left: @sidebar-applications-width-collapsed;
     }
-}
 
-//主标题容器
-.app-title {
-    display: inline-block;
-}
+    .container-fluid {
+        padding: 0;
+    }
 
-.app-title-text, .app-title-text-first {
-    height: 50px;
-    font-size: 14px;
-    line-height: 50px;
-    text-decoration: none!important;
-}
+    a, span {
+        color: #5c5c5c;
+    }
+    //搜索框
+    .app-search {
+        position: relative;
 
-.app-title-text {
+        input {
+            padding-right: 32px;
+        }
 
-    &:before {
-        padding: 0 5px;
-        color: #ccc;
-        content: "/\00a0";
+        .search-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 34px;
+            width: 34px;
+            text-align: center;
+            line-height: 34px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #ccc;
+        }
     }
 }

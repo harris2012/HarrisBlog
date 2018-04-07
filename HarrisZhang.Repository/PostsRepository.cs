@@ -13,7 +13,7 @@ namespace HarrisZhang.Repository
         {
             get
             {
-                return "~/Data/posts.xml";
+                return "~/App_Data/posts.xml";
             }
         }
     }

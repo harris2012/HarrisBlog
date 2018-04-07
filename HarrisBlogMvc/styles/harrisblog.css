@@ -2,76 +2,23 @@
  * HarrisBlog v1.0.0-SNAPSHOT
  * Based on bootstrap 3.3.7
 */
+.breadcrumb {
+  margin-bottom: 0;
+}
 /*
  * 头部
 */
 .navbar-app {
   padding: 0 16px;
   height: 50px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
 }
 .navbar-app.header-expanded {
   margin-left: 220px;
 }
 .navbar-app.header-collapsed {
   margin-left: 80px;
-}
-.app-title {
-  display: inline-block;
-}
-.app-title-text,
-.app-title-text-first {
-  height: 50px;
-  font-size: 14px;
-  line-height: 50px;
-  text-decoration: none!important;
-}
-.app-title-text:before {
-  padding: 0 5px;
-  color: #ccc;
-  content: "/\00a0";
-}
-.sidebar-app {
-  height: 100%;
-  position: fixed;
-  top: 0;
-}
-.sidebar-app.sidebar-expanded {
-  width: 220px;
-}
-.sidebar-app.sidebar-collapsed {
-  width: 80px;
-}
-.sidebar-expanded .section-icon {
-  font-size: 24px;
-  display: inline-block;
-  float: left;
-  margin-left: 15px;
-}
-.sidebar-expanded .section-title {
-  display: inline-block;
-  float: left;
-  margin-left: 20px;
-  line-height: 30px;
-}
-.wrapper {
-  margin-top: 50px;
-}
-.wrapper .wrapper-content {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.wrapper-expanded {
-  margin-left: 220px;
-}
-.wrapper-collapsed {
-  margin-left: 80px;
-}
-/*
- * 头部
-*/
-.navbar-app {
-  background: #fafafa;
-  border-bottom: 1px solid #e5e5e5;
 }
 .navbar-app .container-fluid {
   padding: 0;
@@ -98,12 +45,18 @@
   -moz-osx-font-smoothing: grayscale;
   color: #ccc;
 }
-/*
-    最左边的的菜单栏
-*/
 .sidebar-app {
+  height: 100%;
+  position: fixed;
+  top: 0;
   background: #413659;
   border-right: 1px solid #2e2246;
+}
+.sidebar-app.sidebar-expanded {
+  width: 220px;
+}
+.sidebar-app.sidebar-collapsed {
+  width: 80px;
 }
 .sidebar-logo {
   border-bottom: 1px solid #2e2246;
@@ -156,6 +109,39 @@
   color: #fff;
   background: #019875;
 }
+.sidebar-expanded .section-icon {
+  font-size: 24px;
+  display: inline-block;
+  float: left;
+  margin-left: 15px;
+}
+.sidebar-expanded .section-title {
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
+  line-height: 30px;
+}
+.wrapper {
+  margin-top: 50px;
+}
+.wrapper .wrapper-title {
+  margin-bottom: 10px;
+}
+.wrapper .wrapper-toolbar {
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.wrapper .wrapper-content {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.wrapper-expanded {
+  margin-left: 220px;
+}
+.wrapper-collapsed {
+  margin-left: 80px;
+}
 .post-list {
   list-style: none;
   padding: 0;
@@ -173,10 +159,14 @@
 }
 .post-item .post-title {
   display: block;
-  width: 100%;
+  width: 50%;
 }
-.post-item .post-publish {
+.post-item .post-toolbar-item {
   display: block;
+  min-width: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
 }
 .post_title {
   width: 100%;

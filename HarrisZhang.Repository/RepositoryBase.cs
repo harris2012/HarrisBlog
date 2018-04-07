@@ -33,9 +33,11 @@ namespace HarrisZhang.Repository
                         {
                             XmlSerializer serializer = new XmlSerializer(typeof(T));
 
-                            using (FileStream stream = new FileStream(path, FileMode.Open))
+                            var content = File.ReadAllText(path);
+
+                            using (StringReader reader = new StringReader(content))
                             {
-                                item = (T)serializer.Deserialize(stream);
+                                item = (T)serializer.Deserialize(reader);
 
                                 CacheDependency dependency = new CacheDependency(path);
 

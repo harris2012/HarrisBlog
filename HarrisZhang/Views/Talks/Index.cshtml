@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "说说";
+    List<HarrisZhang.Repository.Entity.TalksEntity> entityList = ViewBag.TalksList as List<HarrisZhang.Repository.Entity.TalksEntity>;
+}
+
+@section scripts{
+    <script>
+        $(function () {
+
+            $(function () { $("img.lazy").lazyload({ effect: "fadeIn" }) });
+        })
+    </script>
+}
+
+<div class="main-content talks-page">
+
+    @if (entityList != null)
+    {
+        <div class="talk-item-list">
+            @foreach (var item in entityList)
+            {
+                <div class="talk-item">
+                    <p class="talk-content">@item.Content</p>
+                    @if (item.ImageList != null && item.ImageList.Count > 0)
+                    {
+                        <ul class="talk-image-list">
+                            @foreach (var image in item.ImageList)
+                            {
+                                <li><img class="talk-image lazy" data-original="@image" /></li>
+                            }
+                        </ul>
+                    }
+                    <div class="talk-time">
+                        <i class="fa fa-calendar"></i>
+                        <span>@item.PublishTime.ToShortDateString()</span>
+                    </div>
+
+                </div>
+            }
+        </div>
+    }
+
+    @HarrisZhang.Controls.PadingControl.Paging(ViewBag.PageIndex, ViewBag.PageCount, 5, "/talks/{0}")
+</div>

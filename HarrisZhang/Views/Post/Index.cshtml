@@ -16,6 +16,8 @@
                 }
             });
             postSharer.init();
+
+            $('#qrcode').qrcode("this plugin is great");
         })
     </script>
 }
@@ -36,75 +38,23 @@
     </div>
 </div>
 
-<article class="main-content post-page" itemscope itemtype="http://schema.org/Article">
+<article class="main-content post-page">
     <div id="post-content" class="post-content" itemprop="articleBody">
 
         @(new MvcHtmlString(post.HtmlBody))
-        
-        @*<p class="post-tags">
-            <a href="https://monsterlin.com/tag/life/">life</a> <a href="https://monsterlin.com/tag/emotion/">emotion</a>
-        </p>
 
-        <blockquote>
-            <p>不知为何，每当自己准备要去写博客的时候，打开后台，沉默了好久又关闭了</p>
-        </blockquote>
-        <p>2018年的1月初，自己在找实习单位，这个期间，自己去面试了几家，同时也去了几家大厂区面试了，自己总结了下处境：<code>小公司 &lt; N &lt; 大公司</code></p>
-        <hr>
-        <p>2017年马上就要过去了，又要迎来新来的一年，转眼看2017，似乎没有什么让我印象很深刻的地方，总结的话也就很普通，很平常吧</p>
-        <p>2018年，这一年自己将面临着毕业，面临着自己要靠自己的努力去打拼，不知道2018年如何？</p>
-        <hr>
-        <p>开始写博客的时候，自己很多要写的，但是每当自己写的时候，写着写着就不知道该写什么了，包括现在...不知道应该写什么了</p>
-        <hr>
-        <p>在感情上，自己很羡慕那些可以整天黏在一起的，很羡慕那些见了一次面又每日期待下一次见面的情侣</p>
-        <p>有时候正像网上说的，有个东西叫<code>别人家</code>的，别人家的永远是自己得不到的..</p>
-        <hr>
-        <p>下周就准备春节了，希望自己在新的一年可以 好些 ..</p>
-
-
-        <p class="post-info">
-            本文由 <a href="https://monsterlin.com/author/1/">monsterlin</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>
-            本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
-            最后编辑时间为: Feb 6, 2018 at 02:38 pm
-        </p>*@
     </div>
 
 </article>
 
+<div id="qrcode" style="display:none"></div>
+
 <div id="post-bottom-bar" class="post-bottom-bar">
     <div class="bottom-bar-inner">
-        <div class="bottom-bar-items social-share left">
-            <span class="bottom-bar-item">Share : </span>
-            <span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank" title="titlte" rel="nofollow">facebook</a></span>
-            <span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=permanlink&text=thistitle" target="_blank" title="thistitle" rel="nofollow">Twitter</a></span>
-            <span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=thisurl&amp;title=thistitle" target="_blank" title="thistitle" rel="nofollow">Weibo</a></span>
-            <span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=thisurl" target="_blank" rel="nofollow">QRcode</a></span>
-        </div>
-        <div class="bottom-bar-items right">
-            <span class="bottom-bar-item">theNext</span>
-            <span class="bottom-bar-item">thePre</span>
-            <span class="bottom-bar-item"><a href="#footer">↓</a></span>
-            <span class="bottom-bar-item"><a href="#">↑</a></span>
-        </div>
+        <span class="bottom-bar-item">Share To </span>
+        <a href="#" target="_blank" title="titlte" rel="nofollow" class="bottom-bar-item bottom-bar-facebook">facebook</a>
+        <a href="#" target="_blank" title="titlte" rel="nofollow" class="bottom-bar-item bottom-bar-twitter">Twitter</a>
+        <a href="#" target="_blank" title="titlte" rel="nofollow" class="bottom-bar-item bottom-bar-weibo">Weibo</a>
+        <a href="#" target="_blank" title="title" rel="nofollow" class="bottom-bar-item bottom-bar-qrcode">Wechat</a>
     </div>
 </div>
-
-@*<div class="related-post-lists">
-        <div class="post-lists">
-            <div class="post-lists-body">
-
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title"><a href="#">title</a></div>
-                            <div class="item-meta clearfix">
-
-                                <div class="item-meta-ico bg-ico-book" style="background: url('images/bg-ico.png') no-repeat; background-size: 40px auto;"></div>
-
-                                <div class="item-meta-cat">Category</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@

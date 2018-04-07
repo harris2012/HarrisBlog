@@ -10,7 +10,7 @@
         if(this.StartPage > 1)
         {
 #>
-    <a>1</a>
+    <a href="<#=string.Format(this.UrlTemplate, 1)#>">1</a>
     <span>...</span>
 <#
         }
@@ -25,7 +25,7 @@
             else
             {
 #>
-    <a><#=i#></a>
+    <a href="<#=string.Format(this.UrlTemplate, i)#>"><#=i#></a>
 <#
             }
         }
@@ -33,7 +33,7 @@
         {
 #>
     <span>...</span>
-    <a><#=this.PageCount#></a>
+    <a href="<#=string.Format(this.UrlTemplate, this.PageCount)#>"><#=this.PageCount#></a>
 <#
         }
     }

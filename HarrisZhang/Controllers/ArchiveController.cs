@@ -11,6 +11,7 @@ namespace HarrisZhang.Controllers
         // GET: Archive
         public ActionResult Index()
         {
+            ViewBag.Tab = "archive";
             return View();
         }
     }

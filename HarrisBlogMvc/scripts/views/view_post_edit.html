@@ -1,0 +1,30 @@
+﻿<div class="wrapper-title">
+    <ol class="breadcrumb">
+        <li><a ui-sref="app.welcome">首页</a></li>
+        <li><a ui-sref="app.post.post-list">文章</a></li>
+        <li class="active">编辑</li>
+    </ol>
+</div>
+
+<div class="wrapper-content">
+    <div ng-form="postForm">
+        <input type="text" class="post_title" placeholder="文章标题" name="title" ng-model="post.title" required />
+        <p ng-show="postForm.title.$dirty && postForm.title.$invalid">请输入文章标题</p>
+
+        <input type="text" class="post_ename" placeholder="自定义路径" name="ename" ng-model="post.ename" required />
+        <p ng-show="postForm.ename.$dirty && postForm.ename.$invalid">请输入文章标题</p>
+
+        <div class="post_body">
+            <div ui-codemirror ui-codemirror-opts="editorOptions" ng-model="post.body" ng-change="postBodyChanged()"></div>
+        </div>
+        <p ng-show="false"></p>
+        <div class="row">
+            <div class="col-sm-12">
+                <a class="btn btn-success" ng-click="create()">保存</a>
+            </div>
+        </div>
+    </div>
+
+    <p>需要加一个时间选择器</p>
+</div>
+

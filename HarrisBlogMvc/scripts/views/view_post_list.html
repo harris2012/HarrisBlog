@@ -5,19 +5,18 @@
     </ol>
 </div>
 
-<div class="wrapper-content">
-    <div>
-        <a class="btn btn-success" ui-sref="app.post.post-new">新建</a>
-    </div>
-
-    <ul class="post-list">
-        <li class="post-item" ng-repeat="post in posts">
-            <div class="checkbox checkbox-inline icheck-success post-title">
-                <input type="checkbox" id="host_{{post.ename}}" ng-model="host.selected">
-                <label for="host_{{post.ename}}" class="ng-binding">{{post.title}}</label>
-            </div>
-            <span class="post-publish">TIME</span>
-        </li>
-    </ul>
+<div class="wrapper-toolbar">
+    <a class="btn btn-success" ui-sref="app.post.post-new">新建</a>
 </div>
 
+<ul class="wrapper-content post-list">
+    <li class="post-item" ng-repeat="post in posts">
+        <div class="checkbox checkbox-inline icheck-success post-title">
+            <input type="checkbox" id="host_{{post.ename}}" ng-model="host.selected">
+            <label for="host_{{post.ename}}" class="ng-binding">{{post.title}}</label>
+        </div>
+        <a ui-sref="app.post.post-edit({id:post.id})" class="post-toolbar-item">编辑</a>
+        <a href="https://harriszhang.com" target="_blank" class="post-toolbar-item">查看</a>
+        <span class="post-toolbar-item">{{post.lastUpdateTime}}</span>
+    </li>
+</ul>

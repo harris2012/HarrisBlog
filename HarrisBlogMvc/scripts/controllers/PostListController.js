@@ -1,6 +1,6 @@
-﻿function PostListController($scope, PostService) {
+﻿function PostListController($scope, BlogService) {
 
-    PostService.posts().then(function (response) {
+    BlogService.get().then(function (response) {
 
         $scope.posts = response.posts;
     })

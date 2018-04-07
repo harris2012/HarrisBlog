@@ -1,0 +1,24 @@
+﻿<header id="header" class="header bg-white">
+    <div class="navbar-container">
+        <a href="https://www.harriszhang.com" class="navbar-logo">
+            <img src="/images/logo.png" alt="从善如流" />
+        </a>
+        <div class="navbar-menu">
+            <a href="https://www.harriszhang.com/posts" class="@(ViewBag.Tab=="post"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '文章', 'posts'])">文章</a>
+            <a href="https://www.harriszhang.com/talks" class="@(ViewBag.Tab=="talk"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '说说', 'talks'])">说说</a>
+            <a href="https://www.harriszhang.com/archive" class="@(ViewBag.Tab=="archive"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '归档', 'archive'])">归档</a>
+            <a href="https://www.harriszhang.com/trip/baidu.aspx" class="@(ViewBag.Tab=="about"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '旅行', 'trip_baidu'])" rel="nofollow" target="_blank">旅行</a>
+            <a href="https://www.harriszhang.com/about" class="@(ViewBag.Tab=="about"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '关于', 'about'])">关于</a>
+        </div>
+        <div class="navbar-mobile-menu" onclick="">
+            <span class="icon-menu cross"><span class="middle"></span></span>
+            <ul>
+                <li><a href="https://www.harriszhang.com/posts" class="@(ViewBag.Tab=="post"?"current":string.Empty)" class="current" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '文章', 'posts'])">文章</a></li>
+                <li><a href="https://www.harriszhang.com/talks" class="@(ViewBag.Tab=="talk"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '说说', 'talks'])">说说</a></li>
+                <li><a href="https://www.harriszhang.com/archive" class="@(ViewBag.Tab=="archive"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '归档', 'archive'])">归档</a></li>
+                <li><a href="https://www.harriszhang.com/trip/baidu.aspx" class="@(ViewBag.Tab=="about"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '旅行', 'trip_baidu'])" rel="nofollow" target="_blank">旅行</a></li>
+                <li><a href="https://www.harriszhang.com/about" class="@(ViewBag.Tab=="about"?"current":string.Empty)" onclick="_hmt.push(['_trackEvent', 'navbar', 'click', '关于', 'about'])">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</header>

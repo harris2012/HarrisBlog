@@ -1,4 +1,4 @@
-﻿function PostNewController($scope, PostService) {
+﻿function PostNewController($scope, BlogService) {
 
     $scope.editorOptions = {
         mode: 'gfm',
@@ -36,10 +36,10 @@
             return;
         }
 
-        var request = $scope.post;
+        var request = { blog: $scope.post, version: 12345 };
         //request.__RequestVerificationToken = $('input[name="__RequestVerificationToken"]').val();
 
-        PostService.createPost(request).then(function (result) {
+        BlogService.create(request).then(function (result) {
             console.log(result);
         })
     };

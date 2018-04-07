@@ -2,10 +2,34 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HarrisBlog">
   <DataContextMoniker Name="/HarrisBlogDataContext" />
   <nestedChildShapes>
-    <classShape Id="b5676572-5dc6-4cb0-85a3-72bbbe7fdcaa" absoluteBounds="1.75, 2.25, 2, 2.2764815266927085">
+    <classShape Id="0bd42747-04c7-4e75-a48c-569924bf3ce5" absoluteBounds="3.625, 0.5, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/HarrisBlogDataContext/talk_image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7730b707-735a-4376-b8cb-afd68943dfea" absoluteBounds="3.6399999999999997, 0.96, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a70c255d-758c-4a7e-9a1a-adcec6a71f6f" absoluteBounds="3.625, 2.125, 2, 2.2764815266927085">
+      <DataClassMoniker Name="/HarrisBlogDataContext/talk" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3e2c09c-f1e2-48fd-a3ca-42a5fe1da01f" absoluteBounds="3.6399999999999997, 2.585, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="64f7fbac-4480-4c27-a2e6-cf5c2cf03026" absoluteBounds="8.375, 0.5, 2, 2.4612756347656251">
+      <DataClassMoniker Name="/HarrisBlogDataContext/original_image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83d1b19e-5985-4106-9afd-105fc895c955" absoluteBounds="8.39, 0.96, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9168058a-a63b-45c3-83a5-abe9dd390c2e" absoluteBounds="6, 0.625, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HarrisBlogDataContext/corp_image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="910f143c-78cb-4fc9-853a-fb5eacd405d2" absoluteBounds="6.015, 1.085, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="64a5ffa0-9385-42fd-adb1-1ca10aca2eb0" absoluteBounds="1.125, 0.875, 2, 2.8308638509114581">
       <DataClassMoniker Name="/HarrisBlogDataContext/Post" />
       <nestedChildShapes>
-        <elementListCompartment Id="8a76b193-72a9-415d-a5f6-d53e60dc054a" absoluteBounds="1.7650000000000001, 2.71, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ac7ea8e7-0925-4329-8f25-c24fb362d664" absoluteBounds="1.1399999999999997, 1.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

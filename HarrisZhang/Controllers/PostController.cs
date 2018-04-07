@@ -10,9 +10,9 @@ namespace HarrisZhang.Controllers
     public class PostController : Controller
     {
         // GET: Post
-        public ActionResult Index(string ename)
+        public ActionResult Index(string param)
         {
-            PostRepository repository = new PostRepository(ename);
+            PostRepository repository = new PostRepository(param);
             var entity = repository.GetData();
             if (entity == null)
             {
@@ -21,11 +21,7 @@ namespace HarrisZhang.Controllers
 
             ViewBag.PostEntity = entity;
 
-            return View();
-        }
-
-        public ActionResult T()
-        {
+            ViewBag.Tab = "post";
             return View();
         }
     }

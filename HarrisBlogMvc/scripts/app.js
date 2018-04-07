@@ -2,4 +2,4 @@
 
 app.config(route);
 
-app.service('PostService', ['$resource', '$q', PostService]);
+app.service('BlogService', ['$resource', '$q', BlogService]);

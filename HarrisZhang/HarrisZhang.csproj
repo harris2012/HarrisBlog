@@ -103,10 +103,12 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\TalksController.cs" />
     <Compile Include="Controls\PadingControl.cs" />
     <Compile Include="Controls\PagingTemplate.cs">
       <AutoGen>True</AutoGen>
@@ -120,23 +122,78 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="baidu_verify_vzHzQ5N6WU.html" />
     <Content Include="Controls\PagingTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PagingTemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="App_Data\posts.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2017-freetravel-in-tokyo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-1-4-diary.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-2-13-take-a-bath.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-2-16-ghost-tales.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-3-16-a-good-dream.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-3-16-back-to-home.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-3-16-dream-of-meet.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-3-16-wonderful.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-3-4-cut-meat.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-3-8-see-past-from-future.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\2018-3-9-some-brave.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\feedback-for-interstellar.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\one-simple-shredded-potatoes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\probability.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\posts\word-of-birds.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\talks.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\bg-ico.png" />
-    <Content Include="images\logo-harriszhang.png" />
     <Content Include="images\logo.png" />
+    <Content Include="jq.snow.js" />
     <Content Include="post-images\1.jpg" />
+    <Content Include="robots.txt" />
     <Content Include="styles\harriszhang.css">
       <DependentUpon>harriszhang.less</DependentUpon>
     </Content>
     <Content Include="styles\harriszhang.min.css">
       <DependentUpon>harriszhang.css</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -146,9 +203,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_PostItem.cshtml" />
-    <Content Include="Views\Home\_PostOneItem.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="_500.html" />
   </ItemGroup>
   <ItemGroup>
@@ -160,10 +215,24 @@
     <Content Include="styles\_browsehappy.less" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="compilerconfig.json" />
-    <Content Include="compilerconfig.json.defaults">
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
-    </Content>
+    </None>
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="styles\_about_page.less" />
+    <Content Include="styles\_post_page.less" />
+    <Content Include="styles\_talks_page.less" />
+    <Content Include="styles\_archive_page.less" />
+    <Content Include="styles\_common_page.less" />
+    <Content Include="styles\_search_page.less" />
+    <Content Include="styles\_comment.less" />
+    <Content Include="styles\_footer.less" />
+    <Content Include="styles\_header.less" />
+    <Content Include="styles\_navbar.less" />
+    <Content Include="styles\_directory.less" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -182,9 +251,7 @@
   <ItemGroup>
     <Content Include="Views\Archive\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\posts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HarrisZhang.Repository\HarrisZhang.Repository.csproj">
       <Project>{DA23F62A-1639-4CE3-9E04-E6F48EFACF43}</Project>
@@ -193,6 +260,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Talks\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\RemotePublish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

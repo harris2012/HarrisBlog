@@ -30,6 +30,18 @@ namespace HarrisBlog.Repository
 		
     #region 可扩展性方法定义
     partial void OnCreated();
+    partial void Inserttalk_image(talk_image instance);
+    partial void Updatetalk_image(talk_image instance);
+    partial void Deletetalk_image(talk_image instance);
+    partial void Inserttalk(talk instance);
+    partial void Updatetalk(talk instance);
+    partial void Deletetalk(talk instance);
+    partial void Insertoriginal_image(original_image instance);
+    partial void Updateoriginal_image(original_image instance);
+    partial void Deleteoriginal_image(original_image instance);
+    partial void Insertcorp_image(corp_image instance);
+    partial void Updatecorp_image(corp_image instance);
+    partial void Deletecorp_image(corp_image instance);
     partial void InsertPost(Post instance);
     partial void UpdatePost(Post instance);
     partial void DeletePost(Post instance);
@@ -65,11 +77,915 @@ namespace HarrisBlog.Repository
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<talk_image> talk_image
+		{
+			get
+			{
+				return this.GetTable<talk_image>();
+			}
+		}
+		
+		public System.Data.Linq.Table<talk> talk
+		{
+			get
+			{
+				return this.GetTable<talk>();
+			}
+		}
+		
+		public System.Data.Linq.Table<original_image> original_image
+		{
+			get
+			{
+				return this.GetTable<original_image>();
+			}
+		}
+		
+		public System.Data.Linq.Table<corp_image> corp_image
+		{
+			get
+			{
+				return this.GetTable<corp_image>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Post> Post
 		{
 			get
 			{
 				return this.GetTable<Post>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.talk_image")]
+	public partial class talk_image : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _TalkId;
+		
+		private string _ImageId;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTalkIdChanging(string value);
+    partial void OnTalkIdChanged();
+    partial void OnImageIdChanging(string value);
+    partial void OnImageIdChanged();
+    #endregion
+		
+		public talk_image()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TalkId", DbType="NVarChar(200)")]
+		public string TalkId
+		{
+			get
+			{
+				return this._TalkId;
+			}
+			set
+			{
+				if ((this._TalkId != value))
+				{
+					this.OnTalkIdChanging(value);
+					this.SendPropertyChanging();
+					this._TalkId = value;
+					this.SendPropertyChanged("TalkId");
+					this.OnTalkIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", DbType="NVarChar(50)")]
+		public string ImageId
+		{
+			get
+			{
+				return this._ImageId;
+			}
+			set
+			{
+				if ((this._ImageId != value))
+				{
+					this.OnImageIdChanging(value);
+					this.SendPropertyChanging();
+					this._ImageId = value;
+					this.SendPropertyChanged("ImageId");
+					this.OnImageIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.talk")]
+	public partial class talk : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _TalkId;
+		
+		private string _Category;
+		
+		private string _MsgContent;
+		
+		private string _PosName;
+		
+		private string _PosX;
+		
+		private string _PosY;
+		
+		private System.Nullable<System.DateTime> _CreateTime;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTalkIdChanging(string value);
+    partial void OnTalkIdChanged();
+    partial void OnCategoryChanging(string value);
+    partial void OnCategoryChanged();
+    partial void OnMsgContentChanging(string value);
+    partial void OnMsgContentChanged();
+    partial void OnPosNameChanging(string value);
+    partial void OnPosNameChanged();
+    partial void OnPosXChanging(string value);
+    partial void OnPosXChanged();
+    partial void OnPosYChanging(string value);
+    partial void OnPosYChanged();
+    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateTimeChanged();
+    #endregion
+		
+		public talk()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TalkId", DbType="NVarChar(200)")]
+		public string TalkId
+		{
+			get
+			{
+				return this._TalkId;
+			}
+			set
+			{
+				if ((this._TalkId != value))
+				{
+					this.OnTalkIdChanging(value);
+					this.SendPropertyChanging();
+					this._TalkId = value;
+					this.SendPropertyChanged("TalkId");
+					this.OnTalkIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(50)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MsgContent", DbType="NVarChar(1000)")]
+		public string MsgContent
+		{
+			get
+			{
+				return this._MsgContent;
+			}
+			set
+			{
+				if ((this._MsgContent != value))
+				{
+					this.OnMsgContentChanging(value);
+					this.SendPropertyChanging();
+					this._MsgContent = value;
+					this.SendPropertyChanged("MsgContent");
+					this.OnMsgContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PosName", DbType="NVarChar(200)")]
+		public string PosName
+		{
+			get
+			{
+				return this._PosName;
+			}
+			set
+			{
+				if ((this._PosName != value))
+				{
+					this.OnPosNameChanging(value);
+					this.SendPropertyChanging();
+					this._PosName = value;
+					this.SendPropertyChanged("PosName");
+					this.OnPosNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PosX", DbType="NVarChar(20)")]
+		public string PosX
+		{
+			get
+			{
+				return this._PosX;
+			}
+			set
+			{
+				if ((this._PosX != value))
+				{
+					this.OnPosXChanging(value);
+					this.SendPropertyChanging();
+					this._PosX = value;
+					this.SendPropertyChanged("PosX");
+					this.OnPosXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PosY", DbType="NVarChar(20)")]
+		public string PosY
+		{
+			get
+			{
+				return this._PosY;
+			}
+			set
+			{
+				if ((this._PosY != value))
+				{
+					this.OnPosYChanging(value);
+					this.SendPropertyChanging();
+					this._PosY = value;
+					this.SendPropertyChanged("PosY");
+					this.OnPosYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.original_image")]
+	public partial class original_image : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _ImageId;
+		
+		private System.Nullable<int> _Width;
+		
+		private System.Nullable<int> _Height;
+		
+		private string _FileName;
+		
+		private string _FileExtension;
+		
+		private string _LocalFilePath;
+		
+		private string _RemoteFilePath;
+		
+		private string _FakeFilePath;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnImageIdChanging(string value);
+    partial void OnImageIdChanged();
+    partial void OnWidthChanging(System.Nullable<int> value);
+    partial void OnWidthChanged();
+    partial void OnHeightChanging(System.Nullable<int> value);
+    partial void OnHeightChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnFileExtensionChanging(string value);
+    partial void OnFileExtensionChanged();
+    partial void OnLocalFilePathChanging(string value);
+    partial void OnLocalFilePathChanged();
+    partial void OnRemoteFilePathChanging(string value);
+    partial void OnRemoteFilePathChanged();
+    partial void OnFakeFilePathChanging(string value);
+    partial void OnFakeFilePathChanged();
+    #endregion
+		
+		public original_image()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", DbType="NVarChar(50)")]
+		public string ImageId
+		{
+			get
+			{
+				return this._ImageId;
+			}
+			set
+			{
+				if ((this._ImageId != value))
+				{
+					this.OnImageIdChanging(value);
+					this.SendPropertyChanging();
+					this._ImageId = value;
+					this.SendPropertyChanged("ImageId");
+					this.OnImageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Width", DbType="Int")]
+		public System.Nullable<int> Width
+		{
+			get
+			{
+				return this._Width;
+			}
+			set
+			{
+				if ((this._Width != value))
+				{
+					this.OnWidthChanging(value);
+					this.SendPropertyChanging();
+					this._Width = value;
+					this.SendPropertyChanged("Width");
+					this.OnWidthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int")]
+		public System.Nullable<int> Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this.OnHeightChanging(value);
+					this.SendPropertyChanging();
+					this._Height = value;
+					this.SendPropertyChanged("Height");
+					this.OnHeightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="NVarChar(50)")]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileExtension", DbType="NVarChar(10)")]
+		public string FileExtension
+		{
+			get
+			{
+				return this._FileExtension;
+			}
+			set
+			{
+				if ((this._FileExtension != value))
+				{
+					this.OnFileExtensionChanging(value);
+					this.SendPropertyChanging();
+					this._FileExtension = value;
+					this.SendPropertyChanged("FileExtension");
+					this.OnFileExtensionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocalFilePath", DbType="NVarChar(300)")]
+		public string LocalFilePath
+		{
+			get
+			{
+				return this._LocalFilePath;
+			}
+			set
+			{
+				if ((this._LocalFilePath != value))
+				{
+					this.OnLocalFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._LocalFilePath = value;
+					this.SendPropertyChanged("LocalFilePath");
+					this.OnLocalFilePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RemoteFilePath", DbType="NVarChar(300)")]
+		public string RemoteFilePath
+		{
+			get
+			{
+				return this._RemoteFilePath;
+			}
+			set
+			{
+				if ((this._RemoteFilePath != value))
+				{
+					this.OnRemoteFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._RemoteFilePath = value;
+					this.SendPropertyChanged("RemoteFilePath");
+					this.OnRemoteFilePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FakeFilePath", DbType="NVarChar(300)")]
+		public string FakeFilePath
+		{
+			get
+			{
+				return this._FakeFilePath;
+			}
+			set
+			{
+				if ((this._FakeFilePath != value))
+				{
+					this.OnFakeFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._FakeFilePath = value;
+					this.SendPropertyChanged("FakeFilePath");
+					this.OnFakeFilePathChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.corp_image")]
+	public partial class corp_image : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _CorpImageId;
+		
+		private string _OriginalImageId;
+		
+		private System.Nullable<int> _Width;
+		
+		private System.Nullable<int> _Height;
+		
+		private System.Nullable<int> _UseFor;
+		
+		private string _FileName;
+		
+		private string _FileExtension;
+		
+		private string _LocalFilePath;
+		
+		private string _RemoteFilePath;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnCorpImageIdChanging(string value);
+    partial void OnCorpImageIdChanged();
+    partial void OnOriginalImageIdChanging(string value);
+    partial void OnOriginalImageIdChanged();
+    partial void OnWidthChanging(System.Nullable<int> value);
+    partial void OnWidthChanged();
+    partial void OnHeightChanging(System.Nullable<int> value);
+    partial void OnHeightChanged();
+    partial void OnUseForChanging(System.Nullable<int> value);
+    partial void OnUseForChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnFileExtensionChanging(string value);
+    partial void OnFileExtensionChanged();
+    partial void OnLocalFilePathChanging(string value);
+    partial void OnLocalFilePathChanged();
+    partial void OnRemoteFilePathChanging(string value);
+    partial void OnRemoteFilePathChanged();
+    #endregion
+		
+		public corp_image()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CorpImageId", DbType="NVarChar(50)")]
+		public string CorpImageId
+		{
+			get
+			{
+				return this._CorpImageId;
+			}
+			set
+			{
+				if ((this._CorpImageId != value))
+				{
+					this.OnCorpImageIdChanging(value);
+					this.SendPropertyChanging();
+					this._CorpImageId = value;
+					this.SendPropertyChanged("CorpImageId");
+					this.OnCorpImageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OriginalImageId", DbType="NVarChar(50)")]
+		public string OriginalImageId
+		{
+			get
+			{
+				return this._OriginalImageId;
+			}
+			set
+			{
+				if ((this._OriginalImageId != value))
+				{
+					this.OnOriginalImageIdChanging(value);
+					this.SendPropertyChanging();
+					this._OriginalImageId = value;
+					this.SendPropertyChanged("OriginalImageId");
+					this.OnOriginalImageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Width", DbType="Int")]
+		public System.Nullable<int> Width
+		{
+			get
+			{
+				return this._Width;
+			}
+			set
+			{
+				if ((this._Width != value))
+				{
+					this.OnWidthChanging(value);
+					this.SendPropertyChanging();
+					this._Width = value;
+					this.SendPropertyChanged("Width");
+					this.OnWidthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int")]
+		public System.Nullable<int> Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this.OnHeightChanging(value);
+					this.SendPropertyChanging();
+					this._Height = value;
+					this.SendPropertyChanged("Height");
+					this.OnHeightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UseFor", DbType="Int")]
+		public System.Nullable<int> UseFor
+		{
+			get
+			{
+				return this._UseFor;
+			}
+			set
+			{
+				if ((this._UseFor != value))
+				{
+					this.OnUseForChanging(value);
+					this.SendPropertyChanging();
+					this._UseFor = value;
+					this.SendPropertyChanged("UseFor");
+					this.OnUseForChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="NVarChar(50)")]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileExtension", DbType="NVarChar(50)")]
+		public string FileExtension
+		{
+			get
+			{
+				return this._FileExtension;
+			}
+			set
+			{
+				if ((this._FileExtension != value))
+				{
+					this.OnFileExtensionChanging(value);
+					this.SendPropertyChanging();
+					this._FileExtension = value;
+					this.SendPropertyChanged("FileExtension");
+					this.OnFileExtensionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocalFilePath", DbType="NVarChar(300)")]
+		public string LocalFilePath
+		{
+			get
+			{
+				return this._LocalFilePath;
+			}
+			set
+			{
+				if ((this._LocalFilePath != value))
+				{
+					this.OnLocalFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._LocalFilePath = value;
+					this.SendPropertyChanged("LocalFilePath");
+					this.OnLocalFilePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RemoteFilePath", DbType="NVarChar(300)")]
+		public string RemoteFilePath
+		{
+			get
+			{
+				return this._RemoteFilePath;
+			}
+			set
+			{
+				if ((this._RemoteFilePath != value))
+				{
+					this.OnRemoteFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._RemoteFilePath = value;
+					this.SendPropertyChanged("RemoteFilePath");
+					this.OnRemoteFilePathChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -86,7 +1002,11 @@ namespace HarrisBlog.Repository
 		
 		private string _Title;
 		
-		private string _Body;
+		private System.Nullable<int> _PostType;
+		
+		private string _MarkdownBody;
+		
+		private string _HtmlBody;
 		
 		private System.Nullable<System.DateTime> _CreateTime;
 		
@@ -95,6 +1015,8 @@ namespace HarrisBlog.Repository
 		private string _Summary;
 		
 		private string _CoverImgUrl;
+		
+		private System.Nullable<System.DateTime> _LastUpdateTime;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -106,8 +1028,12 @@ namespace HarrisBlog.Repository
     partial void OnEnameChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
-    partial void OnBodyChanging(string value);
-    partial void OnBodyChanged();
+    partial void OnPostTypeChanging(System.Nullable<int> value);
+    partial void OnPostTypeChanged();
+    partial void OnMarkdownBodyChanging(string value);
+    partial void OnMarkdownBodyChanged();
+    partial void OnHtmlBodyChanging(string value);
+    partial void OnHtmlBodyChanged();
     partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
     partial void OnCreateTimeChanged();
     partial void OnCategoryIdChanging(System.Nullable<int> value);
@@ -116,6 +1042,8 @@ namespace HarrisBlog.Repository
     partial void OnSummaryChanged();
     partial void OnCoverImgUrlChanging(string value);
     partial void OnCoverImgUrlChanged();
+    partial void OnLastUpdateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastUpdateTimeChanged();
     #endregion
 		
 		public Post()
@@ -183,22 +1111,62 @@ namespace HarrisBlog.Repository
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Body", DbType="NVarChar(4000)")]
-		public string Body
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostType", DbType="Int")]
+		public System.Nullable<int> PostType
 		{
 			get
 			{
-				return this._Body;
+				return this._PostType;
 			}
 			set
 			{
-				if ((this._Body != value))
+				if ((this._PostType != value))
 				{
-					this.OnBodyChanging(value);
+					this.OnPostTypeChanging(value);
 					this.SendPropertyChanging();
-					this._Body = value;
-					this.SendPropertyChanged("Body");
-					this.OnBodyChanged();
+					this._PostType = value;
+					this.SendPropertyChanged("PostType");
+					this.OnPostTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkdownBody", DbType="NVarChar(4000)")]
+		public string MarkdownBody
+		{
+			get
+			{
+				return this._MarkdownBody;
+			}
+			set
+			{
+				if ((this._MarkdownBody != value))
+				{
+					this.OnMarkdownBodyChanging(value);
+					this.SendPropertyChanging();
+					this._MarkdownBody = value;
+					this.SendPropertyChanged("MarkdownBody");
+					this.OnMarkdownBodyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HtmlBody", DbType="NVarChar(4000)")]
+		public string HtmlBody
+		{
+			get
+			{
+				return this._HtmlBody;
+			}
+			set
+			{
+				if ((this._HtmlBody != value))
+				{
+					this.OnHtmlBodyChanging(value);
+					this.SendPropertyChanging();
+					this._HtmlBody = value;
+					this.SendPropertyChanged("HtmlBody");
+					this.OnHtmlBodyChanged();
 				}
 			}
 		}
@@ -279,6 +1247,26 @@ namespace HarrisBlog.Repository
 					this._CoverImgUrl = value;
 					this.SendPropertyChanged("CoverImgUrl");
 					this.OnCoverImgUrlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdateTime
+		{
+			get
+			{
+				return this._LastUpdateTime;
+			}
+			set
+			{
+				if ((this._LastUpdateTime != value))
+				{
+					this.OnLastUpdateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdateTime = value;
+					this.SendPropertyChanged("LastUpdateTime");
+					this.OnLastUpdateTimeChanged();
 				}
 			}
 		}
