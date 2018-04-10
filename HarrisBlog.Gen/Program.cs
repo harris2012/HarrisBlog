@@ -52,14 +52,6 @@ namespace HarrisBlog.Gen
                     CreateImage();
 
                     break;
-                case "7":
-                    TestCorpImage();
-
-                    break;
-                case "8":
-                    ProcessImage();
-
-                    break;
                 default:
                     break;
             }
@@ -165,63 +157,6 @@ namespace HarrisBlog.Gen
             }
         }
 
-
-
-        static void ProcessImage()
-        {
-            HarrisBlogDataContext context = new HarrisBlogDataContext();
-
-            ImageProcessor processor = new ImageProcessor();
-
-            var originalImages = context.original_image.ToList();
-            foreach (var originalImage in originalImages)
-            {
-                var talk_image = context.talk_image.FirstOrDefault(v => v.ImageId == originalImage.ImageId);
-                if (talk_image == null)
-                {
-                    continue;
-                }
-
-                string corpImageId = Guid.NewGuid().ToString("N");
-                string corpImageLocalFilePath = originalImage.LocalFilePath.Replace("LocalImage", "LocalImageCorp");
-
-                var talk_image_s = context.talk_image.Where(v => v.TalkId == talk_image.TalkId).ToList();
-
-                corp_image corp_image = new corp_image();
-                corp_image.CorpImageId = corpImageId;
-                corp_image.OriginalImageId = originalImage.ImageId;
-                corp_image.LocalFilePath = corpImageLocalFilePath;
-                corp_image.FileName = corpImageId + originalImage.FileExtension;
-                corp_image.FileExtension = originalImage.FileExtension;
-                context.corp_image.InsertOnSubmit(corp_image);
-
-                using (FileStream stream = new FileStream(originalImage.LocalFilePath, FileMode.Open))
-                {
-                    using (FileStream ss = new FileStream(corpImageLocalFilePath, FileMode.Create))
-                    {
-                        if (talk_image_s.Count == 1)
-                        {
-                            using (Stream outStream = processor.ResizeByWidth(stream, 260))
-                            {
-                                outStream.CopyTo(ss);
-                            }
-                        }
-                        else
-                        {
-                            using (Stream outStream = processor.ResizeImage(stream, 260, 200))
-                            {
-                                outStream.CopyTo(ss);
-                            }
-                        }
-                    }
-
-                }
-
-            }
-
-            context.SubmitChanges();
-        }
-
         static void UpdateLocalPath()
         {
 
@@ -303,62 +238,6 @@ namespace HarrisBlog.Gen
 
             //        }
             //    }
-        }
-
-        static void TestCorpImage()
-        {
-            ImageProcessor processor = new ImageProcessor();
-
-            {
-                var path = @"F:\tmp\5b802a795ec040bd8c0c032f6a0fd24c.jpg";
-                var target = @"F:\tmp\target_1.jpg";
-                var width = 400;
-                var height = 300;
-                using (FileStream inputStream = new FileStream(path, FileMode.Open))
-                {
-                    using (var stream = processor.ResizeImage(inputStream, width, height, ResizePolicy.Quick))
-                    {
-                        using (FileStream outputStream = new FileStream(target, FileMode.Create))
-                        {
-                            stream.CopyTo(outputStream);
-                        }
-                    }
-                }
-            }
-
-            {
-                var path = @"F:\tmp\5b802a795ec040bd8c0c032f6a0fd24c.jpg";
-                var target = @"F:\tmp\target_2_1.jpg";
-                var width = 50;
-                var height = 160;
-                using (FileStream inputStream = new FileStream(path, FileMode.Open))
-                {
-                    using (var stream = processor.ResizeByWidth(inputStream, width))
-                    {
-                        using (FileStream outputStream = new FileStream(target, FileMode.Create))
-                        {
-                            stream.CopyTo(outputStream);
-                        }
-                    }
-                }
-            }
-
-            {
-                var path = @"F:\tmp\5b802a795ec040bd8c0c032f6a0fd24c.jpg";
-                var target = @"F:\tmp\target_2_2.jpg";
-                var width = 500;
-                var height = 50;
-                using (FileStream inputStream = new FileStream(path, FileMode.Open))
-                {
-                    using (var stream = processor.ResizeByWidth(inputStream, width))
-                    {
-                        using (FileStream outputStream = new FileStream(target, FileMode.Create))
-                        {
-                            stream.CopyTo(outputStream);
-                        }
-                    }
-                }
-            }
         }
 
         static void WriteToFile(string path, object item)
