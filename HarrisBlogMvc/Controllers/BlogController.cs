@@ -73,7 +73,14 @@ namespace HarrisBlogMvc.Controllers
             post.PostType = 1;
             post.MarkdownBody = blog.Body;
             post.HtmlBody = blog.HtmlBody;
-            post.CreateTime = DateTime.Now;
+            if (blog.CreateTime == DateTime.MinValue)
+            {
+                post.CreateTime = DateTime.Now;
+            }
+            else
+            {
+                post.CreateTime = blog.CreateTime;
+            }
             post.LastUpdateTime = DateTime.Now;
 
             var content = StripTagsRegex(blog.HtmlBody);

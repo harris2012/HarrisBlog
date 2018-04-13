@@ -53,7 +53,11 @@
         var request = { blog: $scope.post, version: 67890 };
 
         BlogService.update($scope.id, request).then(function (result) {
+
             console.log(result);
+            if (result.status == 1) {
+
+            }
         })
     };
 }

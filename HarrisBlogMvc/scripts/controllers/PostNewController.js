@@ -1,4 +1,4 @@
-﻿function PostNewController($scope, BlogService) {
+﻿function PostNewController($scope, $state, BlogService) {
 
     $scope.editorOptions = {
         mode: 'gfm',
@@ -6,6 +6,13 @@
         lineNumbers: true,
         lineWrapping: true
     };
+
+    $scope.post = {};
+    $scope.post.createTime = new Date();
+
+    $scope.openDatePicker = function () {
+        $scope.isDatePickerOpen = true;
+    }
 
     $scope.postBodyChanged = function () {
 
@@ -39,8 +46,11 @@
         var request = { blog: $scope.post, version: 12345 };
         //request.__RequestVerificationToken = $('input[name="__RequestVerificationToken"]').val();
 
-        BlogService.create(request).then(function (result) {
-            console.log(result);
+        BlogService.create(request).then(function (response) {
+
+            if (response.status == 1) {
+                $state.go('app.post.post-list');
+            }
         })
     };
 }

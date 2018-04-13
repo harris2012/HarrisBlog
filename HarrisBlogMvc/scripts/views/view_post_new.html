@@ -18,6 +18,24 @@
             <div ui-codemirror ui-codemirror-opts="editorOptions" ng-model="post.body" ng-change="postBodyChanged()"></div>
         </div>
         <p ng-show="false"></p>
+
+        <div class="form-horizontal">
+            <div class="row">
+                <label class="col-sm-1 control-label">发布时间</label>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" placeholder="yyyy-MM-dd" ng-model="post.createTime" is-open="isDatePickerOpen" close-text="关闭" clear-text="清空" current-text="今天" alt-input-formats="yyyy-MM-dd" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div uib-timepicker ng-model="post.createTime" hour-step="1" minute-step="12" show-meridian="false" show-spinners="false"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-12">
                 <a class="btn btn-success" ng-click="create()">保存</a>
@@ -25,6 +43,5 @@
         </div>
     </div>
 
-    <p>需要加一个时间选择器</p>
 </div>
 
