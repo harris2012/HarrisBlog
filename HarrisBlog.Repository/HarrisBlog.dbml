@@ -59,6 +59,7 @@
       <Column Name="Summary" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="CoverImgUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="LastUpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -20,7 +20,7 @@ namespace HarrisBlogMvc.Controllers
         {
             HarrisBlogDataContext context = new HarrisBlogDataContext();
 
-            var items = context.Post.OrderByDescending(v => v.CreateTime).Select(v => ToVo(v)).ToList();
+            var items = context.Post.Where(v => v.DataStatus == 1).OrderByDescending(v => v.CreateTime).Select(v => ToVo(v)).ToList();
 
             return new GetBlogListResponse { Status = 1, PostList = items };
         }
@@ -81,6 +81,7 @@ namespace HarrisBlogMvc.Controllers
             {
                 post.CreateTime = blog.CreateTime;
             }
+            post.DataStatus = 1;
             post.LastUpdateTime = DateTime.Now;
 
             var content = StripTagsRegex(blog.HtmlBody);

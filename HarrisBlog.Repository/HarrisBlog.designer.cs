@@ -1018,6 +1018,8 @@ namespace HarrisBlog.Repository
 		
 		private System.Nullable<System.DateTime> _LastUpdateTime;
 		
+		private System.Nullable<int> _DataStatus;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1044,6 +1046,8 @@ namespace HarrisBlog.Repository
     partial void OnCoverImgUrlChanged();
     partial void OnLastUpdateTimeChanging(System.Nullable<System.DateTime> value);
     partial void OnLastUpdateTimeChanged();
+    partial void OnDataStatusChanging(System.Nullable<int> value);
+    partial void OnDataStatusChanged();
     #endregion
 		
 		public Post()
@@ -1267,6 +1271,26 @@ namespace HarrisBlog.Repository
 					this._LastUpdateTime = value;
 					this.SendPropertyChanged("LastUpdateTime");
 					this.OnLastUpdateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataStatus", DbType="Int")]
+		public System.Nullable<int> DataStatus
+		{
+			get
+			{
+				return this._DataStatus;
+			}
+			set
+			{
+				if ((this._DataStatus != value))
+				{
+					this.OnDataStatusChanging(value);
+					this.SendPropertyChanging();
+					this._DataStatus = value;
+					this.SendPropertyChanged("DataStatus");
+					this.OnDataStatusChanged();
 				}
 			}
 		}
