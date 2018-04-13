@@ -182,6 +182,10 @@
     <Content Include="Global.asax" />
     <Content Include="images\bg-ico.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\unslider\shop.jpg" />
+    <Content Include="images\unslider\subway.jpg" />
+    <Content Include="images\unslider\sunset.jpg" />
+    <Content Include="images\unslider\wood.jpg" />
     <Content Include="jq.snow.js" />
     <Content Include="post-images\1.jpg" />
     <Content Include="robots.txt" />
