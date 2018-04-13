@@ -8,10 +8,13 @@
     };
 
     $scope.post = {};
-    $scope.post.createTime = new Date();
+    $scope.post.publishTime = new Date();
 
     $scope.openDatePicker = function () {
         $scope.isDatePickerOpen = true;
+    }
+    $scope.refreshPublishTime = function () {
+        $scope.post.publishTime = new Date();
     }
 
     $scope.postBodyChanged = function () {

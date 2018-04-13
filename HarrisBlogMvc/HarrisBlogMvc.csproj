@@ -129,6 +129,7 @@
     <Compile Include="Request\GetBlogListRequest.cs" />
     <Compile Include="Request\UpdateBlogRequest.cs" />
     <Compile Include="Response\CreateBlogResponse.cs" />
+    <Compile Include="Response\DeletePostResponse.cs" />
     <Compile Include="Response\GetImageListResponse.cs" />
     <Compile Include="Response\GetBlogResponse.cs" />
     <Compile Include="Response\GetBlogListResponse.cs" />

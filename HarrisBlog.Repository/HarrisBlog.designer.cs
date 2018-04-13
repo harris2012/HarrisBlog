@@ -1002,23 +1002,25 @@ namespace HarrisBlog.Repository
 		
 		private string _Title;
 		
+		private string _CoverImgUrl;
+		
 		private System.Nullable<int> _PostType;
 		
 		private string _MarkdownBody;
 		
 		private string _HtmlBody;
 		
-		private System.Nullable<System.DateTime> _CreateTime;
+		private string _Summary;
 		
 		private System.Nullable<int> _CategoryId;
 		
-		private string _Summary;
-		
-		private string _CoverImgUrl;
-		
-		private System.Nullable<System.DateTime> _LastUpdateTime;
+		private System.Nullable<System.DateTime> _PublishTime;
 		
 		private System.Nullable<int> _DataStatus;
+		
+		private System.Nullable<System.DateTime> _CreateTime;
+		
+		private System.Nullable<System.DateTime> _LastUpdateTime;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -1030,24 +1032,26 @@ namespace HarrisBlog.Repository
     partial void OnEnameChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
+    partial void OnCoverImgUrlChanging(string value);
+    partial void OnCoverImgUrlChanged();
     partial void OnPostTypeChanging(System.Nullable<int> value);
     partial void OnPostTypeChanged();
     partial void OnMarkdownBodyChanging(string value);
     partial void OnMarkdownBodyChanged();
     partial void OnHtmlBodyChanging(string value);
     partial void OnHtmlBodyChanged();
-    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateTimeChanged();
-    partial void OnCategoryIdChanging(System.Nullable<int> value);
-    partial void OnCategoryIdChanged();
     partial void OnSummaryChanging(string value);
     partial void OnSummaryChanged();
-    partial void OnCoverImgUrlChanging(string value);
-    partial void OnCoverImgUrlChanged();
-    partial void OnLastUpdateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnLastUpdateTimeChanged();
+    partial void OnCategoryIdChanging(System.Nullable<int> value);
+    partial void OnCategoryIdChanged();
+    partial void OnPublishTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnPublishTimeChanged();
     partial void OnDataStatusChanging(System.Nullable<int> value);
     partial void OnDataStatusChanged();
+    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateTimeChanged();
+    partial void OnLastUpdateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastUpdateTimeChanged();
     #endregion
 		
 		public Post()
@@ -1115,6 +1119,26 @@ namespace HarrisBlog.Repository
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoverImgUrl", DbType="NVarChar(100)")]
+		public string CoverImgUrl
+		{
+			get
+			{
+				return this._CoverImgUrl;
+			}
+			set
+			{
+				if ((this._CoverImgUrl != value))
+				{
+					this.OnCoverImgUrlChanging(value);
+					this.SendPropertyChanging();
+					this._CoverImgUrl = value;
+					this.SendPropertyChanged("CoverImgUrl");
+					this.OnCoverImgUrlChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostType", DbType="Int")]
 		public System.Nullable<int> PostType
 		{
@@ -1175,22 +1199,22 @@ namespace HarrisBlog.Repository
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Summary", DbType="NVarChar(100)")]
+		public string Summary
 		{
 			get
 			{
-				return this._CreateTime;
+				return this._Summary;
 			}
 			set
 			{
-				if ((this._CreateTime != value))
+				if ((this._Summary != value))
 				{
-					this.OnCreateTimeChanging(value);
+					this.OnSummaryChanging(value);
 					this.SendPropertyChanging();
-					this._CreateTime = value;
-					this.SendPropertyChanged("CreateTime");
-					this.OnCreateTimeChanged();
+					this._Summary = value;
+					this.SendPropertyChanged("Summary");
+					this.OnSummaryChanged();
 				}
 			}
 		}
@@ -1215,62 +1239,22 @@ namespace HarrisBlog.Repository
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Summary", DbType="NVarChar(100)")]
-		public string Summary
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PublishTime
 		{
 			get
 			{
-				return this._Summary;
+				return this._PublishTime;
 			}
 			set
 			{
-				if ((this._Summary != value))
+				if ((this._PublishTime != value))
 				{
-					this.OnSummaryChanging(value);
+					this.OnPublishTimeChanging(value);
 					this.SendPropertyChanging();
-					this._Summary = value;
-					this.SendPropertyChanged("Summary");
-					this.OnSummaryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoverImgUrl", DbType="NVarChar(100)")]
-		public string CoverImgUrl
-		{
-			get
-			{
-				return this._CoverImgUrl;
-			}
-			set
-			{
-				if ((this._CoverImgUrl != value))
-				{
-					this.OnCoverImgUrlChanging(value);
-					this.SendPropertyChanging();
-					this._CoverImgUrl = value;
-					this.SendPropertyChanged("CoverImgUrl");
-					this.OnCoverImgUrlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdateTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LastUpdateTime
-		{
-			get
-			{
-				return this._LastUpdateTime;
-			}
-			set
-			{
-				if ((this._LastUpdateTime != value))
-				{
-					this.OnLastUpdateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._LastUpdateTime = value;
-					this.SendPropertyChanged("LastUpdateTime");
-					this.OnLastUpdateTimeChanged();
+					this._PublishTime = value;
+					this.SendPropertyChanged("PublishTime");
+					this.OnPublishTimeChanged();
 				}
 			}
 		}
@@ -1291,6 +1275,46 @@ namespace HarrisBlog.Repository
 					this._DataStatus = value;
 					this.SendPropertyChanged("DataStatus");
 					this.OnDataStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdateTime
+		{
+			get
+			{
+				return this._LastUpdateTime;
+			}
+			set
+			{
+				if ((this._LastUpdateTime != value))
+				{
+					this.OnLastUpdateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdateTime = value;
+					this.SendPropertyChanged("LastUpdateTime");
+					this.OnLastUpdateTimeChanged();
 				}
 			}
 		}

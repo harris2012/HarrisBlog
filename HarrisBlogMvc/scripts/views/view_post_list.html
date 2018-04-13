@@ -16,7 +16,7 @@
             <label for="host_{{post.ename}}" class="ng-binding">{{post.title}}</label>
         </div>
         <a ui-sref="app.post.post-edit({id:post.id})" class="post-toolbar-item">编辑</a>
-        <a href="https://harriszhang.com" target="_blank" class="post-toolbar-item">查看</a>
+        <a ng-click="deletePostById(post.id)">删除</a>
         <span class="post-toolbar-item">{{post.lastUpdateTime}}</span>
     </li>
 </ul>

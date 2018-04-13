@@ -4,22 +4,40 @@ function BlogService($resource, $q) {
         get: { method: 'GET', url: '/api/blog' },
         create: { method: 'POST', url: 'api/blog' },
         getById: { method: 'GET', url: '/api/blog/:id' },
-        update: { method: 'PUT', url: '/api/blog/:id' }
+        update: { method: 'PUT', url: '/api/blog/:id' },
+        deleteById: { method: 'DELETE', url: '/api/blog/:id' }
     });
 
     return {
         get: function () { var d = $q.defer(); resource.get({}, {}, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
         create: function (request) { var d = $q.defer(); resource.create({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
         getById: function (id) { var d = $q.defer(); resource.getById({ id: id }, {}, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
-        update: function (id, request) { var d = $q.defer(); resource.update({ id: id }, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; }
+        update: function (id, request) { var d = $q.defer(); resource.update({ id: id }, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        deleteById: function (id) { var d = $q.defer(); resource.deleteById({ id: id }, {}, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; }
     }
 }
 function PostListController($scope, BlogService) {
 
-    BlogService.get().then(function (response) {
+    function get_post_list_callback(response) {
 
-        $scope.posts = response.posts;
-    })
+        if (response.status == 1) {
+            $scope.posts = response.posts;
+        }
+    }
+
+    function delete_post_by_id_callback(response) {
+
+        if (response.status == 1) {
+            BlogService.get().then(get_post_list_callback);
+        }
+    }
+
+    BlogService.get().then(get_post_list_callback)
+
+    $scope.deletePostById = function (id) {
+
+        BlogService.deleteById(id).then(delete_post_by_id_callback);
+    }
 }
 function PostNewController($scope, $state, BlogService) {
 
@@ -31,10 +49,13 @@ function PostNewController($scope, $state, BlogService) {
     };
 
     $scope.post = {};
-    $scope.post.createTime = new Date();
+    $scope.post.publishTime = new Date();
 
     $scope.openDatePicker = function () {
         $scope.isDatePickerOpen = true;
+    }
+    $scope.refreshPublishTime = function () {
+        $scope.post.publishTime = new Date();
     }
 
     $scope.postBodyChanged = function () {

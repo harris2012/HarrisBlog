@@ -38,7 +38,6 @@ namespace HarrisBlogMvc.Controllers
             }
 
             return new GetBlogResponse { Blog = ToVo(postEntity) };
-
         }
 
         private static BlogVo ToVo(Post v)
@@ -73,15 +72,9 @@ namespace HarrisBlogMvc.Controllers
             post.PostType = 1;
             post.MarkdownBody = blog.Body;
             post.HtmlBody = blog.HtmlBody;
-            if (blog.CreateTime == DateTime.MinValue)
-            {
-                post.CreateTime = DateTime.Now;
-            }
-            else
-            {
-                post.CreateTime = blog.CreateTime;
-            }
+            post.PublishTime = blog.PublishTime;
             post.DataStatus = 1;
+            post.CreateTime = DateTime.Now;
             post.LastUpdateTime = DateTime.Now;
 
             var content = StripTagsRegex(blog.HtmlBody);
@@ -128,6 +121,24 @@ namespace HarrisBlogMvc.Controllers
             context.SubmitChanges();
 
             return new UpdateBlogResponse { Status = 1, Message = "更新成功" + request.Version };
+        }
+
+        [HttpDelete]
+        public DeletePostResponse Delete(int id)
+        {
+            HarrisBlogDataContext context = new HarrisBlogDataContext();
+
+            var postEntity = context.Post.FirstOrDefault(v => v.Id == id);
+            if (postEntity == null)
+            {
+                return new DeletePostResponse { Status = 404 };
+            }
+
+            postEntity.DataStatus = 2;
+            postEntity.LastUpdateTime = DateTime.Now;
+            context.SubmitChanges();
+
+            return new DeletePostResponse { Status = 1 };
         }
 
         //[ActionName("image-list")]
