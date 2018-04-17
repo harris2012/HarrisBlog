@@ -2,7 +2,14 @@
 <html>
 
 <head>
-    <title>@ViewBag.Title - 从善如流</title>
+    @if (ViewBag.Title == null)
+    {
+        <title>从善如流</title>
+    }
+    else
+    {
+        <title>@ViewBag.Title - 从善如流</title>
+    }
 
     <meta charset="UTF-8" />
     <meta http-equiv="x-dns-prefetch-control" content="on" />
@@ -16,10 +23,13 @@
 
     <link rel="dns-prefetch" href="https://o243f9mnq.qnssl.com/" />
     <link rel="dns-prefetch" href="https//cdn.bootcss.com" />
+
     <link rel="shortcut icon" href="https://www.harriszhang.com/favicon.ico" />
     <link rel="apple-touch-icon" href="https://www.harriszhang.com/favicon.ico" />
 
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://cdn.bootcss.com/Swiper/4.2.2/css/swiper.min.css" rel="stylesheet">
 
     <link href="@Url.Content("~/styles/harriszhang.css?v=" + DateTime.Now.ToString("yyyyMMhhHHmmss"))" rel="stylesheet" />
     <!--[if lt IE 9]>
@@ -46,6 +56,7 @@
     <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
     <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.2.2/js/swiper.min.js"></script>
     <script>
         $(function () {
 
