@@ -31,7 +31,7 @@ namespace HarrisZhang.Controllers
                 ViewBag.PageCount = totalCount / PageSize + (totalCount % PageSize > 0 ? 1 : 0);
             }
 
-            ViewBag.Tab = "talk";
+            ViewBag.Tab = "post";
             return View();
         }
     }
