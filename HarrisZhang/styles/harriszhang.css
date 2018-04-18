@@ -812,93 +812,30 @@ textarea::-moz-placeholder {
   color: #fff;
   background-color: #4caf50;
 }
-.search-page .search-box {
-  line-height: 40px;
-  position: relative;
-  top: -1px;
-  display: inline-block;
-  width: 100%;
-  height: 40px;
-  padding: 0;
-  border: none;
-  border-radius: 3px;
-}
-.search-page .search-box .input {
-  font-size: 14px;
-  line-height: 40px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  padding: 0 40px 0 18px;
-  color: #313131;
-  border: 1px solid rgba(184, 197, 214, 0.2);
-  border-radius: 20px;
-  outline: 0;
-  background-color: #fff;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  -webkit-appearance: none;
-}
-.search-page .search-box .spsubmit {
-  line-height: 42px;
-  float: right;
-  margin-right: 15px;
-  outline: 0;
-  background-color: transparent;
-}
-.search-page .search-tags {
-  margin: 0;
-  padding: 15px 0;
-  text-align: center;
-}
-.search-page .search-tags p {
-  margin: 20px 0 0;
-}
-.search-page .search-tags a {
-  font-size: 13px;
-  display: inline-block;
-  margin: 10px 8px 0 0;
-  padding: 2px 15px;
-  -webkit-transition-duration: .4s;
-  transition-duration: .4s;
-  letter-spacing: 0;
-  border-radius: 15px;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-}
-.search-page .search-tags-hr {
-  display: block;
-  width: 55px;
-  height: 2px;
-  margin: 20px auto 10px;
-}
 .talks-page {
   padding: 50px 20px 0;
 }
 .talk-item-list {
-  border-left: 3px solid #767676;
+  /*border-left: 3px solid #767676;*/
 }
 .talk-item {
   margin-bottom: 15px;
-  margin-left: 25px;
   padding: 20px;
   display: block;
   background: #fff;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-.talk-item:before {
-  content: '';
-  width: 12px;
-  color: #fff;
-  height: 12px;
-  border-radius: 50%;
-  margin: 6px 0 0 -53px;
-  display: inline-block;
-  background-color: #38b7ea;
-  float: left;
+  /*&:before {
+        content: '';
+        width: 12px;
+        color: #fff;
+        height: 12px;
+        border-radius: 50%;
+        margin: 6px 0 0 -53px;
+        display: inline-block;
+        background-color: #38b7ea;
+        float: left;
+    }*/
 }
 .talk-content {
   margin-bottom: 10px;
@@ -935,51 +872,6 @@ textarea::-moz-placeholder {
 }
 .about-page {
   padding: 50px 20px 0;
-}
-.archive-page {
-  padding: 120px 20px 40px;
-}
-.archive-page .categorys-title {
-  font-size: 14px;
-  position: relative;
-  margin: 10px auto;
-  padding: 0 30px;
-  color: #5f5f5f;
-}
-.archive-page .categorys-title a {
-  color: #5f5f5f;
-}
-.archive-page .categorys-title::before {
-  position: absolute;
-  top: 0;
-  left: -15px;
-  padding: 0 30px;
-  content: '#';
-  color: #eb5055;
-}
-.archive-page .post-list-item-container {
-  border: 1px solid rgba(184, 197, 214, 0.2);
-  border-radius: 3px;
-  background: #fff;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-}
-.archive-page .post-list-item-container .item-label {
-  height: 95px;
-  background: #fff;
-}
-.archive-page .post-list-item-container .item-label .item-title a {
-  font-size: 14px;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: #313131;
-}
-.archive-page .post-list-item-container .item-label .item-meta .item-meta-date {
-  padding-bottom: 5px;
-  padding-left: 5px;
-  color: #5f5f5f;
 }
 #comments {
   max-width: 700px;
@@ -1176,51 +1068,6 @@ textarea::-moz-placeholder {
   padding-bottom: 5px;
   padding-left: 5px;
   color: #5f5f5f;
-}
-#directory {
-  position: fixed;
-  z-index: 0;
-  top: 100px;
-  display: inline-block;
-  text-align: left;
-}
-#directory li,
-#directory ul {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-#directory > ul {
-  position: relative;
-  border-left: 1px solid #ddd;
-}
-#directory > ul > li::before {
-  position: relative;
-  top: 0;
-  left: -4px;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  content: '';
-  border-radius: 50%;
-  background-color: #eb5055;
-}
-#directory ul li a {
-  display: inline-table;
-  margin-left: 5px;
-  white-space: nowrap;
-}
-#directory ul li ul li a {
-  margin-left: 20px;
-  white-space: nowrap;
-  color: #5f5f5f;
-}
-#directory ul li ul li ul li a {
-  margin-left: 30px;
-  color: #5f5f5f;
-}
-#directory a:hover {
-  color: #eb5055;
 }
 .footer {
   position: relative;
@@ -1549,29 +1396,6 @@ textarea::-moz-placeholder {
 /*#instantclick-bar {
     background-color: #eb5055;
 }*/
-.icon-search {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  margin: 2px 0 0 3px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  color: #313131;
-  border: solid 2px currentColor;
-  border-radius: 50%;
-}
-.icon-search:before {
-  position: absolute;
-  top: 11px;
-  left: 3px;
-  width: 2px;
-  height: 4px;
-  content: '';
-  background-color: currentColor;
-}
 .icon-menu {
   position: relative;
   display: inline-block;
@@ -1629,22 +1453,6 @@ textarea::-moz-placeholder {
   transition-duration: .3s;
   -webkit-transform: scale(1.03);
   transform: scale(1.03);
-}
-.post-list-item-container .item-label.bg-blue .item-title a,
-.post-list-item-container .item-label.bg-purple .item-title a,
-.post-list-item-container .item-label.bg-green .item-title a,
-.post-list-item-container .item-label.bg-yellow .item-title a,
-.post-list-item-container .item-label.bg-red .item-title a,
-.post-list-item-container .item-label.bg-orange .item-title a {
-  color: #fff;
-}
-.post-list-item-container .item-label.bg-blue .item-meta .item-meta-date,
-.post-list-item-container .item-label.bg-purple .item-meta .item-meta-date,
-.post-list-item-container .item-label.bg-green .item-meta .item-meta-date,
-.post-list-item-container .item-label.bg-yellow .item-meta .item-meta-date,
-.post-list-item-container .item-label.bg-red .item-meta .item-meta-date,
-.post-list-item-container .item-label.bg-orange .item-meta .item-meta-date {
-  color: #fff;
 }
 .directory-content {
   position: relative;

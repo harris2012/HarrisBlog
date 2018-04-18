@@ -1,38 +1,88 @@
 ﻿@{
-    List<HarrisZhang.Repository.Entity.PostsEntity> entityList = ViewBag.PostsList as List<HarrisZhang.Repository.Entity.PostsEntity>;
+    List<HarrisZhang.Repository.Entity.TheEntity> postEntityList = ViewBag.PostsList as List<HarrisZhang.Repository.Entity.TheEntity>;
 }
 
-<div class="main-content index-page">
+@section scripts{
+    <script>
+        $(function () {
 
-    @if (entityList != null)
+            $("img.lazy").lazyload({ effect: "fadeIn" })
+
+            $('.talk-img-item').on('click', function () {
+
+                $('.swiper-wrapper').empty();
+                var items = $(this).closest('.talk-item').find('li');
+                for (var i = 0; i < items.length; i++) {
+                    var swipeItem = $("<div class=\"swiper-slide\"><div class=\"img-container\"><img src=\"" + $(items[i]).data('thisimg') + "\" /></div></div>");
+                    $('.swiper-wrapper').append(swipeItem);
+                }
+
+                $('#talk-mask').show()
+                $('html').css({ overflow: 'hidden' })
+
+                var mySwiper = new Swiper('.swiper-container', {
+                    loop: true,
+                    speed: 1000,
+                    keyboard: true,
+                    mousewheel: true,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                    }
+                })
+            })
+
+            $(window).keydown(function (event) {
+                if (event.keyCode == 27) {
+
+                    $('#talk-mask').hide()
+                    $('html').css({ overflow: '' })
+                }
+            })
+        })
+    </script>
+}
+
+<div class="main-content talks-page">
+
+    @if (postEntityList != null)
     {
-        <div class="post-item-list">
-            @foreach (var item in entityList)
+        <div class="talk-item-list">
+            @foreach (var item in postEntityList)
             {
-                <div class="post-item">
-                    <div class="post-list-item-container">
-
-                        <div class="item-thumb bg-deepgrey">
-                            <img src="/post-images/1.jpg" />
-                        </div>
-
+                <div class="talk-item">
+                    @if (item.PostType == 1)
+                    {
                         <a href="~/post/@item.Ename">
                             <div class="item-desc">
                                 <p>@item.Summary</p>
                             </div>
                         </a>
-                        <div class="item-slant reverse-slant bg-purple"></div>
-                        <div class="item-slant"></div>
-                        <div class="item-label">
-                            <div class="item-title"><a href="~/post/@item.Ename">@item.Title</a></div>
-                            <div class="item-meta">
-
-                                <div class="item-meta-ico bg-ico bg-ico-book"></div>
-
-                                <div class="item-meta-cat"><a href="#">分类</a></div>
-                            </div>
+                        <div class="talk-time">
+                            <i class="fa fa-calendar"></i>
+                            <span>@item.PublishTime.ToShortDateString()</span>
                         </div>
-                    </div>
+                    }
+                    else
+                    {
+                        <p class="talk-content">@item.Content</p>
+                        if (item.ImageList != null && item.ImageList.Count > 0)
+                        {
+                            <ul class="talk-image-list">
+                                @foreach (var image in item.ImageList)
+                                {
+                                    <li class="talk-img-item" data-thisimg="@image"><img class="talk-image lazy" data-original="@image" /></li>
+                                }
+                            </ul>
+                        }
+                        <div class="talk-time">
+                            <i class="fa fa-calendar"></i>
+                            <span>@item.PublishTime.ToShortDateString()</span>
+                        </div>
+                    }
                 </div>
             }
         </div>
@@ -41,3 +91,13 @@
     @HarrisZhang.Controls.PadingControl.Paging(ViewBag.PageIndex, ViewBag.PageCount, 5, "/posts/{0}")
 </div>
 
+<div id="talk-mask" style="display:none;">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>

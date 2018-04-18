@@ -23,6 +23,7 @@ namespace HarrisBlog.Gen
             Console.WriteLine("6. 生成说说需要的图片");
             Console.WriteLine("7. 测试图片裁切");
             Console.WriteLine("8. 处理图片");
+            Console.WriteLine("9. 合并说说和日志");
             Console.Write("请选择需要执行的操作：");
 
             var input = Console.ReadLine();
@@ -52,6 +53,10 @@ namespace HarrisBlog.Gen
                     CreateImage();
 
                     break;
+                case "9":
+                    CombineData();
+
+                    break;
                 default:
                     break;
             }
@@ -77,6 +82,53 @@ namespace HarrisBlog.Gen
             }
 
             context.SubmitChanges();
+        }
+
+        static void CombineData()
+        {
+            var postFilePath = @"D:\CodingWorkspace\HarrisBlog\HarrisZhang\App_Data\posts.xml";
+
+            var talkFilePath = @"D:\CodingWorkspace\HarrisBlog\HarrisZhang\App_Data\talks.xml";
+
+            var itemFilePath = @"D:\CodingWorkspace\HarrisBlog\HarrisZhang\App_Data\items.xml";
+
+            List<TheEntity> theEntityList = new List<TheEntity>();
+
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<PostsEntity>));
+
+                var content = File.ReadAllText(postFilePath);
+
+                using (StringReader reader = new StringReader(content))
+                {
+                    var items = (List<PostsEntity>)serializer.Deserialize(reader);
+
+                    foreach (var item in items)
+                    {
+                        var entity = ToTheEntity(item);
+                        theEntityList.Add(entity);
+                    }
+                }
+            }
+
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<TalksEntity>));
+
+                var content = File.ReadAllText(talkFilePath);
+
+                using (StringReader reader = new StringReader(content))
+                {
+                    var items = (List<TalksEntity>)serializer.Deserialize(reader);
+
+                    foreach (var item in items)
+                    {
+                        var entity = ToTheEntity(item);
+                        theEntityList.Add(entity);
+                    }
+                }
+            }
+
+            WriteToFile(itemFilePath, theEntityList);
         }
 
         static void GenDataFile()
@@ -248,6 +300,27 @@ namespace HarrisBlog.Gen
             {
                 serializer.Serialize(stream, item);
             }
+        }
+
+        static TheEntity ToTheEntity(PostsEntity postEntity)
+        {
+            TheEntity returnValue = new TheEntity();
+            returnValue.PostType = 1;
+            returnValue.Ename = postEntity.Ename;
+            returnValue.Title = postEntity.Title;
+            returnValue.Summary = postEntity.Summary;
+            returnValue.PublishTime = postEntity.PublishTime;
+            return returnValue;
+        }
+
+        static TheEntity ToTheEntity(TalksEntity entity)
+        {
+            TheEntity returnValue = new TheEntity();
+            returnValue.PostType = 2;
+            returnValue.Content = entity.Content;
+            returnValue.ImageList = entity.ImageList;
+            returnValue.PublishTime = entity.PublishTime;
+            return returnValue;
         }
     }
 }

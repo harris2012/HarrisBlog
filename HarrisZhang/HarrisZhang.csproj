@@ -104,11 +104,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\ArchiveController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="Controllers\TalksController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controls\PadingControl.cs" />
     <Compile Include="Controls\PagingTemplate.cs">
       <AutoGen>True</AutoGen>
@@ -122,13 +119,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\posts.xml" />
     <Content Include="baidu_verify_vzHzQ5N6WU.html" />
     <Content Include="Controls\PagingTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PagingTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_Data\posts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Data\posts\2017-freetravel-in-tokyo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -175,12 +170,8 @@
     <Content Include="App_Data\posts\word-of-birds.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\talks.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="images\bg-ico.png" />
     <Content Include="images\logo.png" />
     <Content Include="jq.snow.js" />
     <Content Include="post-images\1.jpg" />
@@ -203,7 +194,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="_500.html" />
   </ItemGroup>
   <ItemGroup>
@@ -223,14 +213,11 @@
     <Content Include="styles\_about_page.less" />
     <Content Include="styles\_post_page.less" />
     <Content Include="styles\_talks_page.less" />
-    <Content Include="styles\_archive_page.less" />
     <Content Include="styles\_common_page.less" />
-    <Content Include="styles\_search_page.less" />
     <Content Include="styles\_comment.less" />
     <Content Include="styles\_footer.less" />
     <Content Include="styles\_header.less" />
     <Content Include="styles\_navbar.less" />
-    <Content Include="styles\_directory.less" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
@@ -243,13 +230,7 @@
     <Content Include="Views\Post\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Categories\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="_404.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Archive\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -262,7 +243,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Talks\Index.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\RemotePublish.pubxml" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HarrisZhang.Repository
 {
-    public class PostsRepository : RepositoryBase<List<PostsEntity>>
+    public class PostsRepository : RepositoryBase<List<TheEntity>>
     {
         protected override string FilePath
         {
