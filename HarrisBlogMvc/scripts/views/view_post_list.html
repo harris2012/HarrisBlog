@@ -20,3 +20,9 @@
         <span class="post-toolbar-item">{{post.lastUpdateTime}}</span>
     </li>
 </ul>
+
+<div>
+    <div class="col-sm-12">
+        <ul uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="pageChanged()" items-per-page="pageSize" max-size="maxSize" class="pagination" previous-text="上一页" next-text="下一页" boundary-link-numbers="true"></ul>
+    </div>
+</div>

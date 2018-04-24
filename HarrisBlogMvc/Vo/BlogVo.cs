@@ -30,12 +30,6 @@ namespace HarrisBlogMvc.Vo
         public string Body { get; set; }
 
         /// <summary>
-        /// 文章的html主体
-        /// </summary>
-        [JsonProperty("htmlBody")]
-        public string HtmlBody { get; set; }
-
-        /// <summary>
         /// 发表时间
         /// </summary>
         [JsonProperty("publishTime")]

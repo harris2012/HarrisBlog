@@ -7,9 +7,9 @@ using System.Web;
 
 namespace HarrisBlogMvc.Response
 {
-    public class GetBlogResponse : ResponseBase
+    public class PostItemsResponse : ResponseBase
     {
-        [JsonProperty("blog")]
-        public BlogVo Blog { get; set; }
+        [JsonProperty("posts")]
+        public List<BlogVo> PostList { get; set; }
     }
 }

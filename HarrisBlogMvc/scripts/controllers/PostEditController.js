@@ -5,14 +5,13 @@
         $state.go('app.post.post-list');
     }
 
-    BlogService.getById($scope.id).then(function (response) {
-
+    function post_item_callback(response) {
         if (response.status == 404) {
             $state.go('app.post.post-list');
         } else {
             $scope.post = response.blog;
         }
-    })
+    }
 
     $scope.editorOptions = {
         mode: 'gfm',
@@ -60,4 +59,10 @@
             }
         })
     };
+
+    {
+        var request = {};
+        request.id = $scope.id;
+        BlogService.post_item(request).then(post_item_callback);
+    }
 }

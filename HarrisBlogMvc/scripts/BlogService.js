@@ -1,18 +1,19 @@
 ﻿function BlogService($resource, $q) {
 
     var resource = $resource('', {}, {
-        get: { method: 'GET', url: '/api/blog' },
-        create: { method: 'POST', url: 'api/blog' },
-        getById: { method: 'GET', url: '/api/blog/:id' },
-        update: { method: 'PUT', url: '/api/blog/:id' },
-        deleteById: { method: 'DELETE', url: '/api/blog/:id' }
+        post_items: { method: 'POST', url: '/api/post/items' },
+        post_count: { method: 'POST', url: '/api/post/count' },
+        post_item: { method: 'POST', url: '/api/post/item' },
+        post_create: { method: 'POST', url: '/api/post/create' },
+        post_delete: { method: 'POST', url: '/api/post/delete' },
     });
 
     return {
-        get: function () { var d = $q.defer(); resource.get({}, {}, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
-        create: function (request) { var d = $q.defer(); resource.create({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
-        getById: function (id) { var d = $q.defer(); resource.getById({ id: id }, {}, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
-        update: function (id, request) { var d = $q.defer(); resource.update({ id: id }, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
-        deleteById: function (id) { var d = $q.defer(); resource.deleteById({ id: id }, {}, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; }
+
+        post_items: function (request) { var d = $q.defer(); resource.post_items({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        post_count: function (request) { var d = $q.defer(); resource.post_count({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        post_item: function (request) { var d = $q.defer(); resource.post_item({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        post_create: function (request) { var d = $q.defer(); resource.post_create({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        post_delete: function (request) { var d = $q.defer(); resource.post_delete({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; }
     }
 }
