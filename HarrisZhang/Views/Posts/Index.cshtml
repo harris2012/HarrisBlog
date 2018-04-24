@@ -56,14 +56,9 @@
                 <div class="talk-item">
                     @if (item.PostType == 1)
                     {
-                        <a href="~/post/@item.Ename">
-                            <div class="item-desc">
-                                <p>@item.Summary</p>
-                            </div>
-                        </a>
+                        <a href="~/post/@item.Ename"><div class="item-desc"><p>@item.Summary</p></div></a>
                         <div class="talk-time">
-                            <i class="fa fa-calendar"></i>
-                            <span>@item.PublishTime.ToShortDateString()</span>
+                            <i class="fa fa-calendar"></i><span>@item.PublishTime.ToShortDateString()</span>
                         </div>
                     }
                     else
@@ -79,8 +74,7 @@
                             </ul>
                         }
                         <div class="talk-time">
-                            <i class="fa fa-calendar"></i>
-                            <span>@item.PublishTime.ToShortDateString()</span>
+                            <i class="fa fa-calendar"></i><span>@item.PublishTime.ToShortDateString()</span>
                         </div>
                     }
                 </div>
