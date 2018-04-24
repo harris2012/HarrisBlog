@@ -1076,12 +1076,12 @@ textarea::-moz-placeholder {
   padding-bottom: 50px;
   background-color: #fff;
 }
-.footer-social {
-  border-bottom: 1px solid rgba(184, 197, 214, 0.2);
-}
-.footer-social .footer-container {
+.footer-container {
   max-width: 940px;
   margin: 0 auto;
+}
+.footer-social {
+  border-bottom: 1px solid rgba(184, 197, 214, 0.2);
 }
 .footer-social .social-list {
   padding: 20px;
@@ -1096,17 +1096,16 @@ textarea::-moz-placeholder {
 .footer-meta {
   padding: 50px 0 0;
   list-style: none;
-}
-.footer-meta .footer-container {
-  width: 100%;
-  max-width: 960px;
-  height: 250px;
-  margin: 0 auto;
-  padding: 0 80px;
+  /*.footer-container {
+        width: 100%;
+        max-width: 960px;
+        //height: 250px;
+        margin: 0 auto;
+        padding: 0 80px;
+    }*/
 }
 .footer-meta .meta-item {
   position: relative;
-  float: left;
   width: 33.3333333%;
   min-height: 1px;
   padding: 0 30px;
