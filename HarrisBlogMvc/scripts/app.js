@@ -3,3 +3,5 @@
 app.config(route);
 
 app.service('BlogService', ['$resource', '$q', BlogService]);
+
+app.directive('talkcategory', TalkCategoryDirective);

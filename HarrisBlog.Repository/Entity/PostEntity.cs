@@ -18,7 +18,7 @@ namespace HarrisBlog.Repository.Entity
 
         public int PostType { get; set; }
 
-        public string MarkdownBody { get; set; }
+        public string Body { get; set; }
 
         public string Summary { get; set; }
 

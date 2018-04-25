@@ -5,7 +5,11 @@ function BlogService($resource, $q) {
         post_count: { method: 'POST', url: '/api/post/count' },
         post_item: { method: 'POST', url: '/api/post/item' },
         post_create: { method: 'POST', url: '/api/post/create' },
+        post_update: { method: 'POST', url: '/api/post/update' },
         post_delete: { method: 'POST', url: '/api/post/delete' },
+
+        talk_items: { method: 'POST', url: '/api/talk/items' },
+        talk_count: { method: 'POST', url: '/api/talk/count' },
     });
 
     return {
@@ -14,7 +18,11 @@ function BlogService($resource, $q) {
         post_count: function (request) { var d = $q.defer(); resource.post_count({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
         post_item: function (request) { var d = $q.defer(); resource.post_item({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
         post_create: function (request) { var d = $q.defer(); resource.post_create({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
-        post_delete: function (request) { var d = $q.defer(); resource.post_delete({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; }
+        post_update: function (request) { var d = $q.defer(); resource.post_update({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        post_delete: function (request) { var d = $q.defer(); resource.post_delete({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+
+        talk_items: function (request) { var d = $q.defer(); resource.talk_items({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        talk_count: function (request) { var d = $q.defer(); resource.talk_count({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
     }
 }
 function PostListController($scope, BlogService) {
@@ -29,7 +37,7 @@ function PostListController($scope, BlogService) {
     function post_count_callback(response) {
 
         if (response.status == 1) {
-            $scope.totalCount = response.count;
+            $scope.totalCount = response.totalCount;
         }
     }
 
@@ -88,7 +96,7 @@ function PostListController($scope, BlogService) {
     {
         $scope.maxSize = 10;
         $scope.currentPage = 1;
-        $scope.pageSize = 5;
+        $scope.pageSize = 10;
         $scope.dataStatus = 0;
 
         $scope.refresh();
@@ -96,6 +104,13 @@ function PostListController($scope, BlogService) {
 
 }
 function PostNewController($scope, $state, BlogService) {
+
+    function post_create_callback(response) {
+
+        if (response.status == 1) {
+            $state.go('app.post.post-list');
+        }
+    }
 
     $scope.editorOptions = {
         mode: 'gfm',
@@ -109,9 +124,6 @@ function PostNewController($scope, $state, BlogService) {
 
     $scope.openDatePicker = function () {
         $scope.isDatePickerOpen = true;
-    }
-    $scope.refreshPublishTime = function () {
-        $scope.post.publishTime = new Date();
     }
 
     $scope.postBodyChanged = function () {
@@ -143,15 +155,15 @@ function PostNewController($scope, $state, BlogService) {
             return;
         }
 
-        var request = { blog: $scope.post, version: 12345 };
-        //request.__RequestVerificationToken = $('input[name="__RequestVerificationToken"]').val();
+        {
+            var request = { };
+            request.title = $scope.post.title;
+            request.ename = $scope.post.ename;
+            request.body = $scope.post.body;
+            request.publishTime = $scope.publishTime;
 
-        BlogService.create(request).then(function (response) {
-
-            if (response.status == 1) {
-                $state.go('app.post.post-list');
-            }
-        })
+            BlogService.post_create(request).then(post_create_callback);
+        }
     };
 }
 function PostEditController($scope, $state, $stateParams, BlogService) {
@@ -169,6 +181,14 @@ function PostEditController($scope, $state, $stateParams, BlogService) {
         }
     }
 
+    function post_update_callback(response) {
+
+        console.log(result);
+        if (result.status == 1) {
+            alert('success');
+        }
+    }
+
     $scope.editorOptions = {
         mode: 'gfm',
         styleActiveLine: true,
@@ -205,21 +225,139 @@ function PostEditController($scope, $state, $stateParams, BlogService) {
             return;
         }
 
-        var request = { blog: $scope.post, version: 67890 };
+        {
+            var request = { blog: $scope.post, version: 67890 };
+            request.id = $scope.post.id;
+            request.title = $scope.post.title;
+            request.ename = $scope.post.ename;
+            request.body = $scope.post.body;
 
-        BlogService.update($scope.id, request).then(function (result) {
-
-            console.log(result);
-            if (result.status == 1) {
-
-            }
-        })
+            BlogService.post_update(request).then(post_update_callback)
+        }
     };
 
     {
         var request = {};
         request.id = $scope.id;
         BlogService.post_item(request).then(post_item_callback);
+    }
+}
+function TalkListController($scope, BlogService) {
+
+    function talk_items_callback(response) {
+
+        if (response.status == 1) {
+            $scope.talkList = response.talkList;
+        }
+    }
+
+    function talk_count_callback(response) {
+
+        if (response.status == 1) {
+            $scope.totalCount = response.totalCount;
+        }
+    }
+
+    //分页
+    $scope.pageChanged = function () {
+
+        var request = {};
+        request.pageIndex = $scope.currentPage;
+        request.pageSize = $scope.pageSize;
+        request.keyword = $scope.keyword;
+        request.dataStatus = $scope.dataStatus;
+        request.categoryId = $scope.categoryId;
+
+        BlogService.talk_items(request).then(talk_items_callback)
+    };
+
+    //重新搜索
+    $scope.keywordChanged = $scope.categoryChanged = $scope.dataStatusChanged = function () {
+
+        $scope.currentPage = 1;
+
+        $scope.refresh();
+    }
+
+    //刷新
+    $scope.refresh = function () {
+
+        {
+            var request = {};
+            request.pageIndex = $scope.currentPage;
+            request.pageSize = $scope.pageSize;
+            request.keyword = $scope.keyword;
+            request.dataStatus = $scope.dataStatus;
+            request.categoryId = $scope.categoryId;
+
+            BlogService.talk_items(request).then(talk_items_callback)
+        }
+
+        {
+            var request = {};
+            request.keyword = $scope.keyword;
+            request.dataStatus = $scope.dataStatus;
+            request.categoryId = $scope.categoryId;
+
+            BlogService.talk_count(request).then(talk_count_callback)
+        }
+    }
+
+    //删除项
+    //$scope.deletePostById = function (id) {
+
+    //    var request = {};
+    //    request.id = id;
+
+    //    BlogService.talk_delete(request).then(talk_delete_callback);
+    //}
+
+    //初始化
+    {
+        $scope.maxSize = 10;
+        $scope.currentPage = 1;
+        $scope.pageSize = 10;
+        $scope.dataStatus = 0;
+        $scope.categoryId = 0;
+
+        $scope.refresh();
+    }
+
+}
+function TalkCategoryDirective() {
+
+    return {
+        restrict: 'E',
+        template: '<span>{{talkCategory}}</span>',
+        replace: true,
+        scope: {},
+        link: function (scope, element, attrs) {
+
+            switch (attrs.type) {
+
+                case "1":
+                    scope.talkCategory = "普通说说";
+                    break;
+                case "2":
+                    scope.talkCategory = "技术宅";
+                    break;
+                case "3":
+                    scope.talkCategory = "我写的诗";
+                    break;
+                case "4":
+                    scope.talkCategory = "摘录";
+                    break;
+                case "20":
+                    scope.talkCategory = "修改重发";
+                    break;
+                case "5":
+                    scope.talkCategory = "待定";
+                    break;
+                default:
+                    scope.talkCategory = "未定义";
+                    break;
+            }
+        }
     }
 }
 var route = function ($stateProvider, $urlRouterProvider) {
@@ -242,31 +380,24 @@ var route = function ($stateProvider, $urlRouterProvider) {
         templateUrl: '/scripts/views/view_welcome.html?v=' + window.version
     });
 
+    //文章
     $stateProvider.state('app.post', {});
+    //列表页
+    $stateProvider.state('app.post.post-list', { url: 'post-list', templateUrl: '/scripts/views/view_post_list.html?v=' + window.version, controller: PostListController });
+    //新建
+    $stateProvider.state('app.post.post-new', { url: 'post-new', templateUrl: '/scripts/views/view_post_new.html?v=' + window.version, controller: PostNewController });
+    //编辑
+    $stateProvider.state('app.post.post-edit', { url: 'post-edit/:id', templateUrl: '/scripts/views/view_post_edit.html?v=' + window.version, controller: PostEditController });
 
-    //文章列表页
-    $stateProvider.state('app.post.post-list', {
-        url: 'post-list',
-        templateUrl: '/scripts/views/view_post_list.html?v=' + window.version,
-        controller: PostListController
-    });
-
-    //新建文章页
-    $stateProvider.state('app.post.post-new', {
-        url: 'post-new',
-        templateUrl: '/scripts/views/view_post_new.html?v=' + window.version,
-        controller: PostNewController
-    });
-
-    //编辑文章页
-    $stateProvider.state('app.post.post-edit', {
-        url: 'post-edit/:id',
-        templateUrl: '/scripts/views/view_post_edit.html?v=' + window.version,
-        controller: PostEditController
-    });
+    //说说
+    $stateProvider.state('app.talk', {});
+    //列表页
+    $stateProvider.state('app.talk.post-list', { url: 'talk-list', templateUrl: '/scripts/views/view_talk_list.html?v=' + window.version, controller: TalkListController });
 }
 var app = angular.module('app', ['ngResource', 'ui.router', 'ui.bootstrap', 'ui.codemirror']);
 
 app.config(route);
 
 app.service('BlogService', ['$resource', '$q', BlogService]);
+
+app.directive('talkcategory', TalkCategoryDirective);

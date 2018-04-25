@@ -55,7 +55,7 @@ namespace HarrisBlogMvc.Controllers
             {
                 var sql = "select count(1) from post where datastatus=1 order by createtime desc";
 
-                response.Count = sqliteConn.QuerySingle<int>(sql);
+                response.TotalCount = sqliteConn.QuerySingle<int>(sql);
             }
 
             response.Status = 1;
@@ -93,7 +93,7 @@ namespace HarrisBlogMvc.Controllers
                 Id = v.Id,
                 Ename = v.Ename,
                 Title = v.Title,
-                Body = v.MarkdownBody,
+                Body = v.Body,
                 CreateTime = v.CreateTime.Value,
                 LastUpdateTime = v.CreateTime.Value
             };
@@ -103,72 +103,63 @@ namespace HarrisBlogMvc.Controllers
         [HttpPost]
         public CreateBlogResponse Create([FromBody]CreateBlogRequest request)
         {
-            if (request.Blog == null)
-            {
-                return new CreateBlogResponse { Status = 1002, Message = "blog is null" };
-            }
-
-            var blog = request.Blog;
-
             PostEntity post = new PostEntity();
-            post.Title = blog.Title;
-            post.Ename = blog.Ename.Replace(" ", "-").ToLower();
+            post.Title = request.Title;
+            post.Ename = request.Ename.Replace(" ", "-").ToLower();
             post.PostType = 1;
-            post.MarkdownBody = blog.Body;
-            post.PublishTime = blog.PublishTime;
+            post.Body = request.Body;
+            post.PublishTime = request.PublishTime;
             post.DataStatus = 1;
             post.CreateTime = DateTime.Now;
             post.LastUpdateTime = DateTime.Now;
 
             Markdown mark = new Markdown();
-            var htmlBody = mark.Transform(blog.Body);
+            var htmlBody = mark.Transform(request.Body);
             var content = StripTagsRegex(htmlBody);
             post.Summary = content.Length < 50 ? content : content.Substring(0, 47) + "...";
 
-            string sql = "insert into Post(Title, Ename, PostType, MarkdownBody, HtmlBody, PublishTime, DataStatus, CreateTime, LastUpdateTime)values(@Title, @Ename, @PostType, @MarkdownBody, @HtmlBody, @PublishTime, @DataStatus, @CreateTime, @LastUpdateTime)";
+            string sql = "insert into Post(Title, Ename, PostType, Body, PublishTime, DataStatus, CreateTime, LastUpdateTime)values(@Title, @Ename, @PostType, @Body, @PublishTime, @DataStatus, @CreateTime, @LastUpdateTime)";
 
             using (var sqliteConn = ConnectionProvider.GetSqliteConn())
             {
                 sqliteConn.Execute(sql, post);
             }
 
-            return new CreateBlogResponse { Status = 1, Message = "发布成功 - " + request.Version };
+            return new CreateBlogResponse { Status = 1 };
         }
 
-        // PUT /api/blog/id
-        [HttpPut]
-        public UpdateBlogResponse Update(int id, [FromBody]UpdateBlogRequest request)
+        [HttpPost]
+        public UpdateBlogResponse Update([FromBody]UpdateBlogRequest request)
         {
-            if (id <= 0)
+            UpdateBlogResponse response = new UpdateBlogResponse();
+
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
             {
-                return new UpdateBlogResponse { Status = 1001, Message = "id is required" };
+                var sql = "select * from post where Id = @Id";
+
+                PostEntity postEntity = sqliteConn.QueryFirstOrDefault<PostEntity>(sql, new { Id = request.Id });
+                if (postEntity == null)
+                {
+                    response.Status = 404;
+                    return response;
+                }
             }
-            if (request.Blog == null)
+
+            string ename = request.Ename.Replace(" ", "-").ToLower();
+            Markdown mark = new Markdown();
+            var htmlBody = mark.Transform(request.Body);
+            var content = StripTagsRegex(htmlBody);
+            var summary = content.Length < 50 ? content : content.Substring(0, 47) + "...";
+
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
             {
-                return new UpdateBlogResponse { Status = 1002, Message = "blog is null" };
+                var sql = "update post set Title = @Title, Ename = @Ename, Body = @Body, Summary = @Summary, LastUpdateTime = @LastUpdateTime where Id = @Id";
+
+                sqliteConn.Execute(sql, new { Title = request.Title, Ename = ename, Body = request.Body, Summary = summary, LastUpdateTime = DateTime.Now, Id = request.Id });
             }
 
-            //HarrisBlogDataContext context = new HarrisBlogDataContext();
-
-            //var postEntity = context.Post.FirstOrDefault(v => v.Id == id);
-            //if (postEntity == null)
-            //{
-            //    return new UpdateBlogResponse { Status = 404, Message = "post is not found" };
-            //}
-
-            //var blog = request.Blog;
-            //postEntity.Title = blog.Title;
-            //postEntity.Ename = blog.Ename.Replace(" ", "-").ToLower();
-            //postEntity.MarkdownBody = blog.Body;
-            //postEntity.HtmlBody = blog.HtmlBody;
-            //postEntity.LastUpdateTime = DateTime.Now;
-
-            //var content = StripTagsRegex(blog.HtmlBody);
-            //postEntity.Summary = content.Length < 50 ? content : content.Substring(0, 47) + "...";
-
-            //context.SubmitChanges();
-
-            return new UpdateBlogResponse { Status = 1, Message = "更新成功" + request.Version };
+            response.Status = 1;
+            return response;
         }
 
         [HttpPost]

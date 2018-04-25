@@ -13,6 +13,14 @@
         }
     }
 
+    function post_update_callback(response) {
+
+        console.log(result);
+        if (result.status == 1) {
+            alert('success');
+        }
+    }
+
     $scope.editorOptions = {
         mode: 'gfm',
         styleActiveLine: true,
@@ -49,15 +57,15 @@
             return;
         }
 
-        var request = { blog: $scope.post, version: 67890 };
+        {
+            var request = { blog: $scope.post, version: 67890 };
+            request.id = $scope.post.id;
+            request.title = $scope.post.title;
+            request.ename = $scope.post.ename;
+            request.body = $scope.post.body;
 
-        BlogService.update($scope.id, request).then(function (result) {
-
-            console.log(result);
-            if (result.status == 1) {
-
-            }
-        })
+            BlogService.post_update(request).then(post_update_callback)
+        }
     };
 
     {

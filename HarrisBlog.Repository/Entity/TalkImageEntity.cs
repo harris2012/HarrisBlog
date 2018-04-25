@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HarrisBlog.Repository.Entity
 {
-    class TalkImageEntity
+    public class TalkImageEntity
     {
         public int Id { get; set; }
 

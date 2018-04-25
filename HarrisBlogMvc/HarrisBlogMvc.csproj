@@ -132,6 +132,7 @@
     <Compile Include="ConnectionProvider.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TalkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,6 +144,8 @@
     <Compile Include="Request\PostCountRequest.cs" />
     <Compile Include="Request\PostItemRequest.cs" />
     <Compile Include="Request\PostItemsRequest.cs" />
+    <Compile Include="Request\TalkCountRequest.cs" />
+    <Compile Include="Request\TalkItemsRequest.cs" />
     <Compile Include="Request\UpdateBlogRequest.cs" />
     <Compile Include="Response\CreateBlogResponse.cs" />
     <Compile Include="Response\DeletePostResponse.cs" />
@@ -150,17 +153,22 @@
     <Compile Include="Response\PostCountResponse.cs" />
     <Compile Include="Response\PostItemResponse.cs" />
     <Compile Include="Response\PostItemsResponse.cs" />
+    <Compile Include="Response\TalkCountResponse.cs" />
+    <Compile Include="Response\TalkItemsResponse.cs" />
     <Compile Include="Vo\BlogVo.cs" />
     <Compile Include="Response\ResponseBase.cs" />
     <Compile Include="Response\UpdateBlogResponse.cs" />
+    <Compile Include="Vo\TalkVo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\PostEditController.js" />
+    <Content Include="scripts\controllers\TalkListController.js" />
     <Content Include="scripts\controllers\PostNewController.js" />
     <Content Include="scripts\controllers\PostListController.js" />
+    <Content Include="scripts\directive\TalkCategoryDirective.js" />
     <Content Include="scripts\harrisblog.js" />
     <Content Include="scripts\harrisblog.min.js">
       <DependentUpon>harrisblog.js</DependentUpon>
@@ -169,6 +177,7 @@
     <Content Include="scripts\route.js" />
     <Content Include="scripts\views\view_header.html" />
     <Content Include="scripts\views\view_menu.html" />
+    <Content Include="scripts\views\view_talk_list.html" />
     <Content Include="scripts\views\view_post_list.html" />
     <Content Include="scripts\views\view_post_edit.html" />
     <Content Include="scripts\views\view_post_new.html" />
@@ -179,7 +188,7 @@
     <Content Include="styles\harrisblog.min.css">
       <DependentUpon>harrisblog.css</DependentUpon>
     </Content>
-    <None Include="styles\ui_post_list.less" />
+    <None Include="styles\ui_list.less" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -196,6 +205,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="styles\ui_post_new.less" />
     <Content Include="styles\_bootstrap_fix.less" />
+    <Content Include="styles\ui_talk_list.less" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

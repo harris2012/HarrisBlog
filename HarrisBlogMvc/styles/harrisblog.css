@@ -142,26 +142,25 @@
 .wrapper-collapsed {
   margin-left: 80px;
 }
-.post-list {
-  list-style: none;
+.ui-list {
   padding: 0;
 }
-.post-item {
+.ui-list-item {
   display: flex;
   padding: 10px;
 }
-.post-item:hover {
+.ui-list-item:hover {
   background: #eee;
   cursor: pointer;
 }
-.post-item .checkbox {
+.ui-list-item .checkbox {
   margin-bottom: 0;
 }
-.post-item .post-title {
+.ui-list-item .post-title {
   display: block;
   width: 50%;
 }
-.post-item .post-toolbar-item {
+.ui-list-item .post-toolbar-item {
   display: block;
   min-width: 20px;
   margin-left: 10px;
@@ -192,4 +191,8 @@
 .post_body {
   margin-bottom: 10px;
   border: 1px solid #ccc;
+}
+.talk_image_list {
+  list-style: none;
+  padding: 0;
 }

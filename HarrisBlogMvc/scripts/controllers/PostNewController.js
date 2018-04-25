@@ -1,5 +1,12 @@
 ﻿function PostNewController($scope, $state, BlogService) {
 
+    function post_create_callback(response) {
+
+        if (response.status == 1) {
+            $state.go('app.post.post-list');
+        }
+    }
+
     $scope.editorOptions = {
         mode: 'gfm',
         styleActiveLine: true,
@@ -12,9 +19,6 @@
 
     $scope.openDatePicker = function () {
         $scope.isDatePickerOpen = true;
-    }
-    $scope.refreshPublishTime = function () {
-        $scope.post.publishTime = new Date();
     }
 
     $scope.postBodyChanged = function () {
@@ -46,14 +50,14 @@
             return;
         }
 
-        var request = { blog: $scope.post, version: 12345 };
-        //request.__RequestVerificationToken = $('input[name="__RequestVerificationToken"]').val();
+        {
+            var request = { };
+            request.title = $scope.post.title;
+            request.ename = $scope.post.ename;
+            request.body = $scope.post.body;
+            request.publishTime = $scope.publishTime;
 
-        BlogService.create(request).then(function (response) {
-
-            if (response.status == 1) {
-                $state.go('app.post.post-list');
-            }
-        })
+            BlogService.post_create(request).then(post_create_callback);
+        }
     };
 }

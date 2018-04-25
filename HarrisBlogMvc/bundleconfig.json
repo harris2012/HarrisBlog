@@ -9,6 +9,10 @@
       "scripts/controllers/PostNewController.js",
       "scripts/controllers/PostEditController.js",
 
+      "scripts/controllers/TalkListController.js",
+
+      "scripts/directive/TalkCategoryDirective.js",
+
       "scripts/route.js",
       "scripts/app.js"
     ]

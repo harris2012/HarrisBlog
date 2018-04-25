@@ -22,7 +22,7 @@ namespace HarrisZhang.Repository.Entity
         /// </summary>
         public int PostStyle { get; set; }
 
-        public string MarkdownBody { get; set; }
+        public string Body { get; set; }
 
         public string HtmlBody { get; set; }
     }

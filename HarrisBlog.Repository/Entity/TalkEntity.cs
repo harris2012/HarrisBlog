@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace HarrisBlog.Repository.Entity
 {
-    class TalkEntity
+    public class TalkEntity
     {
         public int Id { get; set; }
 
         public string TalkId { get; set; }
 
-        public string Category { get; set; }
+        public int Category { get; set; }
 
         public string MsgContent { get; set; }
 
@@ -22,6 +22,8 @@ namespace HarrisBlog.Repository.Entity
 
         public string PosY { get; set; }
 
-        public System.Nullable<System.DateTime> CreateTime { get; set; }
+        public DateTime CreateTime { get; set; }
+
+        public int DataStatus { get; set; }
     }
 }

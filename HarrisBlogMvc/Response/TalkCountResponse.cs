@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HarrisBlogMvc.Response
 {
-    public class PostCountResponse : ResponseBase
+    public class TalkCountResponse : ResponseBase
     {
         [JsonProperty("totalCount")]
         public int TotalCount { get; set; }

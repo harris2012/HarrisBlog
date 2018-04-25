@@ -1,0 +1,102 @@
+﻿<div class="wrapper-title">
+    <ol class="breadcrumb">
+        <li><a ui-sref="app.welcome">首页</a></li>
+        <li class="active">说说</li>
+    </ol>
+</div>
+
+<div class="wrapper-toolbar">
+    <a class="btn btn-success" ui-sref="app.talk.talk-new">新建</a>
+</div>
+
+<div class="wrapper-content">
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">分类</label>
+            <div class="col-sm-11">
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="category_0" name="category" ng-value="0" ng-model="categoryId" ng-change="categoryChanged()" />
+                    <label for="category_0">全部</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="category_1" name="category" ng-value="1" ng-model="categoryId" ng-change="categoryChanged()" />
+                    <label for="category_1">普通说说</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="category_2" name="category" ng-value="2" ng-model="categoryId" ng-change="categoryChanged()" />
+                    <label for="category_2">技术宅</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="category_3" name="category" ng-value="3" ng-model="categoryId" ng-change="categoryChanged()" />
+                    <label for="category_3">我写的诗</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="category_4" name="category" ng-value="4" ng-model="categoryId" ng-change="categoryChanged()" />
+                    <label for="category_4">摘录</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="category_20" name="category" ng-value="20" ng-model="categoryId" ng-change="categoryChanged()" />
+                    <label for="category_20">修改后重新发表</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="category_5" name="category" ng-value="5" ng-model="categoryId" ng-change="categoryChanged()" />
+                    <label for="category_5">待定</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-1">状态</label>
+            <div class="col-sm-11">
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="dataStatus_0" name="dataStatus" ng-value="0" ng-model="dataStatus" ng-change="dataStatusChanged()" />
+                    <label for="dataStatus_0">全部</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="dataStatus_1" name="dataStatus" ng-value="1" ng-model="dataStatus" ng-change="dataStatusChanged()" />
+                    <label for="dataStatus_1">有效</label>
+                </div>
+                <div class="radio radio-inline icheck-success">
+                    <input type="radio" id="dataStatus_2" name="dataStatus" ng-value="2" ng-model="dataStatus" ng-change="dataStatusChanged()" />
+                    <label for="dataStatus_2">无效</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width:5%">ID</th>
+                <th style="width:50%">内容</th>
+                <th>分类</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="talk in talkList">
+                <td>{{talk.id}}</td>
+                <td>
+                    <div>
+                        <p>{{talk.msgContent}}</p>
+                        <ul class="talk_image_list" ng-show="talk.imageIdList!=null&&talk.imageIdList.length>0">
+                            <li ng-repeat="imageId in talk.imageIdList">{{imageId}}</li>
+                        </ul>
+                    </div>
+                </td>
+                <td><talkcategory type="{{talk.category}}"></talkcategory></td>
+                <td>
+                    <a ui-sref="app.post.post-edit({id:post.id})" class="post-toolbar-item">编辑</a>
+                    <a ng-click="deletePostById(post.id)">删除</a>
+                </td>
+                <td>{{post.createTime}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <div class="col-sm-12">
+        <ul uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="pageChanged()" items-per-page="pageSize" max-size="maxSize" class="pagination" previous-text="上一页" next-text="下一页" boundary-link-numbers="true"></ul>
+    </div>
+</div>
