@@ -15,7 +15,24 @@
         <p ng-show="postForm.ename.$dirty && postForm.ename.$invalid">请输入文章标题</p>
 
         <div class="post_body">
-            <div ui-codemirror ui-codemirror-opts="editorOptions" ng-model="post.body" ng-change="postBodyChanged()"></div>
+            <ul class="md-editor-toolbar">
+                <li ng-click="md_click_h1()"><a>H1</a></li>
+                <li ng-click="md_click_h2()"><a>H2</a></li>
+                <li ng-click="md_click_h3()"><a>H3</a></li>
+                <li ng-click="md_click_h4()"><a>H4</a></li>
+                <li ng-click="md_click_h5()"><a>H5</a></li>
+                <li ng-click="md_click_b()"><a><i class="fa fa-bold"></i></a></li>
+                <li ng-click="md_click_i()"><a><i class="fa fa-italic"></i></a></li>
+                <li ng-click="md_click_link()"><a><i class="fa fa-link"></i></a></li>
+                <li ng-click="md_click_image()"><a><i class="fa fa-image"></i></a></li>
+                <li ng-click="md_click_code()"><a><i class="fa fa-code"></i></a></li>
+            </ul>
+            <div class="md-editor-body">
+                <div ui-codemirror ui-codemirror-opts="editorOptions" ng-model="post.body" ng-change="postBodyChanged()" class="md-editor-edit"></div>
+                <div class="md-editor-preview">
+                    <p>ths usdoqjidj;weioop</p>
+                </div>
+            </div>
         </div>
         <p ng-show="false"></p>
 

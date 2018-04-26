@@ -1,5 +1,10 @@
 ﻿@section styles{
     <link href="http://static.savory.cn/codemirror/5.19.0/lib/codemirror.css" rel="stylesheet" />
+    <style type="text/css">
+        .CodeMirror {
+            height: 400px;
+        }
+    </style>
 }
 @section scripts{
     <script src="http://static.savory.cn/codemirror/5.19.0/lib/codemirror.js"></script>
@@ -13,7 +18,7 @@
 
     <script src="~/scripts/harrisblog.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>
     <script>
-        window.version=@DateTime.Now.ToString("yyyyMMddHHmmss")
+        window.version=@DateTime.Now.ToString("yyyyMMddHHmmss");
     </script>
 }
 <div ng-app="app">

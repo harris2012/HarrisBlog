@@ -189,6 +189,7 @@
       <DependentUpon>harrisblog.css</DependentUpon>
     </Content>
     <None Include="styles\ui_list.less" />
+    <None Include="styles\ui_md_editor.less" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
