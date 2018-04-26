@@ -10,6 +10,8 @@
       "scripts/controllers/PostEditController.js",
 
       "scripts/controllers/TalkListController.js",
+      "scripts/controllers/TalkNewController.js",
+      "scripts/controllers/TalkEditController.js",
 
       "scripts/directive/TalkCategoryDirective.js",
 

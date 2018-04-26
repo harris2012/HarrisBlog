@@ -376,6 +376,12 @@ function TalkListController($scope, BlogService) {
     }
 
 }
+function TalkNewController($scope, $state, BlogService) {
+
+}
+function TalkEditController($scope, $state, BlogService) {
+
+}
 function TalkCategoryDirective() {
 
     return {
@@ -444,7 +450,11 @@ var route = function ($stateProvider, $urlRouterProvider) {
     //说说
     $stateProvider.state('app.talk', {});
     //列表页
-    $stateProvider.state('app.talk.post-list', { url: 'talk-list', templateUrl: '/scripts/views/view_talk_list.html?v=' + window.version, controller: TalkListController });
+    $stateProvider.state('app.talk.talk-list', { url: 'talk-list', templateUrl: '/scripts/views/view_talk_list.html?v=' + window.version, controller: TalkListController });
+    //列表页
+    $stateProvider.state('app.talk.talk-new', { url: 'talk-new', templateUrl: '/scripts/views/view_talk_new.html?v=' + window.version, controller: TalkNewController });
+    //列表页
+    $stateProvider.state('app.talk.talk-edit', { url: 'talk-edit', templateUrl: '/scripts/views/view_talk_edit.html?v=' + window.version, controller: TalkEditController });
 }
 var app = angular.module('app', ['ngResource', 'ui.router', 'ui.bootstrap', 'ui.codemirror']);
 

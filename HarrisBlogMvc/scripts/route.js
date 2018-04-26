@@ -30,5 +30,9 @@
     //说说
     $stateProvider.state('app.talk', {});
     //列表页
-    $stateProvider.state('app.talk.post-list', { url: 'talk-list', templateUrl: '/scripts/views/view_talk_list.html?v=' + window.version, controller: TalkListController });
+    $stateProvider.state('app.talk.talk-list', { url: 'talk-list', templateUrl: '/scripts/views/view_talk_list.html?v=' + window.version, controller: TalkListController });
+    //列表页
+    $stateProvider.state('app.talk.talk-new', { url: 'talk-new', templateUrl: '/scripts/views/view_talk_new.html?v=' + window.version, controller: TalkNewController });
+    //列表页
+    $stateProvider.state('app.talk.talk-edit', { url: 'talk-edit', templateUrl: '/scripts/views/view_talk_edit.html?v=' + window.version, controller: TalkEditController });
 }

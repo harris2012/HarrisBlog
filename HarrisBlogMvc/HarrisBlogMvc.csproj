@@ -165,9 +165,11 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\PostEditController.js" />
+    <Content Include="scripts\controllers\TalkEditController.js" />
     <Content Include="scripts\controllers\TalkListController.js" />
     <Content Include="scripts\controllers\PostNewController.js" />
     <Content Include="scripts\controllers\PostListController.js" />
+    <Content Include="scripts\controllers\TalkNewController.js" />
     <Content Include="scripts\directive\TalkCategoryDirective.js" />
     <Content Include="scripts\harrisblog.js" />
     <Content Include="scripts\harrisblog.min.js">
@@ -177,10 +179,12 @@
     <Content Include="scripts\route.js" />
     <Content Include="scripts\views\view_header.html" />
     <Content Include="scripts\views\view_menu.html" />
+    <Content Include="scripts\views\view_talk_edit.html" />
     <Content Include="scripts\views\view_talk_list.html" />
     <Content Include="scripts\views\view_post_list.html" />
     <Content Include="scripts\views\view_post_edit.html" />
     <Content Include="scripts\views\view_post_new.html" />
+    <Content Include="scripts\views\view_talk_new.html" />
     <Content Include="scripts\views\view_welcome.html" />
     <Content Include="styles\harrisblog.css">
       <DependentUpon>harrisblog.less</DependentUpon>
