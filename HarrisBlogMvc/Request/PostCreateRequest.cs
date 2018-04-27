@@ -7,7 +7,7 @@ using System.Web;
 
 namespace HarrisBlogMvc.Request
 {
-    public class CreateBlogRequest
+    public class PostCreateRequest
     {
         /// <summary>
         /// 文章的英文名

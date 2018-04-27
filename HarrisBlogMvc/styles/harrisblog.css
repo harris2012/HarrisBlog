@@ -92,23 +92,6 @@
 .sidebar-sections li:hover {
   border-left: 4px solid #00aea2;
 }
-.collapse-nav {
-  width: 220px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  font-size: 13px;
-  background: transparent;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  transition-duration: .3s;
-  outline: none;
-}
-.toggle-nav-collapse {
-  color: #fff;
-  background: #019875;
-}
 .sidebar-expanded .section-icon {
   font-size: 24px;
   display: inline-block;

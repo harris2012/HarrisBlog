@@ -1,1 +1,52 @@
-﻿<p>talk new</p>
+﻿<div class="wrapper-title">
+    <ol class="breadcrumb">
+        <li><a ui-sref="app.welcome">首页</a></li>
+        <li><a ui-sref="app.talk.talk-list">说说</a></li>
+        <li class="active">新建</li>
+    </ol>
+</div>
+
+<div class="wrapper-content">
+    <div class="form-horizontal" ng-form="talkForm">
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-1 control-label">内容</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" placeholder="正文" name="body" ng-model="talk.body" required></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <p class="form-control-static" ng-show="talkForm.body.$dirty && talkForm.body.$invalid">请输入正文</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-1 control-label">发布时间</label>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" placeholder="yyyy-MM-dd" ng-model="talk.publishTime" is-open="isDatePickerOpen" close-text="关闭" clear-text="清空" current-text="今天" alt-input-formats="yyyy-MM-dd" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div uib-timepicker ng-model="talk.publishTime" hour-step="1" minute-step="12" show-meridian="false" show-spinners="false"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <a class="btn btn-success" ng-click="create()">保存</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

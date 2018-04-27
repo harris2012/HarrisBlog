@@ -5,7 +5,8 @@ using System.Web;
 
 namespace HarrisBlogMvc.Request
 {
-    public class GetImageListRequest
+    public class TalkItemRequest
     {
+        public int Id { get; set; }
     }
 }

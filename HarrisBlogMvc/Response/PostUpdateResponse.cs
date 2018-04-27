@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HarrisBlogMvc.Response
 {
-    public class GetImageListResponse : ResponseBase
+    public class PostUpdateResponse : ResponseBase
     {
     }
 }

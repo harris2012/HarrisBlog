@@ -14,9 +14,6 @@
         lineWrapping: true
     };
 
-    $scope.post = {};
-    $scope.post.publishTime = new Date();
-
     $scope.openDatePicker = function () {
         $scope.isDatePickerOpen = true;
     }
@@ -112,4 +109,9 @@
             BlogService.post_create(request).then(post_create_callback);
         }
     };
+
+    {
+        $scope.post = {};
+        $scope.post.publishTime = new Date();
+    }
 }

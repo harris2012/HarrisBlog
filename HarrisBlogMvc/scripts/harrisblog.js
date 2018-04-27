@@ -10,6 +10,9 @@ function BlogService($resource, $q) {
 
         talk_items: { method: 'POST', url: '/api/talk/items' },
         talk_count: { method: 'POST', url: '/api/talk/count' },
+        talk_create: { method: 'POST', url: '/api/talk/create' },
+        talk_item: { method: 'POST', url: '/api/talk/item' },
+        talk_update: { method: 'POST', url: '/api/talk/update' },
     });
 
     return {
@@ -23,6 +26,9 @@ function BlogService($resource, $q) {
 
         talk_items: function (request) { var d = $q.defer(); resource.talk_items({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
         talk_count: function (request) { var d = $q.defer(); resource.talk_count({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        talk_create: function (request) { var d = $q.defer(); resource.talk_create({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        talk_item: function (request) { var d = $q.defer(); resource.talk_item({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        talk_update: function (request) { var d = $q.defer(); resource.talk_update({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
     }
 }
 function PostListController($scope, BlogService) {
@@ -119,9 +125,6 @@ function PostNewController($scope, $state, BlogService) {
         lineWrapping: true
     };
 
-    $scope.post = {};
-    $scope.post.publishTime = new Date();
-
     $scope.openDatePicker = function () {
         $scope.isDatePickerOpen = true;
     }
@@ -217,6 +220,11 @@ function PostNewController($scope, $state, BlogService) {
             BlogService.post_create(request).then(post_create_callback);
         }
     };
+
+    {
+        $scope.post = {};
+        $scope.post.publishTime = new Date();
+    }
 }
 function PostEditController($scope, $state, $stateParams, BlogService) {
 
@@ -235,8 +243,7 @@ function PostEditController($scope, $state, $stateParams, BlogService) {
 
     function post_update_callback(response) {
 
-        console.log(result);
-        if (result.status == 1) {
+        if (response.status == 1) {
             alert('success');
         }
     }
@@ -378,9 +385,82 @@ function TalkListController($scope, BlogService) {
 }
 function TalkNewController($scope, $state, BlogService) {
 
-}
-function TalkEditController($scope, $state, BlogService) {
 
+    function talk_create_callback(response) {
+
+        if (response.status == 1) {
+            $state.go('app.talk.talk-list');
+        }
+    }
+
+    $scope.openDatePicker = function () {
+        $scope.isDatePickerOpen = true;
+    }
+
+    $scope.create = function () {
+
+        if ($scope.talk.body == null || $scope.talk.body.length == 0) {
+            alert("请填写正文");
+            return;
+        }
+
+        {
+            var request = {};
+            request.body = $scope.talk.body;
+            request.publishTime = $scope.talk.publishTime;
+
+            BlogService.talk_create(request).then(talk_create_callback);
+        }
+    };
+
+    {
+        $scope.talk = {};
+        $scope.talk.publishTime = new Date();
+    }
+}
+function TalkEditController($scope, $state, $stateParams, BlogService) {
+
+    $scope.id = $stateParams.id;
+    if (!$scope.id) {
+        $state.go('app.talk.talk-list');
+    }
+
+    function talk_item_callback(response) {
+        if (response.status == 404) {
+            $state.go('app.talk.talk-list');
+        } else if (response.status == 1) {
+            $scope.talk = response.talk;
+        }
+    }
+
+    function talk_update_callback(response) {
+
+        if (response.status == 1) {
+            alert('success');
+        }
+    }
+
+    $scope.update = function () {
+
+        if ($scope.talk.body == null || $scope.talk.body.length == 0) {
+            alert("body");
+            return;
+        }
+
+        {
+            var request = {};
+            request.id = $scope.talk.id;
+            request.body = $scope.talk.body;
+
+            BlogService.talk_update(request).then(talk_update_callback);
+        }
+    }
+
+    {
+        var request = {};
+        request.id = $scope.id;
+        BlogService.talk_item(request).then(talk_item_callback);
+    }
 }
 function TalkCategoryDirective() {
 
@@ -454,7 +534,7 @@ var route = function ($stateProvider, $urlRouterProvider) {
     //列表页
     $stateProvider.state('app.talk.talk-new', { url: 'talk-new', templateUrl: '/scripts/views/view_talk_new.html?v=' + window.version, controller: TalkNewController });
     //列表页
-    $stateProvider.state('app.talk.talk-edit', { url: 'talk-edit', templateUrl: '/scripts/views/view_talk_edit.html?v=' + window.version, controller: TalkEditController });
+    $stateProvider.state('app.talk.talk-edit', { url: 'talk-edit/:id', templateUrl: '/scripts/views/view_talk_edit.html?v=' + window.version, controller: TalkEditController });
 }
 var app = angular.module('app', ['ngResource', 'ui.router', 'ui.bootstrap', 'ui.codemirror']);
 

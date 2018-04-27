@@ -17,8 +17,8 @@ namespace HarrisBlogMvc.Vo
         [JsonProperty("category")]
         public int Category { get; set; }
 
-        [JsonProperty("msgContent")]
-        public string MsgContent { get; set; }
+        [JsonProperty("body")]
+        public string Body { get; set; }
 
         [JsonProperty("postName")]
         public string PosName { get; set; }

@@ -5,8 +5,10 @@ using System.Web;
 
 namespace HarrisBlogMvc.Request
 {
-    public class GetBlogDetailRequest
+    public class TalkUpdateRequest
     {
         public int Id { get; set; }
+
+        public string Body { get; set; }
     }
 }

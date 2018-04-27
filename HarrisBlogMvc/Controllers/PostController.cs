@@ -63,7 +63,6 @@ namespace HarrisBlogMvc.Controllers
             return response;
         }
 
-        // GET /api/blog/id
         [HttpPost]
         public PostItemResponse Item(PostItemRequest request)
         {
@@ -83,6 +82,7 @@ namespace HarrisBlogMvc.Controllers
                 response.Blog = ToVo(postEntity);
             }
 
+            response.Status = 1;
             return response;
         }
 
@@ -99,9 +99,8 @@ namespace HarrisBlogMvc.Controllers
             };
         }
 
-        // POST /api/blog
         [HttpPost]
-        public CreateBlogResponse Create([FromBody]CreateBlogRequest request)
+        public PostCreateResponse Create([FromBody]PostCreateRequest request)
         {
             PostEntity post = new PostEntity();
             post.Title = request.Title;
@@ -125,13 +124,13 @@ namespace HarrisBlogMvc.Controllers
                 sqliteConn.Execute(sql, post);
             }
 
-            return new CreateBlogResponse { Status = 1 };
+            return new PostCreateResponse { Status = 1 };
         }
 
         [HttpPost]
-        public UpdateBlogResponse Update([FromBody]UpdateBlogRequest request)
+        public PostUpdateResponse Update([FromBody]PostUpdateRequest request)
         {
-            UpdateBlogResponse response = new UpdateBlogResponse();
+            PostUpdateResponse response = new PostUpdateResponse();
 
             using (var sqliteConn = ConnectionProvider.GetSqliteConn())
             {

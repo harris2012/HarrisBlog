@@ -78,7 +78,7 @@
                 <td>{{talk.id}}</td>
                 <td>
                     <div>
-                        <p>{{talk.msgContent}}</p>
+                        <p>{{talk.body}}</p>
                         <ul class="talk_image_list" ng-show="talk.imageIdList!=null&&talk.imageIdList.length>0">
                             <li ng-repeat="imageId in talk.imageIdList">{{imageId}}</li>
                         </ul>
@@ -86,7 +86,7 @@
                 </td>
                 <td><talkcategory type="{{talk.category}}"></talkcategory></td>
                 <td>
-                    <a ui-sref="app.post.post-edit({id:post.id})" class="post-toolbar-item">编辑</a>
+                    <a ui-sref="app.talk.talk-edit({id:talk.id})" class="post-toolbar-item">编辑</a>
                     <a ng-click="deletePostById(post.id)">删除</a>
                 </td>
                 <td>{{post.createTime}}</td>

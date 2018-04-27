@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HarrisBlogMvc.Response
 {
-    public class UpdateBlogResponse : ResponseBase
+    public class TalkCreateResponse : ResponseBase
     {
     }
 }

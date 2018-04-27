@@ -14,7 +14,7 @@ namespace HarrisBlog.Repository.Entity
 
         public int Category { get; set; }
 
-        public string MsgContent { get; set; }
+        public string Body { get; set; }
 
         public string PosName { get; set; }
 

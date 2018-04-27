@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HarrisBlogMvc.Request
 {
-    public class UpdateBlogRequest
+    public class PostUpdateRequest
     {
         /// <summary>
         /// 编号

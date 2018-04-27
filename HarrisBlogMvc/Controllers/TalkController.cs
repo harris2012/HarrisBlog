@@ -25,7 +25,7 @@ namespace HarrisBlogMvc.Controllers
             List<TalkVo> talkList = new List<TalkVo>();
             using (var sqliteConn = ConnectionProvider.GetSqliteConn())
             {
-                var sql = "select * from talk where (@CategoryId = 0 or Category = @CategoryId) and (@DataStatus = 0 or DataStatus = @DataStatus) limit @Offset, @Size";
+                var sql = "select * from talk where (@CategoryId = 0 or Category = @CategoryId) and (@DataStatus = 0 or DataStatus = @DataStatus) order by CreateTime desc limit @Offset, @Size";
 
                 var entityList = sqliteConn.Query<TalkEntity>(sql, new { Offset = (pageIndex - 1) * pageSize, Size = pageSize, CategoryId = request.CategoryId, DataStatus = request.DataStatus }).ToList();
                 if (entityList != null && entityList.Count > 0)
@@ -76,6 +76,68 @@ namespace HarrisBlogMvc.Controllers
             return response;
         }
 
+        [HttpPost]
+        public TalkCreateResponse Create(TalkCreateRequest request)
+        {
+            TalkCreateResponse response = new TalkCreateResponse();
+
+            TalkEntity entity = new TalkEntity();
+            entity.TalkId = Guid.NewGuid().ToString("N").ToLower();
+            entity.Category = 999;
+            entity.Body = request.Body;
+            entity.CreateTime = request.PublishTime;
+            entity.DataStatus = 2;
+
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
+            {
+                var sql = "insert into talk(TalkId, Category, Body, PosName, PosX, PosY, CreateTime, DataStatus) values (@TalkId, @Category, @Body, @PosName, @PosX, @PosY, @CreateTime, @DataStatus);";
+
+                sqliteConn.Execute(sql, entity);
+            }
+
+            response.Status = 1;
+            return response;
+        }
+
+        [HttpPost]
+        public TalkItemResponse Item(TalkItemRequest request)
+        {
+            TalkItemResponse response = new TalkItemResponse();
+
+            var sql = "select * from talk where Id=@Id";
+
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
+            {
+                var postEntity = sqliteConn.QueryFirstOrDefault<TalkEntity>(sql, new { Id = request.Id });
+                if (postEntity == null)
+                {
+                    response.Status = 404;
+                    return response;
+                }
+
+                response.Talk = ToVo(postEntity);
+            }
+
+            response.Status = 1;
+            return response;
+        }
+
+        [HttpPost]
+        public TalkUpdateResponse Update(TalkUpdateRequest request)
+        {
+            TalkUpdateResponse response = new TalkUpdateResponse();
+
+            var sql = "update talk set Body = @Body where Id = @Id";
+
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
+            {
+                sqliteConn.Execute(sql, new { Id = request.Id, Body = request.Body });
+            }
+
+            response.Status = 1;
+            return response;
+        }
+
         private static TalkVo ToVo(TalkEntity entity)
         {
             TalkVo returnValue = new TalkVo();
@@ -83,7 +145,7 @@ namespace HarrisBlogMvc.Controllers
             returnValue.Id = entity.Id;
             returnValue.TalkId = entity.TalkId;
             returnValue.Category = entity.Category;
-            returnValue.MsgContent = entity.MsgContent;
+            returnValue.Body = entity.Body;
             returnValue.CreateTime = entity.CreateTime;
             returnValue.PosName = entity.PosName;
             returnValue.PosX = entity.PosX;

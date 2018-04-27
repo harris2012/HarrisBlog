@@ -34,5 +34,5 @@
     //列表页
     $stateProvider.state('app.talk.talk-new', { url: 'talk-new', templateUrl: '/scripts/views/view_talk_new.html?v=' + window.version, controller: TalkNewController });
     //列表页
-    $stateProvider.state('app.talk.talk-edit', { url: 'talk-edit', templateUrl: '/scripts/views/view_talk_edit.html?v=' + window.version, controller: TalkEditController });
+    $stateProvider.state('app.talk.talk-edit', { url: 'talk-edit/:id', templateUrl: '/scripts/views/view_talk_edit.html?v=' + window.version, controller: TalkEditController });
 }

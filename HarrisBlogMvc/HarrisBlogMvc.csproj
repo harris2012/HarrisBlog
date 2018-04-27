@@ -137,27 +137,29 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\CreateBlogRequest.cs" />
-    <Compile Include="Request\GetImageListRequest.cs" />
-    <Compile Include="Request\GetBlogDetailRequest.cs" />
-    <Compile Include="Request\GetBlogListRequest.cs" />
+    <Compile Include="Request\PostCreateRequest.cs" />
     <Compile Include="Request\PostCountRequest.cs" />
     <Compile Include="Request\PostItemRequest.cs" />
     <Compile Include="Request\PostItemsRequest.cs" />
     <Compile Include="Request\TalkCountRequest.cs" />
+    <Compile Include="Request\TalkUpdateRequest.cs" />
+    <Compile Include="Request\TalkItemRequest.cs" />
     <Compile Include="Request\TalkItemsRequest.cs" />
-    <Compile Include="Request\UpdateBlogRequest.cs" />
-    <Compile Include="Response\CreateBlogResponse.cs" />
+    <Compile Include="Request\TalkCreateRequest.cs" />
+    <Compile Include="Request\PostUpdateRequest.cs" />
+    <Compile Include="Response\PostCreateResponse.cs" />
     <Compile Include="Response\DeletePostResponse.cs" />
-    <Compile Include="Response\GetImageListResponse.cs" />
     <Compile Include="Response\PostCountResponse.cs" />
     <Compile Include="Response\PostItemResponse.cs" />
     <Compile Include="Response\PostItemsResponse.cs" />
     <Compile Include="Response\TalkCountResponse.cs" />
+    <Compile Include="Response\TalkUpdateResponse.cs" />
+    <Compile Include="Response\TalkItemResponse.cs" />
     <Compile Include="Response\TalkItemsResponse.cs" />
+    <Compile Include="Response\TalkCreateResponse.cs" />
     <Compile Include="Vo\BlogVo.cs" />
     <Compile Include="Response\ResponseBase.cs" />
-    <Compile Include="Response\UpdateBlogResponse.cs" />
+    <Compile Include="Response\PostUpdateResponse.cs" />
     <Compile Include="Vo\TalkVo.cs" />
   </ItemGroup>
   <ItemGroup>

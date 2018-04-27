@@ -15,8 +15,7 @@
 
     function post_update_callback(response) {
 
-        console.log(result);
-        if (result.status == 1) {
+        if (response.status == 1) {
             alert('success');
         }
     }
