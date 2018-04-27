@@ -94,6 +94,8 @@ namespace HarrisBlogMvc.Controllers
                 Ename = v.Ename,
                 Title = v.Title,
                 Body = v.Body,
+                DataStatus = v.DataStatus,
+                PublishTime = v.PublishTime.Value,
                 CreateTime = v.CreateTime.Value,
                 LastUpdateTime = v.CreateTime.Value
             };

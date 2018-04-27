@@ -8,11 +8,13 @@
 
 <div class="wrapper-content">
     <div class="form-horizontal" ng-form="talkForm">
+
+        <!--正文-->
         <div class="form-group">
             <div class="row">
                 <label class="col-sm-1 control-label">内容</label>
                 <div class="col-sm-5">
-                    <textarea class="form-control" placeholder="正文" name="body" ng-model="talk.body" required></textarea>
+                    <textarea class="form-control" placeholder="正文" name="body" ng-model="talk.body" rows="10" required></textarea>
                 </div>
             </div>
             <div class="row">
@@ -22,6 +24,39 @@
             </div>
         </div>
 
+        <!--地点-->
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-1 control-label">地点</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="经纬度,非必填，例如121.425725,31.228151" name="location" ng-model="talk.location" ng-pattern="/^\d+\.\d+,\d+\.\d+$/"></input>
+                </div>
+                <div class="col-sm-3">
+                    <p class="form-control-static">
+                        <a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank">百度</a>
+                        <a href="http://lbs.amap.com/console/show/picker" target="_blank">高德</a>
+                        <a href="http://lbs.qq.com/tool/getpoint/" target="_blank">腾讯</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <p class="form-control-static" ng-show="talkForm.location.$invalid">经纬度格式不正确</p>
+                </div>
+            </div>
+        </div>
+
+        <!--地点名称-->
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-1 control-label">地点名称</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="地点名称，非必填" name="locationName" ng-model="talk.locationName" />
+                </div>
+            </div>
+        </div>
+
+        <!--发布时间-->
         <div class="form-group">
             <div class="row">
                 <label class="col-sm-1 control-label">发布时间</label>
@@ -39,6 +74,7 @@
             </div>
         </div>
 
+        <!--保存-->
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">

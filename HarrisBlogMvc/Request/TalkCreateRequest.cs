@@ -9,6 +9,10 @@ namespace HarrisBlogMvc.Request
     {
         public string Body { get; set; }
 
+        public string Location { get; set; }
+
+        public string LocationName { get; set; }
+
         public DateTime PublishTime { get; set; }
     }
 }

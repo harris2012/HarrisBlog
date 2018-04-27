@@ -85,12 +85,17 @@ namespace HarrisBlogMvc.Controllers
             entity.TalkId = Guid.NewGuid().ToString("N").ToLower();
             entity.Category = 999;
             entity.Body = request.Body;
-            entity.CreateTime = request.PublishTime;
-            entity.DataStatus = 2;
+            entity.Location = request.Location;
+            entity.LocationName = request.LocationName;
+            entity.PublishTime = request.PublishTime;
+
+            entity.DataStatus = 1;
+            entity.CreateTime = DateTime.Now;
+            entity.LastUpdateTime = DateTime.Now;
 
             using (var sqliteConn = ConnectionProvider.GetSqliteConn())
             {
-                var sql = "insert into talk(TalkId, Category, Body, PosName, PosX, PosY, CreateTime, DataStatus) values (@TalkId, @Category, @Body, @PosName, @PosX, @PosY, @CreateTime, @DataStatus);";
+                var sql = "insert into talk(TalkId, Category, Body, Location, LocationName, PublishTime, DataStatus, CreateTime, LastUpdateTime) values (@TalkId, @Category, @Body, @Location, @LocationName, @PublishTime, @DataStatus, @CreateTime, @LastUpdateTime);";
 
                 sqliteConn.Execute(sql, entity);
             }
@@ -146,11 +151,13 @@ namespace HarrisBlogMvc.Controllers
             returnValue.TalkId = entity.TalkId;
             returnValue.Category = entity.Category;
             returnValue.Body = entity.Body;
-            returnValue.CreateTime = entity.CreateTime;
-            returnValue.PosName = entity.PosName;
-            returnValue.PosX = entity.PosX;
-            returnValue.PosY = entity.PosY;
+            returnValue.Location = entity.Location;
+            returnValue.LocationName = entity.LocationName;
+            returnValue.PublishTime = entity.PublishTime.Value;
+
             returnValue.DataStatus = entity.DataStatus;
+            returnValue.CreateTime = entity.CreateTime.Value;
+            returnValue.LastUpdateTime = entity.LastUpdateTime.Value;
 
             return returnValue;
         }

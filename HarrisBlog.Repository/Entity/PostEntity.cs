@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace HarrisBlog.Repository.Entity
 {
-    public class PostEntity
+    public class PostEntity : EntityBase
     {
-        public int Id { get; set; }
 
         public string Ename { get; set; }
 
@@ -24,12 +23,6 @@ namespace HarrisBlog.Repository.Entity
 
         public int CategoryId { get; set; }
 
-        public System.Nullable<System.DateTime> PublishTime { get; set; }
-
-        public int DataStatus { get; set; }
-
-        public System.Nullable<System.DateTime> CreateTime { get; set; }
-
-        public System.Nullable<System.DateTime> LastUpdateTime { get; set; }
+        public DateTime? PublishTime { get; set; }
     }
 }

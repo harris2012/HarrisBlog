@@ -36,6 +36,12 @@ namespace HarrisBlogMvc.Vo
         public DateTime PublishTime { get; set; }
 
         /// <summary>
+        /// 数据状态
+        /// </summary>
+        [JsonProperty("dataStatus")]
+        public int DataStatus { get; set; }
+
+        /// <summary>
         /// 创建记录的时间
         /// </summary>
         [JsonProperty("createTime")]

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\CorpImageEntity.cs" />
+    <Compile Include="Entity\EntityBase.cs" />
     <Compile Include="Entity\OriginalImageEntity.cs" />
     <Compile Include="Entity\PostEntity.cs" />
     <Compile Include="Entity\TalkEntity.cs" />

@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace HarrisBlog.Repository.Entity
 {
-    public class TalkEntity
+    public class TalkEntity : EntityBase
     {
-        public int Id { get; set; }
-
         public string TalkId { get; set; }
 
         public int Category { get; set; }
 
         public string Body { get; set; }
 
-        public string PosName { get; set; }
+        public string Location { get; set; }
 
-        public string PosX { get; set; }
+        public string LocationName { get; set; }
 
-        public string PosY { get; set; }
+        public DateTime? PublishTime { get; set; }
 
-        public DateTime CreateTime { get; set; }
 
-        public int DataStatus { get; set; }
     }
 }
