@@ -181,16 +181,6 @@ namespace HarrisBlogMvc.Controllers
             return new DeletePostResponse { Status = 1 };
         }
 
-        //[ActionName("image-list")]
-        //public GetImageListResponse XGetPostList(GetImageListRequest request)
-        //{
-        //    HarrisBlogDataContext context = new HarrisBlogDataContext();
-
-        //    var items = context.Post.Select(v => new PostVo { Ename = v.Ename, Title = v.Title }).ToList();
-
-        //    return new GetImageListResponse { Status = 1 };
-        //}
-
         private static string StripTagsRegex(string source)
         {
             return Regex.Replace(source, "<.*?>", string.Empty).Replace("[\r\n]", string.Empty);

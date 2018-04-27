@@ -87,7 +87,7 @@
                 <td><talkcategory type="{{talk.category}}"></talkcategory></td>
                 <td>
                     <a ui-sref="app.talk.talk-edit({id:talk.id})" class="post-toolbar-item">编辑</a>
-                    <a ng-click="deletePostById(post.id)">删除</a>
+                    <a ng-click="deleteById(talk.id)">删除</a>
                 </td>
                 <td>{{post.createTime}}</td>
             </tr>

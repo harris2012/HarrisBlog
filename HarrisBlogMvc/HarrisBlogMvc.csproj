@@ -142,6 +142,7 @@
     <Compile Include="Request\PostItemRequest.cs" />
     <Compile Include="Request\PostItemsRequest.cs" />
     <Compile Include="Request\TalkCountRequest.cs" />
+    <Compile Include="Request\TalkDeleteRequest.cs" />
     <Compile Include="Request\TalkUpdateRequest.cs" />
     <Compile Include="Request\TalkItemRequest.cs" />
     <Compile Include="Request\TalkItemsRequest.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Response\PostItemResponse.cs" />
     <Compile Include="Response\PostItemsResponse.cs" />
     <Compile Include="Response\TalkCountResponse.cs" />
+    <Compile Include="Response\TalkDeleteResponse.cs" />
     <Compile Include="Response\TalkUpdateResponse.cs" />
     <Compile Include="Response\TalkItemResponse.cs" />
     <Compile Include="Response\TalkItemsResponse.cs" />

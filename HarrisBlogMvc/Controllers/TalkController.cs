@@ -77,6 +77,44 @@ namespace HarrisBlogMvc.Controllers
         }
 
         [HttpPost]
+        public TalkDeleteResponse Delete(TalkDeleteRequest request)
+        {
+            TalkDeleteResponse response = new TalkDeleteResponse();
+
+            TalkEntity entity = null;
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
+            {
+                var sql = "select * from talk where Id = @ID";
+
+                entity = sqliteConn.QueryFirstOrDefault<TalkEntity>(sql, new { Id = request.Id });
+            }
+
+            if (entity == null)
+            {
+                response.Status = 404;
+                response.Message = "该说说不存在";
+                return response;
+            }
+
+            if (entity.DataStatus == 2)
+            {
+                response.Status = 302;
+                response.Message = "无法重复删除该说说";
+                return response;
+            }
+
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
+            {
+                var sql = "update talk set DataStatus = 2, LastUpdateTime = @LastUpdateTime where Id = @Id";
+
+                sqliteConn.Execute(sql, new { Id = request.Id, LastUpdateTime = DateTime.Now });
+            }
+
+            response.Status = 1;
+            return response;
+        }
+
+        [HttpPost]
         public TalkCreateResponse Create(TalkCreateRequest request)
         {
             TalkCreateResponse response = new TalkCreateResponse();

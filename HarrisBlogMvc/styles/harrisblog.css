@@ -5,6 +5,9 @@
 .breadcrumb {
   margin-bottom: 0;
 }
+a {
+  cursor: pointer;
+}
 /*
  * 头部
 */

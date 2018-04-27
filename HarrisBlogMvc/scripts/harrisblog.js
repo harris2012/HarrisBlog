@@ -13,6 +13,7 @@ function BlogService($resource, $q) {
         talk_create: { method: 'POST', url: '/api/talk/create' },
         talk_item: { method: 'POST', url: '/api/talk/item' },
         talk_update: { method: 'POST', url: '/api/talk/update' },
+        talk_delete: { method: 'POST', url: '/api/talk/delete' },
     });
 
     return {
@@ -29,6 +30,7 @@ function BlogService($resource, $q) {
         talk_create: function (request) { var d = $q.defer(); resource.talk_create({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
         talk_item: function (request) { var d = $q.defer(); resource.talk_item({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
         talk_update: function (request) { var d = $q.defer(); resource.talk_update({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
+        talk_delete: function (request) { var d = $q.defer(); resource.talk_delete({}, request, function (result) { d.resolve(result); }, function (result) { d.reject(result); }); return d.promise; },
     }
 }
 function PostListController($scope, BlogService) {
@@ -317,6 +319,16 @@ function TalkListController($scope, BlogService) {
         }
     }
 
+    function talk_delete_callback(response) {
+
+        if (response.status == 1) {
+            swal("成功", "该说说已被成功删除", "success");
+            $scope.refresh();
+        } else {
+            swal("失败", response.message, "error");
+        }
+    }
+
     //分页
     $scope.pageChanged = function () {
 
@@ -363,13 +375,18 @@ function TalkListController($scope, BlogService) {
     }
 
     //删除项
-    //$scope.deletePostById = function (id) {
+    $scope.deleteById = function (id) {
 
-    //    var request = {};
-    //    request.id = id;
+        swal({ title: "确定要说说吗？", text: "该说说将被删除", type: "warning", showCancelButton: true, confirmButtonColor: "#DD6B55", confirmButtonText: "确定删除！", closeOnConfirm: false }, function () {
 
-    //    BlogService.talk_delete(request).then(talk_delete_callback);
-    //}
+            var request = {};
+            request.id = id;
+
+            BlogService.talk_delete(request).then(talk_delete_callback);
+        });
+
+
+    }
 
     //初始化
     {
