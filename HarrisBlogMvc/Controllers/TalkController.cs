@@ -92,14 +92,14 @@ namespace HarrisBlogMvc.Controllers
             if (entity == null)
             {
                 response.Status = 404;
-                response.Message = "该说说不存在";
+                response.Message = "说说不存在";
                 return response;
             }
 
             if (entity.DataStatus == 2)
             {
                 response.Status = 302;
-                response.Message = "无法重复删除该说说";
+                response.Message = "无法重复删除说说";
                 return response;
             }
 

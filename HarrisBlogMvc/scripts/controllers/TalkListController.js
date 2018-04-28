@@ -17,7 +17,7 @@
     function talk_delete_callback(response) {
 
         if (response.status == 1) {
-            swal("成功", "该说说已被成功删除", "success");
+            swal("成功", "说说已被成功删除", "success");
             $scope.refresh();
         } else {
             swal("失败", response.message, "error");
@@ -79,8 +79,6 @@
 
             BlogService.talk_delete(request).then(talk_delete_callback);
         });
-
-
     }
 
     //初始化

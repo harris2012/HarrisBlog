@@ -49,6 +49,16 @@ function PostListController($scope, BlogService) {
         }
     }
 
+    function post_delete_callback(response) {
+
+        if (response.status == 1) {
+            swal("成功", "日志已被成功删除", "success");
+            $scope.refresh();
+        } else {
+            swal("失败", response.message, "error");
+        }
+    }
+
     //分页
     $scope.pageChanged = function () {
 
@@ -92,12 +102,16 @@ function PostListController($scope, BlogService) {
     }
 
     //删除项
-    $scope.deletePostById = function (id) {
+    $scope.deleteById = function (id) {
 
-        var request = {};
-        request.id = id;
+        swal({ title: "确定要文章吗？", text: "该文章将被删除", type: "warning", showCancelButton: true, confirmButtonColor: "#DD6B55", confirmButtonText: "确定删除！", closeOnConfirm: false }, function () {
 
-        BlogService.post_delete(request).then(post_delete_callback);
+            var request = {};
+            request.id = id;
+
+            BlogService.post_delete(request).then(post_delete_callback);
+        });
+
     }
 
     //初始化
@@ -322,7 +336,7 @@ function TalkListController($scope, BlogService) {
     function talk_delete_callback(response) {
 
         if (response.status == 1) {
-            swal("成功", "该说说已被成功删除", "success");
+            swal("成功", "说说已被成功删除", "success");
             $scope.refresh();
         } else {
             swal("失败", response.message, "error");
@@ -384,8 +398,6 @@ function TalkListController($scope, BlogService) {
 
             BlogService.talk_delete(request).then(talk_delete_callback);
         });
-
-
     }
 
     //初始化

@@ -164,21 +164,41 @@ namespace HarrisBlogMvc.Controllers
         }
 
         [HttpPost]
-        public DeletePostResponse Delete(int id)
+        public PostDeleteResponse Delete(PostDeleteRequest request)
         {
-            //HarrisBlogDataContext context = new HarrisBlogDataContext();
+            PostDeleteResponse response = new PostDeleteResponse();
 
-            //var postEntity = context.Post.FirstOrDefault(v => v.Id == id);
-            //if (postEntity == null)
-            //{
-            //    return new DeletePostResponse { Status = 404 };
-            //}
+            PostEntity entity = null;
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
+            {
+                var sql = "select * from post where Id = @ID";
 
-            //postEntity.DataStatus = 2;
-            //postEntity.LastUpdateTime = DateTime.Now;
-            //context.SubmitChanges();
+                entity = sqliteConn.QueryFirstOrDefault<PostEntity>(sql, new { Id = request.Id });
+            }
 
-            return new DeletePostResponse { Status = 1 };
+            if (entity == null)
+            {
+                response.Status = 404;
+                response.Message = "文章不存在";
+                return response;
+            }
+
+            if (entity.DataStatus == 2)
+            {
+                response.Status = 302;
+                response.Message = "无法重复删除文章";
+                return response;
+            }
+
+            using (var sqliteConn = ConnectionProvider.GetSqliteConn())
+            {
+                var sql = "update post set DataStatus = 2, LastUpdateTime = @LastUpdateTime where Id = @Id";
+
+                sqliteConn.Execute(sql, new { Id = request.Id, LastUpdateTime = DateTime.Now });
+            }
+
+            response.Status = 1;
+            return response;
         }
 
         private static string StripTagsRegex(string source)
