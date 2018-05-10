@@ -1,7 +1,7 @@
-﻿using HarrisBlog.Repository.Entity;
-using HarrisBlogMvc.Request;
+﻿using HarrisBlogMvc.Request;
 using HarrisBlogMvc.Response;
 using HarrisBlogMvc.Vo;
+using Repository.Entity;
 using Savory.Dapper;
 using System;
 using System.Collections.Generic;
@@ -39,10 +39,10 @@ namespace HarrisBlogMvc.Controllers
             }
             using (var sqliteConn = ConnectionProvider.GetSqliteConn())
             {
-                var sql = "select * from talk_image where TalkId In @TalkIdList";
+                var sql = "select * from talk_image_relation where TalkId In @TalkIdList";
                 var talkIdList = talkList.Select(v => v.TalkId).ToList();
 
-                var entityList = sqliteConn.Query<TalkImageEntity>(sql, new { TalkIdList = talkIdList }).ToList();
+                var entityList = sqliteConn.Query<TalkImageRelationEntity>(sql, new { TalkIdList = talkIdList }).ToList();
                 if (entityList != null && entityList.Count > 0)
                 {
                     foreach (var item in talkList)

@@ -1,9 +1,8 @@
-﻿using HarrisBlog.Repository;
-using HarrisBlog.Repository.Entity;
-using HarrisBlogMvc.Request;
+﻿using HarrisBlogMvc.Request;
 using HarrisBlogMvc.Response;
 using HarrisBlogMvc.Vo;
 using HeyRed.MarkdownSharp;
+using Repository.Entity;
 using Savory.Dapper;
 using System;
 using System.Collections.Generic;

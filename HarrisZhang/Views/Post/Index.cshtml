@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = ViewBag.PostEntity.Title;
-    var post = ViewBag.PostEntity as HarrisZhang.Repository.Entity.PostEntity;
+    var post = ViewBag.PostEntity as Repository.Entity.PostEntity;
 }
 
 @section scripts{
@@ -41,7 +41,7 @@
 <article class="main-content post-page">
     <div id="post-content" class="post-content" itemprop="articleBody">
 
-        @(new MvcHtmlString(post.HtmlBody))
+        @(new MvcHtmlString(post.Body))
 
     </div>
 

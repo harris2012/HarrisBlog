@@ -1,12 +1,14 @@
-﻿using HarrisBlog.Repository;
-using HarrisZhang.Repository.Entity;
+﻿//using HarrisBlog.Repository;
 using HeyRed.MarkdownSharp;
+using Repository.Entity;
+using Savory.Dapper;
 using Savory.Rss;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace HarrisBlog.Gen
@@ -14,6 +16,17 @@ namespace HarrisBlog.Gen
     class Program
     {
         static void Main(string[] args)
+        {
+
+
+        }
+
+        private static string StripTagsRegex(string source)
+        {
+            return Regex.Replace(source, "<.*?>", string.Empty).Replace("[\r\n]", string.Empty);
+        }
+
+        static void Main_old(string[] args)
         {
             //            Console.WriteLine("1. 根据markdown生成html");
             //            Console.WriteLine("2. 根据数据库生成日志");

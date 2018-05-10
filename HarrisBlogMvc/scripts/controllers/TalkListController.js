@@ -17,7 +17,7 @@
     function talk_delete_callback(response) {
 
         if (response.status == 1) {
-            swal("成功", "说说已被成功删除", "success");
+            swal({ title: "成功", text: "说说已被成功删除", timer: 500, showConfirmButton: false, type: "success" });
             $scope.refresh();
         } else {
             swal("失败", response.message, "error");
@@ -86,7 +86,7 @@
         $scope.maxSize = 10;
         $scope.currentPage = 1;
         $scope.pageSize = 10;
-        $scope.dataStatus = 0;
+        $scope.dataStatus = 1;
         $scope.categoryId = 0;
 
         $scope.refresh();

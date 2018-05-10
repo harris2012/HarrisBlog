@@ -1,50 +1,55 @@
 ﻿@{
-    List<HarrisZhang.Repository.Entity.TheEntity> postEntityList = ViewBag.PostsList as List<HarrisZhang.Repository.Entity.TheEntity>;
+    List<HarrisZhang.Vo.SummaryVo> postEntityList = ViewBag.PostsList as List<HarrisZhang.Vo.SummaryVo>;
+}
+
+@section styles{
+    <link href="https://cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/photoswipe/4.1.2/default-skin/default-skin.min.css" rel="stylesheet">
 }
 
 @section scripts{
+    <script src="https://cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.js"></script>
+    <script src="https://cdn.bootcss.com/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
     <script>
         $(function () {
+            $("img.lazy").lazyload({ effect: "fadeIn" });
 
-            $("img.lazy").lazyload({ effect: "fadeIn" })
+            function openPhotoSwipe() {
 
-            $('.talk-img-item').on('click', function () {
+                var current = this;
+                var currentIndex = 0;
+                var items = [];
 
-                $('.swiper-wrapper').empty();
-                var items = $(this).closest('.talk-item').find('li');
-                for (var i = 0; i < items.length; i++) {
-                    var swipeItem = $("<div class=\"swiper-slide\"><div class=\"img-container\"><img src=\"" + $(items[i]).data('thisimg') + "\" /></div></div>");
-                    $('.swiper-wrapper').append(swipeItem);
-                }
+                var parent = this.closest('.talk-image-list');
+                $(parent).find('.talk-image-item').each(function (index, element) {
 
-                $('#talk-mask').show()
-                $('html').css({ overflow: 'hidden' })
+                    items.push({ src: $(this).data('imageurl'), w: $(this).data('width'), h: $(this).data('height') });
 
-                var mySwiper = new Swiper('.swiper-container', {
-                    loop: true,
-                    speed: 1000,
-                    keyboard: true,
-                    mousewheel: true,
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
+                    if (current == element) {
+                        currentIndex = index;
                     }
-                })
-            })
+                });
 
-            $(window).keydown(function (event) {
-                if (event.keyCode == 27) {
+                var pswpElement = document.querySelectorAll('.pswp')[0];
 
-                    $('#talk-mask').hide()
-                    $('html').css({ overflow: '' })
-                }
-            })
+                // define options (if needed)
+                var options = {
+                    // optionName: 'option value'
+                    // for example:
+                    index: currentIndex // start at first slide
+                };
+
+                // Initializes and opens PhotoSwipe
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+                gallery.init();
+            }
+
+            $('.talk-image-item').click(openPhotoSwipe);
         })
     </script>
 }
+
+
 
 <div class="main-content talks-page">
 
@@ -54,27 +59,27 @@
             @foreach (var item in postEntityList)
             {
                 <div class="talk-item">
-                    @if (item.PostType == 1)
+                    @if (item.ItemType == 1)
                     {
-                        <a href="~/post/@item.Ename"><div class="item-desc"><p>@item.Summary</p></div></a>
+                        <a href="~/post/@item.Ename"><div class="item-desc"><p>@item.Body</p></div></a>
                         <div class="talk-time">
-                            <i class="fa fa-calendar"></i><span>@item.PublishTime.ToShortDateString()</span>
+                            <i class="fa fa-calendar"></i><span>@item.PublishTime.Value.ToShortDateString()</span>
                         </div>
                     }
                     else
                     {
-                        <p class="talk-content">@item.Content</p>
+                        <p class="talk-content">@item.Body</p>
                         if (item.ImageList != null && item.ImageList.Count > 0)
-                        {
-                            <ul class="talk-image-list">
-                                @foreach (var image in item.ImageList)
-                                {
-                                    <li class="talk-img-item" data-thisimg="@image"><img class="talk-image lazy" data-original="@image" /></li>
-                                }
-                            </ul>
-                        }
+                            {
+                                <ul class="talk-image-list">
+                                    @foreach (var image in item.ImageList)
+                                    {
+                                        <li class="talk-image-item" data-imageurl="@image.ImageUrl" data-width="@image.Width" data-height="@image.Height"><img class="talk-image lazy" data-original="@image.ImageUrl" /></li>
+                                    }
+                                </ul>
+                            }
                         <div class="talk-time">
-                            <i class="fa fa-calendar"></i><span>@item.PublishTime.ToShortDateString()</span>
+                            <i class="fa fa-calendar"></i><span>@item.PublishTime.Value.ToShortDateString()</span>
                         </div>
                     }
                 </div>
@@ -85,13 +90,67 @@
     @HarrisZhang.Controls.PadingControl.Paging(ViewBag.PageIndex, ViewBag.PageCount, 5, "/posts/{0}")
 </div>
 
-<div id="talk-mask" style="display:none;">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
 
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+
     </div>
+
 </div>

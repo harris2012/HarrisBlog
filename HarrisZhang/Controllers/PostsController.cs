@@ -1,4 +1,8 @@
-﻿using HarrisZhang.Repository;
+﻿using HarrisZhang.Biz;
+using HarrisZhang.Repository;
+using HarrisZhang.Vo;
+using Repository.Entity;
+using Savory.Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +13,7 @@ namespace HarrisZhang.Controllers
 {
     public class PostsController : Controller
     {
-        PostsRepository postsRepository = new PostsRepository();
+
 
         private static readonly int PageSize = 6;
 
@@ -20,12 +24,16 @@ namespace HarrisZhang.Controllers
         /// <returns></returns>
         public ActionResult Index(int? param)
         {
+            var pageValue = param != null && param.Value > 0 ? param.Value : 1;
+
+            SummaryBiz summaryBiz = new SummaryBiz();
+
+            List<SummaryVo> summaries = summaryBiz.GetSummaryList();
+
             {
-                var pageValue = param != null && param.Value > 0 ? param.Value : 1;
+                ViewBag.PostsList = summaries.OrderByDescending(v => v.PublishTime).Skip((pageValue - 1) * PageSize).Take(PageSize).ToList();
 
-                ViewBag.PostsList = postsRepository.GetData().OrderByDescending(v => v.PublishTime).Skip((pageValue - 1) * PageSize).Take(PageSize).ToList();
-
-                var totalCount = postsRepository.GetData().Count;
+                var totalCount = summaries.Count;
 
                 ViewBag.PageIndex = pageValue;
                 ViewBag.PageCount = totalCount / PageSize + (totalCount % PageSize > 0 ? 1 : 0);
