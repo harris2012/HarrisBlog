@@ -6,7 +6,7 @@
     }
 
     function post_item_callback(response) {
-        if (response.status == 404) {
+        if (response.status == 404) {   
             $state.go('app.post.post-list');
         } else {
             $scope.post = response.blog;

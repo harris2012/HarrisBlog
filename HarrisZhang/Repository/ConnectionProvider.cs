@@ -13,7 +13,7 @@ namespace HarrisZhang.Repository
         public static SQLiteConnection GetSqliteConn()
         {
 #if DEBUG
-            var sqliteConnString = @"Data Source=D:\HarrisBlog.db3;Version=3";
+            var sqliteConnString = @"Data Source=D:\HarrisData\HarrisBlog.db3;Version=3";
 #else
             var path = HttpContext.Current.Server.MapPath("~/App_Data/HarrisBlog.db3");
 
